@@ -10,7 +10,7 @@ const Navbar = () => {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         <a href="#" className="font-display text-xl font-bold tracking-wider">
-          <span className="glow-text">BIOLŪM</span>
+          <span className="glow-text">COPPAHANDGOLD</span>
         </a>
 
         <div className="hidden items-center gap-8 font-body text-sm tracking-wide md:flex">
