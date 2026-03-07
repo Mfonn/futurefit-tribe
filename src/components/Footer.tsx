@@ -6,7 +6,7 @@ const Footer = () => {
           <span className="glow-text">COPPAHANDGOLD</span>
         </p>
         <p className="font-body text-xs text-muted-foreground">
-          © 2026 Biolūm Wellness. Abuja, Nigeria. All rights reserved.
+          © 2026 CoppahandGold. Abuja, Nigeria. All rights reserved.
         </p>
         <div className="flex gap-6">
           {["Instagram", "Twitter", "Email"].map((link) => (
