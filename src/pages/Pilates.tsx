@@ -1,79 +1,80 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Heart, Brain, Bone, Wind, Sparkles, Shield } from "lucide-react";
+import { ArrowLeft, Leaf, Brain, Bone, Wind, Sparkles, Users, BookOpen, Dumbbell } from "lucide-react";
 import pilatesHeroVideo from "@/assets/pilates-hero-video.mp4";
 import pilatesChairImg from "@/assets/pilates-chair.jpg";
 import pilatesReformerImg from "@/assets/pilates-reformer.jpg";
 import pilatesMatImg from "@/assets/pilates-mat.jpg";
+import yogaImg from "@/assets/yoga.jpg";
 
-const benefits = [
+const eventHighlights = [
   {
-    icon: Bone,
-    title: "Chronic Disorder Relief",
+    icon: Users,
+    title: "Expert-Led Sessions",
     description:
-      "Clinical studies show Pilates significantly reduces pain and improves function in osteoarthritis, fibromyalgia, and chronic lower back conditions through controlled, low-impact movement.",
+      "Every mat Pilates and yoga sequence is guided by certified instructors who tailor cues to all levels — whether you're touching a mat for the first time or deepening an existing practice.",
   },
   {
     icon: Brain,
-    title: "Nervous System Regulation",
+    title: "Nervous System Reset",
     description:
-      "Pilates activates your parasympathetic nervous system — shifting your body from fight-or-flight into rest-and-repair mode, reducing cortisol and calming anxiety.",
+      "The combination of controlled Pilates breathing and yoga's parasympathetic activation shifts your body out of fight-or-flight — lowering cortisol and restoring calm in real time.",
+  },
+  {
+    icon: Leaf,
+    title: "Curated Movement Pairings",
+    description:
+      "Each session is intentionally sequenced: Pilates core activation followed by yoga stretches that release and lengthen — so your body experiences both strength and surrender.",
   },
   {
     icon: Wind,
-    title: "Breath Mastery",
+    title: "Breath as Medicine",
     description:
-      "Lateral thoracic breathing techniques expand rib cage mobility, increase oxygen uptake, and train diaphragmatic control — essential for stress management and athletic performance.",
-  },
-  {
-    icon: Heart,
-    title: "Osteoarthritis Support",
-    description:
-      "Targeted exercises strengthen the muscles surrounding affected joints, improving stability and reducing inflammation without the impact that worsens degeneration.",
-  },
-  {
-    icon: Shield,
-    title: "Core Rehabilitation",
-    description:
-      "From postpartum recovery to spinal disc injuries, Pilates rebuilds deep stabilizer muscles that protect your spine and restore functional movement patterns.",
+      "Lateral thoracic breathing from Pilates meets pranayama from yoga — together they expand lung capacity, sharpen focus, and create a deep sense of presence.",
   },
   {
     icon: Sparkles,
     title: "Mind-Body Integration",
     description:
-      "Every movement demands precision and presence — Pilates rewires your proprioception, body awareness, and mental focus through intentional, controlled sequences.",
+      "Every movement demands precision and awareness. You'll leave with a renewed connection between your mind and body — not just a workout, but a reset.",
+  },
+  {
+    icon: Bone,
+    title: "Accessible to Every Body",
+    description:
+      "Modifications for every pose and exercise mean nobody is left behind. Whether you're managing chronic pain, postpartum recovery, or simply new to movement — you belong here.",
   },
 ];
 
-const pilatesTypes = [
+const educationalSections = [
   {
     title: "Wunda Chair",
-    level: "Intermediate to Advanced",
+    level: "Educational Demo",
     image: pilatesChairImg,
     description:
-      "The Wunda chair challenges your stability and core strength through spring-loaded resistance. Compact but fierce — it targets deep stabilizers, improves balance, and builds functional power. Our structured program format means you'll clearly track your progression from foundational to advanced movements.",
-    highlights: ["Deep core activation", "Balance & stability", "Program-based progression", "Postural correction"],
+      "During our educational sessions, you'll see the Wunda chair in action — a compact, spring-loaded apparatus that challenges deep stabilizer muscles and builds functional power. Our instructors will walk you through how structured chair programs can transform core strength and postural alignment over time.",
+    highlights: ["Live demonstration", "Core science explained", "Progression pathways", "Q&A with instructors"],
   },
   {
-    title: "Reformer",
-    level: "Beginner to Advanced",
+    title: "Reformer Pilates",
+    level: "Educational Demo",
     image: pilatesReformerImg,
     description:
-      "The reformer is the crown jewel of Pilates apparatus. Using adjustable spring resistance on a sliding carriage, it creates a full-body workout that lengthens, strengthens, and sculpts. Our classes run in a structured program format — so you can clearly see your progressions from beginner to advanced.",
-    highlights: ["Full-body sculpting", "Joint-friendly resistance", "Clear level progression", "Muscle lengthening"],
+      "The reformer is the crown jewel of Pilates apparatus. You'll learn how adjustable spring resistance on a sliding carriage creates a full-body workout that lengthens, strengthens, and sculpts — and why a structured reformer program is one of the most effective tools for long-term body transformation.",
+    highlights: ["Apparatus walkthrough", "Benefits breakdown", "Program structure", "Instructor-led Q&A"],
   },
   {
-    title: "Mat Pilates",
-    level: "Beginner to Advanced",
-    image: pilatesMatImg,
+    title: "Mat Pilates & Yoga",
+    level: "Your Event Experience",
+    image: yogaImg,
     description:
-      "Where it all began. Mat Pilates uses your own body weight as resistance, making it accessible anywhere. Don't let the simplicity fool you — mastering mat work builds incredible core strength and body control. Each program level builds on the last, so your growth is visible and measurable.",
-    highlights: ["No equipment needed", "Core foundation", "Structured programs", "Body awareness"],
+      "This is what you'll practice at the event. Mat Pilates builds incredible core strength using your own body weight, while yoga sequences open your hips, lengthen your spine, and quiet your mind. Together, they create the perfect complement to the competitive energy of the tennis courts.",
+    highlights: ["All-levels welcome", "Outdoor setting", "Expert guidance", "Full-body restoration"],
   },
 ];
 
-const BenefitCard = ({ benefit, index }: { benefit: (typeof benefits)[0]; index: number }) => {
+const HighlightCard = ({ item, index }: { item: (typeof eventHighlights)[0]; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -85,22 +86,20 @@ const BenefitCard = ({ benefit, index }: { benefit: (typeof benefits)[0]; index:
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="glass-card p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_40px_hsl(165_80%_45%/0.15)]"
     >
-      <benefit.icon className="mb-4 h-6 w-6 text-primary" />
-      <h3 className="mb-2 font-display text-lg font-semibold">{benefit.title}</h3>
+      <item.icon className="mb-4 h-6 w-6 text-primary" />
+      <h3 className="mb-2 font-display text-lg font-semibold">{item.title}</h3>
       <p className="font-body text-sm leading-relaxed text-muted-foreground">
-        {benefit.description}
+        {item.description}
       </p>
     </motion.div>
   );
 };
 
-const PilatesTypeSection = ({
-  type,
-  index,
+const EducationalSection = ({
+  section,
   reversed,
 }: {
-  type: (typeof pilatesTypes)[0];
-  index: number;
+  section: (typeof educationalSections)[0];
   reversed: boolean;
 }) => {
   const ref = useRef(null);
@@ -117,8 +116,8 @@ const PilatesTypeSection = ({
       <div className={reversed ? "lg:[direction:ltr]" : ""}>
         <div className="overflow-hidden rounded-2xl">
           <img
-            src={type.image}
-            alt={type.title}
+            src={section.image}
+            alt={section.title}
             className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
           />
         </div>
@@ -126,16 +125,16 @@ const PilatesTypeSection = ({
 
       <div className={reversed ? "lg:[direction:ltr]" : ""}>
         <span className="mb-3 inline-block rounded-full border border-warm-rose/30 bg-warm-rose/5 px-3 py-1 font-body text-xs tracking-[0.2em] text-warm-rose">
-          {type.level}
+          {section.level}
         </span>
         <h3 className="mb-4 font-display text-3xl font-bold md:text-4xl">
-          {type.title}
+          {section.title}
         </h3>
         <p className="mb-6 font-body text-base leading-relaxed text-muted-foreground">
-          {type.description}
+          {section.description}
         </p>
         <div className="grid grid-cols-2 gap-3">
-          {type.highlights.map((h) => (
+          {section.highlights.map((h) => (
             <div
               key={h}
               className="flex items-center gap-2 font-body text-sm text-foreground"
@@ -154,8 +153,8 @@ const Pilates = () => {
   const navigate = useNavigate();
   const heroRef = useRef(null);
   const heroInView = useInView(heroRef, { once: true });
-  const benefitsRef = useRef(null);
-  const benefitsInView = useInView(benefitsRef, { once: true, margin: "-100px" });
+  const highlightsRef = useRef(null);
+  const highlightsInView = useInView(highlightsRef, { once: true, margin: "-100px" });
 
   return (
     <div className="min-h-screen bg-background">
@@ -198,17 +197,17 @@ const Pilates = () => {
               className="max-w-2xl"
             >
               <p className="mb-6 font-body text-sm tracking-[0.3em] text-primary">
-                COPPAHANDGOLD PILATES
+                MAT PILATES & YOGA AT THE EVENT
               </p>
               <h1 className="mb-8 font-display text-5xl font-bold leading-[1.1] md:text-7xl">
-                Rebuild Your Body
+                Move. Breathe.
                 <br />
-                <span className="glow-text">From the Core</span>
+                <span className="glow-text">Restore.</span>
               </h1>
               <p className="max-w-lg font-body text-lg leading-relaxed text-muted-foreground">
-                Chair, reformer & mat Pilates — designed in structured programs 
-                so you can clearly see your progressions. From beginner to advanced, 
-                every class builds on the last.
+                Expert-guided mat Pilates and yoga sessions woven into the fabric 
+                of the event — designed to ground your body, calm your mind, and 
+                complement the electric energy of the courts.
               </p>
             </motion.div>
           </div>
@@ -216,37 +215,60 @@ const Pilates = () => {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent breathing" />
       </section>
 
-      {/* Benefits */}
+      {/* What to Expect */}
       <section className="section-padding pt-28 lg:pt-40">
-        <div className="mx-auto max-w-7xl" ref={benefitsRef}>
+        <div className="mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
-            animate={benefitsInView ? { opacity: 1, y: 0 } : {}}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="mb-16 max-w-3xl"
+          >
+            <p className="mb-4 font-body text-sm tracking-[0.3em] text-primary">
+              YOUR EXPERIENCE
+            </p>
+            <h2 className="mb-6 font-display text-4xl font-bold md:text-5xl">
+              Why we paired <span className="glow-text">Pilates & yoga</span>
+            </h2>
+            <p className="font-body text-base leading-relaxed text-muted-foreground">
+              This isn't a random add-on. Every movement session at CoppahandGold is 
+              curated to work with the full event — competitive tennis on one end, 
+              intentional restoration on the other. Mat Pilates strengthens your core 
+              and sharpens your body awareness. Yoga opens your joints, lengthens your 
+              muscles, and quiets the noise. Together, they create a wellness experience 
+              that leaves you feeling genuinely different when you walk away.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Highlights */}
+      <section className="section-padding pt-8 lg:pt-12">
+        <div className="mx-auto max-w-7xl" ref={highlightsRef}>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={highlightsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
             className="mb-16 text-center"
           >
             <p className="mb-4 font-body text-sm tracking-[0.3em] text-primary">
-              THE SCIENCE
+              THE DETAILS
             </p>
             <h2 className="mx-auto max-w-xl font-display text-4xl font-bold md:text-5xl">
-              Why Pilates <span className="glow-text">heals</span>
+              What makes it <span className="glow-text">different</span>
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl font-body text-base leading-relaxed text-muted-foreground">
-              Backed by clinical research, Pilates is one of the most effective movement systems 
-              for managing chronic conditions, restoring mobility, and building resilient, 
-              pain-free bodies.
-            </p>
           </motion.div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((benefit, i) => (
-              <BenefitCard key={benefit.title} benefit={benefit} index={i} />
+            {eventHighlights.map((item, i) => (
+              <HighlightCard key={item.title} item={item} index={i} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Pilates Types */}
+      {/* Educational Sessions + Equipment Showcase */}
       <section className="section-padding pt-28 lg:pt-40 relative">
         <div className="absolute left-1/2 top-0 h-px w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
@@ -258,23 +280,27 @@ const Pilates = () => {
             transition={{ duration: 0.8 }}
             className="mb-20 text-center"
           >
-            <p className="mb-4 font-body text-sm tracking-[0.3em] text-primary">
-              THE PRACTICE
-            </p>
+            <div className="mb-4 flex items-center justify-center gap-2">
+              <BookOpen className="h-4 w-4 text-primary" />
+              <p className="font-body text-sm tracking-[0.3em] text-primary">
+                LEARN & EXPERIENCE
+              </p>
+            </div>
             <h2 className="mb-4 font-display text-4xl font-bold md:text-5xl">
-              Three ways to <span className="glow-text">move</span>
+              Beyond the <span className="glow-text">mat</span>
             </h2>
-            <p className="mx-auto max-w-xl font-body text-base text-muted-foreground">
-              Every class is part of a structured program — so you can clearly see your progression from foundation to mastery.
+            <p className="mx-auto max-w-2xl font-body text-base text-muted-foreground">
+              Alongside your movement sessions, we're hosting educational demos on 
+              advanced Pilates equipment — so you can see what a deeper practice looks 
+              like and understand the science behind each apparatus.
             </p>
           </motion.div>
 
           <div className="space-y-32">
-            {pilatesTypes.map((type, i) => (
-              <PilatesTypeSection
-                key={type.title}
-                type={type}
-                index={i}
+            {educationalSections.map((section, i) => (
+              <EducationalSection
+                key={section.title}
+                section={section}
                 reversed={i % 2 !== 0}
               />
             ))}
@@ -295,12 +321,12 @@ const Pilates = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="mb-6 font-display text-4xl font-bold md:text-5xl">
-              Ready to start your{" "}
-              <span className="glow-text">Pilates journey</span>?
+              Ready to experience{" "}
+              <span className="glow-text">movement that matters</span>?
             </h2>
             <p className="mb-10 font-body text-base leading-relaxed text-muted-foreground">
-              Experience Pilates at our upcoming tennis & wellness event — 
-              March 28th & 29th, 2026 in Abuja. Limited spots available.
+              Mat Pilates, yoga, educational demos, and more — all part of the 
+              CoppahandGold tennis & wellness event. March 28th & 29th, 2026 in Abuja.
             </p>
             <a
               href="/#rsvp"
