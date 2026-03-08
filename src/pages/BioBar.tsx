@@ -113,7 +113,6 @@ const drinks = [
     icon: Sun,
   },
 ];
-];
 
 const DrinkCard = ({ drink, index }: { drink: (typeof drinks)[0]; index: number }) => {
   const ref = useRef(null);
