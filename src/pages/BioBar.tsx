@@ -244,21 +244,17 @@ const BioBar = () => {
               THE PHILOSOPHY
             </p>
             <h2 className="mb-6 font-display text-4xl font-bold md:text-5xl">
-              Herbs you know, <span className="glow-text">results you'll feel</span>
+              Familiar plants, <span className="glow-text">unfamiliar results</span>
             </h2>
             <p className="font-body text-base leading-relaxed text-muted-foreground">
-              Everything at the Bio Bar starts with herbs your grandmother used —
-              lemongrass, ginger, hibiscus, chamomile, turmeric, aloe vera. We mix
-              them with everyday ingredients into drinks that taste amazing. How we
-              blend them, what ratios we use, and the little details that make each
-              one hit differently? You'll have to show up to find out.
+              Every formula starts with plants you'd recognise. What makes them
+              work isn't the ingredients — it's the method. Show up to find out.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               {[
-                "Fresh Herbs",
+                "All Natural",
                 "Made On-Site",
                 "Event Exclusive",
-                "Recipes Stay With Us",
               ].map((tag) => (
                 <span
                   key={tag}
