@@ -32,7 +32,7 @@ const experiences = [
       "Our pharmacist-curated bar blends adaptogenic herbs, electrolyte complexes, and botanical extracts into drinks that target inflammation, energy, and cellular repair.",
     image: bioBarImg,
     tag: "NOURISH",
-    link: null as string | null,
+    link: "/biobar",
   },
 ];
 
