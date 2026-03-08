@@ -172,11 +172,14 @@ const Pilates = () => {
       </motion.button>
 
       {/* Hero */}
-      <section ref={heroRef} className="relative min-h-[70vh] overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[80vh] overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={pilatesHeroImg}
-            alt="CoppahandGold Pilates studio"
+          <video
+            src={pilatesHeroVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
@@ -186,7 +189,7 @@ const Pilates = () => {
         <div className="absolute left-[10%] top-[30%] h-64 w-64 rounded-full bg-warm-rose/8 blur-[100px] orb-float" />
         <div className="absolute right-[20%] top-[50%] h-48 w-48 rounded-full bg-primary/10 blur-[80px] orb-float-delayed" />
 
-        <div className="relative flex min-h-[70vh] items-end pb-20">
+        <div className="relative flex min-h-[80vh] items-end pb-24">
           <div className="section-padding w-full max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -194,18 +197,18 @@ const Pilates = () => {
               transition={{ duration: 1, delay: 0.3 }}
               className="max-w-2xl"
             >
-              <p className="mb-4 font-body text-sm tracking-[0.3em] text-primary">
+              <p className="mb-6 font-body text-sm tracking-[0.3em] text-primary">
                 COPPAHANDGOLD PILATES
               </p>
-              <h1 className="mb-6 font-display text-5xl font-bold leading-[1.1] md:text-7xl">
+              <h1 className="mb-8 font-display text-5xl font-bold leading-[1.1] md:text-7xl">
                 Rebuild Your Body
                 <br />
                 <span className="glow-text">From the Core</span>
               </h1>
               <p className="max-w-lg font-body text-lg leading-relaxed text-muted-foreground">
-                Chair, reformer & mat Pilates designed to heal chronic conditions, 
-                regulate your nervous system, and sculpt strength you can feel — 
-                from beginner to advanced.
+                Chair, reformer & mat Pilates — designed in structured programs 
+                so you can clearly see your progressions. From beginner to advanced, 
+                every class builds on the last.
               </p>
             </motion.div>
           </div>
