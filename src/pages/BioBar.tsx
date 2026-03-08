@@ -5,13 +5,11 @@ import {
   ArrowLeft,
   Leaf,
   Zap,
-  Brain,
   Heart,
   Sparkles,
   Droplets,
   TreePine,
   Clock,
-  Shield,
   Sun,
 } from "lucide-react";
 import bioBarHeroImg from "@/assets/biobar-hero.jpg";
