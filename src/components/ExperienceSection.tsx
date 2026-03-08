@@ -3,7 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import tennisImg from "@/assets/hero-tennis.jpg";
-import pilatesImg from "@/assets/pilates-chair.jpg";
+import yogaImg from "@/assets/yoga.jpg";
 import bioBarImg from "@/assets/bio-bar.jpg";
 
 const experiences = [
