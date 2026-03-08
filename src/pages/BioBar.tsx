@@ -145,8 +145,8 @@ const DrinkCard = ({ drink, index }: { drink: (typeof drinks)[0]; index: number 
 
         <div className="space-y-3">
           <p className="flex items-center gap-2 font-body text-xs tracking-[0.15em] text-foreground/60">
-            <FlaskConical className="h-3.5 w-3.5" />
-            FORMULATION
+            <TreePine className="h-3.5 w-3.5" />
+            WHAT'S IN IT
           </p>
           {drink.ingredients.map((ing) => (
             <div
