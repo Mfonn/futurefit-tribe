@@ -1,7 +1,9 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Leaf, Brain, Bone, Wind, Sparkles, Users, BookOpen, Dumbbell } from "lucide-react";
+import { ArrowLeft, Leaf, Brain, Bone, Wind, Sparkles, Users, BookOpen, Dumbbell, CheckCircle2, AlertCircle, Shirt, Clock, Eye, ArrowRight } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import pilatesHeroImg from "@/assets/pilates-hero.jpg";
 import pilatesChairImg from "@/assets/pilates-chair.jpg";
 import pilatesReformerImg from "@/assets/pilates-reformer.jpg";
