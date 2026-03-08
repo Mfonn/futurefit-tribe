@@ -261,9 +261,12 @@ const Pilates = () => {
             <p className="mb-4 font-body text-sm tracking-[0.3em] text-primary">
               THE PRACTICE
             </p>
-            <h2 className="font-display text-4xl font-bold md:text-5xl">
+            <h2 className="mb-4 font-display text-4xl font-bold md:text-5xl">
               Three ways to <span className="glow-text">move</span>
             </h2>
+            <p className="mx-auto max-w-xl font-body text-base text-muted-foreground">
+              Every class is part of a structured program — so you can clearly see your progression from foundation to mastery.
+            </p>
           </motion.div>
 
           <div className="space-y-24">
