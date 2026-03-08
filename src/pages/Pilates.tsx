@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Heart, Brain, Bone, Wind, Sparkles, Shield } from "lucide-react";
-import pilatesHeroImg from "@/assets/pilates-hero.jpg";
+import pilatesHeroVideo from "@/assets/pilates-hero-video.mp4";
 import pilatesChairImg from "@/assets/pilates-chair.jpg";
 import pilatesReformerImg from "@/assets/pilates-reformer.jpg";
 import pilatesMatImg from "@/assets/pilates-mat.jpg";
@@ -52,24 +52,24 @@ const pilatesTypes = [
     level: "Intermediate to Advanced",
     image: pilatesChairImg,
     description:
-      "The Wunda chair challenges your stability and core strength through spring-loaded resistance. Compact but fierce — it targets deep stabilizers, improves balance, and builds functional power that translates to everyday life.",
-    highlights: ["Deep core activation", "Balance & stability", "Functional strength", "Postural correction"],
+      "The Wunda chair challenges your stability and core strength through spring-loaded resistance. Compact but fierce — it targets deep stabilizers, improves balance, and builds functional power. Our structured program format means you'll clearly track your progression from foundational to advanced movements.",
+    highlights: ["Deep core activation", "Balance & stability", "Program-based progression", "Postural correction"],
   },
   {
     title: "Reformer",
     level: "Beginner to Advanced",
     image: pilatesReformerImg,
     description:
-      "The reformer is the crown jewel of Pilates apparatus. Using adjustable spring resistance on a sliding carriage, it creates a full-body workout that lengthens, strengthens, and sculpts — all while being gentle on your joints.",
-    highlights: ["Full-body sculpting", "Joint-friendly resistance", "Spinal decompression", "Muscle lengthening"],
+      "The reformer is the crown jewel of Pilates apparatus. Using adjustable spring resistance on a sliding carriage, it creates a full-body workout that lengthens, strengthens, and sculpts. Our classes run in a structured program format — so you can clearly see your progressions from beginner to advanced.",
+    highlights: ["Full-body sculpting", "Joint-friendly resistance", "Clear level progression", "Muscle lengthening"],
   },
   {
     title: "Mat Pilates",
     level: "Beginner to Advanced",
     image: pilatesMatImg,
     description:
-      "Where it all began. Mat Pilates uses your own body weight as resistance, making it accessible anywhere. Don't let the simplicity fool you — mastering mat work builds incredible core strength and body control.",
-    highlights: ["No equipment needed", "Core foundation", "Flexibility", "Body awareness"],
+      "Where it all began. Mat Pilates uses your own body weight as resistance, making it accessible anywhere. Don't let the simplicity fool you — mastering mat work builds incredible core strength and body control. Each program level builds on the last, so your growth is visible and measurable.",
+    highlights: ["No equipment needed", "Core foundation", "Structured programs", "Body awareness"],
   },
 ];
 
@@ -172,11 +172,14 @@ const Pilates = () => {
       </motion.button>
 
       {/* Hero */}
-      <section ref={heroRef} className="relative min-h-[70vh] overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[80vh] overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={pilatesHeroImg}
-            alt="CoppahandGold Pilates studio"
+          <video
+            src={pilatesHeroVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
@@ -186,7 +189,7 @@ const Pilates = () => {
         <div className="absolute left-[10%] top-[30%] h-64 w-64 rounded-full bg-warm-rose/8 blur-[100px] orb-float" />
         <div className="absolute right-[20%] top-[50%] h-48 w-48 rounded-full bg-primary/10 blur-[80px] orb-float-delayed" />
 
-        <div className="relative flex min-h-[70vh] items-end pb-20">
+        <div className="relative flex min-h-[80vh] items-end pb-24">
           <div className="section-padding w-full max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -194,18 +197,18 @@ const Pilates = () => {
               transition={{ duration: 1, delay: 0.3 }}
               className="max-w-2xl"
             >
-              <p className="mb-4 font-body text-sm tracking-[0.3em] text-primary">
+              <p className="mb-6 font-body text-sm tracking-[0.3em] text-primary">
                 COPPAHANDGOLD PILATES
               </p>
-              <h1 className="mb-6 font-display text-5xl font-bold leading-[1.1] md:text-7xl">
+              <h1 className="mb-8 font-display text-5xl font-bold leading-[1.1] md:text-7xl">
                 Rebuild Your Body
                 <br />
                 <span className="glow-text">From the Core</span>
               </h1>
               <p className="max-w-lg font-body text-lg leading-relaxed text-muted-foreground">
-                Chair, reformer & mat Pilates designed to heal chronic conditions, 
-                regulate your nervous system, and sculpt strength you can feel — 
-                from beginner to advanced.
+                Chair, reformer & mat Pilates — designed in structured programs 
+                so you can clearly see your progressions. From beginner to advanced, 
+                every class builds on the last.
               </p>
             </motion.div>
           </div>
@@ -214,7 +217,7 @@ const Pilates = () => {
       </section>
 
       {/* Benefits */}
-      <section className="section-padding">
+      <section className="section-padding pt-28 lg:pt-40">
         <div className="mx-auto max-w-7xl" ref={benefitsRef}>
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -244,7 +247,7 @@ const Pilates = () => {
       </section>
 
       {/* Pilates Types */}
-      <section className="section-padding relative">
+      <section className="section-padding pt-28 lg:pt-40 relative">
         <div className="absolute left-1/2 top-0 h-px w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
         <div className="mx-auto max-w-7xl">
@@ -258,12 +261,15 @@ const Pilates = () => {
             <p className="mb-4 font-body text-sm tracking-[0.3em] text-primary">
               THE PRACTICE
             </p>
-            <h2 className="font-display text-4xl font-bold md:text-5xl">
+            <h2 className="mb-4 font-display text-4xl font-bold md:text-5xl">
               Three ways to <span className="glow-text">move</span>
             </h2>
+            <p className="mx-auto max-w-xl font-body text-base text-muted-foreground">
+              Every class is part of a structured program — so you can clearly see your progression from foundation to mastery.
+            </p>
           </motion.div>
 
-          <div className="space-y-24">
+          <div className="space-y-32">
             {pilatesTypes.map((type, i) => (
               <PilatesTypeSection
                 key={type.title}
