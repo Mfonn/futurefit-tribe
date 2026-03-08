@@ -68,7 +68,7 @@ const ExperienceCard = ({
           alt={experience.title}
           className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background from-30% via-background/70 via-60% to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background from-20% via-background/60 via-50% to-transparent" />
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 flex flex-col justify-end p-6 md:p-8">
@@ -81,16 +81,16 @@ const ExperienceCard = ({
         <p className="mb-2 font-display text-base text-primary">
           {experience.subtitle}
         </p>
-        <div className="max-h-0 overflow-hidden transition-all duration-500 group-hover:max-h-40">
+        <div className="max-h-0 overflow-hidden transition-all duration-500 group-hover:max-h-32">
           <p className="mt-2 max-w-sm font-body text-sm leading-relaxed text-muted-foreground">
             {experience.description}
           </p>
-          {experience.link && (
-            <span className="mt-3 inline-block font-body text-xs tracking-[0.2em] text-warm-rose">
-              EXPLORE {experience.title.toUpperCase()} →
-            </span>
-          )}
         </div>
+        {experience.link && (
+          <span className="mt-3 inline-block font-body text-xs tracking-[0.2em] text-warm-rose">
+            EXPLORE {experience.title.toUpperCase()} →
+          </span>
+        )}
       </div>
     </motion.div>
   );
