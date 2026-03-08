@@ -9,9 +9,10 @@ import {
   Heart,
   Sparkles,
   Droplets,
-  FlaskConical,
+  TreePine,
   Clock,
   Shield,
+  Sun,
 } from "lucide-react";
 import bioBarHeroImg from "@/assets/biobar-hero.jpg";
 
