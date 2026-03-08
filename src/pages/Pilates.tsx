@@ -678,45 +678,6 @@ const Pilates = () => {
           </div>
         </div>
       </section>
-      <section className="section-padding pt-28 lg:pt-40 relative">
-        <div className="absolute left-1/2 top-0 h-px w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-
-        <div className="mx-auto max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="mb-20 text-center"
-          >
-            <div className="mb-4 flex items-center justify-center gap-2">
-              <BookOpen className="h-4 w-4 text-primary" />
-              <p className="font-body text-sm tracking-[0.3em] text-primary">
-                LEARN & DISCOVER
-              </p>
-            </div>
-            <h2 className="mb-4 font-display text-4xl font-bold md:text-5xl">
-              Beyond the <span className="glow-text">mat</span>
-            </h2>
-            <p className="mx-auto max-w-2xl font-body text-base text-muted-foreground">
-              Alongside your movement sessions, we're hosting educational sessions on 
-              advanced Pilates disciplines — so you can understand how a deeper practice 
-              works, explore the science behind each method, and discover pathways to 
-              continue your journey beyond the event.
-            </p>
-          </motion.div>
-
-          <div className="space-y-32">
-            {educationalSections.map((section, i) => (
-              <EducationalSection
-                key={section.title}
-                section={section}
-                reversed={i % 2 !== 0}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="section-padding relative overflow-hidden">
