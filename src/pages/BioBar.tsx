@@ -167,14 +167,6 @@ const DrinkCard = ({ drink, index }: { drink: (typeof drinks)[0]; index: number 
           ))}
         </div>
 
-        {drink.disclaimer && (
-          <div className="mt-5 flex items-start gap-2 rounded-lg border border-warm-rose/20 bg-warm-rose/5 px-4 py-3">
-            <Shield className="mt-0.5 h-3.5 w-3.5 shrink-0 text-warm-rose" />
-            <p className="font-body text-xs leading-relaxed text-warm-rose/80">
-              {drink.disclaimer}
-            </p>
-          </div>
-        )}
       </div>
     </motion.div>
   );
