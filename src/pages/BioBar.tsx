@@ -287,11 +287,10 @@ const BioBar = () => {
               </p>
             </div>
             <h2 className="mb-4 font-display text-4xl font-bold md:text-5xl">
-              What's <span className="glow-text">on tap</span>
+              The <span className="glow-text">formulas</span>
             </h2>
             <p className="mx-auto max-w-2xl font-body text-base text-muted-foreground">
-              Six herbal blends — each built around real plants you already know.
-              We'll tell you what it does. The recipe? That's ours.
+              Six blends. We'll tell you what each one does — not how we make it.
             </p>
           </motion.div>
 
