@@ -4,27 +4,27 @@ import bioBarImg from "@/assets/bio-bar.jpg";
 
 const elixirs = [
   {
-    name: "Neural Bloom",
-    ingredients: "Lion's Mane · Ginkgo · Magnesium L-Threonate",
-    benefit: "Cognitive clarity & focus",
-    color: "bg-bio-cyan",
+    name: "Rosebud Lemonade",
+    ingredients: "Rosebuds · Lemon · Honey · Sparkling Water",
+    benefit: "Light & refreshing",
+    color: "bg-warm-rose",
   },
   {
-    name: "Cellular Reset",
-    ingredients: "Turmeric · Black Seed Oil · Electrolyte Complex",
-    benefit: "Anti-inflammatory recovery",
+    name: "Hibiscus Zobo",
+    ingredients: "Hibiscus · Cloves · Ginger · Pineapple",
+    benefit: "Recovery & hydration",
     color: "bg-primary",
   },
   {
-    name: "Adrenal Shield",
-    ingredients: "Ashwagandha · Rhodiola · Pink Himalayan Salt",
-    benefit: "Stress adaptation & energy",
+    name: "Lemongrass Ginger Brew",
+    ingredients: "Lemongrass · Ginger · Honey",
+    benefit: "Morning energy",
     color: "bg-bio-green",
   },
   {
-    name: "Gut Protocol",
-    ingredients: "Aloe Vera · Slippery Elm · Zinc Carnosine",
-    benefit: "Digestive restoration",
+    name: "Aloe Mint Cooler",
+    ingredients: "Aloe Vera · Cucumber · Mint · Lime",
+    benefit: "Cooling & gut-friendly",
     color: "bg-bio-teal",
   },
 ];
@@ -57,11 +57,11 @@ const BioBarSection = () => {
             </div>
             <div className="absolute -bottom-4 -right-4 rounded-xl glow-border bg-card p-4 md:p-6">
               <p className="font-body text-xs tracking-[0.2em] text-primary">
-                PHARMACIST CURATED
+                FRESHLY MADE
               </p>
-              <p className="mt-1 font-display text-2xl font-bold">12+</p>
+              <p className="mt-1 font-display text-2xl font-bold">6</p>
               <p className="font-body text-sm text-muted-foreground">
-                Functional Elixirs
+                Herbal Drinks
               </p>
             </div>
           </motion.div>
@@ -80,9 +80,9 @@ const BioBarSection = () => {
               <span className="glow-text">biology</span>
             </h2>
             <p className="mb-10 font-body text-base leading-relaxed text-muted-foreground">
-              Forget cocktails. Our bio bar serves precision-crafted elixirs — 
-              each formulated with clinically studied compounds to target specific 
-              systems in your body. This is what healing tastes like.
+              Forget cocktails. Our bio bar serves fresh herbal drinks made on-site — 
+              simple herbs like lemongrass, chamomile, and hibiscus mixed with honey, 
+              lime, and fresh fruit. Drinks that taste amazing and actually help.
             </p>
 
             <div className="space-y-4">

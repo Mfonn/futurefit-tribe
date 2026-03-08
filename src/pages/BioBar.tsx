@@ -5,115 +5,112 @@ import {
   ArrowLeft,
   Leaf,
   Zap,
-  Brain,
   Heart,
   Sparkles,
   Droplets,
   TreePine,
   Clock,
-  Shield,
   Sun,
 } from "lucide-react";
 import bioBarHeroImg from "@/assets/biobar-hero.jpg";
 
 const schedule = [
-  { day: "Day One — March 28", time: "4:00 PM – Late", vibe: "Post-match wind-down. Recovery elixirs, social sipping, slow conversations." },
-  { day: "Day Two — March 29", time: "7:00 AM – 10:00 AM", vibe: "Morning activation. Pre-court energisers, adaptogenic coffees, and gut-priming tonics." },
+  { day: "Day One — March 28", time: "4:00 PM – Late", vibe: "Post-match cool-down. Light, refreshing sips to ease you into the evening." },
+  { day: "Day Two — March 29", time: "7:00 AM – 10:00 AM", vibe: "Morning wake-up. Warm brews and fresh tonics to start the day right." },
 ];
 
 const drinks = [
   {
-    name: "Golden Mind",
-    category: "FOCUS",
-    tagColor: "text-primary",
-    tagBorder: "border-primary/30 bg-primary/5",
-    description:
-      "A warm, earthy blend built around lion's mane mushroom and gotu kola — two herbs traditionally used across Asia and Africa to sharpen memory and calm scattered thinking. Mixed with oat milk, raw honey, and a pinch of cinnamon for a drink that tastes like a spiced latte but works like a clarity reset.",
-    ingredients: [
-      { name: "Lion's Mane Mushroom", amount: "1 tsp dried powder", note: "Traditionally used in Chinese medicine to support nerve health and mental clarity" },
-      { name: "Gotu Kola Leaves", amount: "½ tsp extract", note: "Ayurvedic herb known as 'the student's herb' — supports concentration and calm" },
-      { name: "Raw Honey & Cinnamon", amount: "1 tbsp + pinch", note: "Natural sweetener with antimicrobial properties; cinnamon balances blood sugar" },
-      { name: "Oat Milk", amount: "200ml", note: "Creamy, fibre-rich base that makes the whole thing feel like a treat" },
-    ],
-    icon: Brain,
-  },
-  {
-    name: "Hibiscus Recover",
-    category: "ANTI-INFLAMMATORY",
+    name: "Rosebud Lemonade",
+    category: "REFRESH",
     tagColor: "text-warm-rose",
     tagBorder: "border-warm-rose/30 bg-warm-rose/5",
     description:
-      "A deep crimson cooler starring dried hibiscus flowers (zobo) and fresh turmeric root — both powerhouse anti-inflammatories you can find in any Nigerian market. Blended with tart cherry juice, fresh ginger, and a squeeze of lime. Tangy, refreshing, and designed to help your muscles bounce back after a long day on court.",
+      "Dried rosebuds steeped in hot water, cooled down and mixed with fresh lemon juice, raw honey, and a splash of sparkling water. Floral, light, and genuinely refreshing — the kind of drink that makes you close your eyes and exhale.",
     ingredients: [
-      { name: "Dried Hibiscus Flowers (Zobo)", amount: "2 tbsp steeped", note: "Rich in anthocyanins — natural compounds that reduce muscle soreness and lower blood pressure" },
-      { name: "Fresh Turmeric Root", amount: "1-inch knob, grated", note: "Contains curcumin, one of nature's strongest anti-inflammatory compounds" },
-      { name: "Fresh Ginger Root", amount: "½-inch knob", note: "Warming digestive aid that also reduces exercise-induced inflammation" },
-      { name: "Tart Cherry Juice & Lime", amount: "120ml + ½ lime", note: "Tart cherry is clinically shown to reduce muscle pain; lime adds Vitamin C and brightness" },
+      { name: "Dried Rosebuds", amount: "1 tbsp steeped", note: "Mildly calming, rich in Vitamin C, and traditionally used to ease tension and support skin health" },
+      { name: "Fresh Lemon Juice", amount: "½ lemon", note: "Alkalising, aids digestion, and adds a bright citrus backbone" },
+      { name: "Raw Honey", amount: "1 tbsp", note: "Natural sweetener with antibacterial properties — much gentler than refined sugar" },
+      { name: "Sparkling Water", amount: "150ml", note: "Adds fizz and makes it feel like a proper occasion" },
     ],
     icon: Heart,
   },
   {
-    name: "Morning Volt",
+    name: "Lemongrass Ginger Brew",
     category: "ENERGY",
     tagColor: "text-[hsl(var(--bio-cyan))]",
     tagBorder: "border-[hsl(var(--bio-cyan)/0.3)] bg-[hsl(var(--bio-cyan)/0.05)]",
     description:
-      "Skip the coffee crash. Built on moringa leaf — Nigeria's own superfood — blended with ceremonial-grade matcha, fresh coconut water, and a spoonful of baobab powder. Clean, sustained energy that carries you through warm-ups and into competitive play without the jitters.",
+      "Fresh lemongrass stalks simmered with sliced ginger root, sweetened with a touch of honey and served warm or over ice. A simple, aromatic drink that wakes up your senses and settles your stomach — perfect for Day Two mornings.",
     ingredients: [
-      { name: "Moringa Leaf Powder", amount: "1 tsp", note: "Packed with iron, B-vitamins, and amino acids — a natural energy booster used across West Africa for centuries" },
-      { name: "Ceremonial Matcha", amount: "1 tsp whisked", note: "Slow-release caffeine paired with L-theanine from the tea leaf itself — alert without anxious" },
-      { name: "Fresh Coconut Water", amount: "250ml", note: "Nature's electrolyte drink — potassium, magnesium, and sodium in perfect balance" },
-      { name: "Baobab Fruit Powder", amount: "1 tbsp", note: "Indigenous African superfruit with 6x more Vitamin C than oranges and natural prebiotic fibre" },
+      { name: "Fresh Lemongrass", amount: "2 stalks, bruised", note: "Citrusy and aromatic — traditionally used to aid digestion, reduce bloating, and calm nerves" },
+      { name: "Fresh Ginger Root", amount: "1-inch knob, sliced", note: "Warming, anti-nausea, and helps reduce inflammation after physical activity" },
+      { name: "Raw Honey", amount: "1 tsp", note: "Rounds out the sharp ginger and adds natural enzymes" },
+      { name: "Hot or Iced Water", amount: "250ml", note: "Served your way — warm for mornings, iced for afternoons" },
     ],
     icon: Zap,
   },
   {
-    name: "Belly Reset",
-    category: "GUT HEALTH",
-    tagColor: "text-[hsl(var(--bio-green))]",
-    tagBorder: "border-[hsl(var(--bio-green)/0.3)] bg-[hsl(var(--bio-green)/0.05)]",
+    name: "Chamomile Calm",
+    category: "WIND DOWN",
+    tagColor: "text-[hsl(var(--warm-sand))]",
+    tagBorder: "border-[hsl(var(--warm-sand)/0.3)] bg-[hsl(var(--warm-sand)/0.05)]",
     description:
-      "A gentle, tangy tonic built around fermented ginger bug, aloe vera gel, and slippery elm bark — herbs that have been soothing digestive systems for generations. Mixed with green apple juice and a dash of raw apple cider vinegar. Tastes clean, slightly fizzy, and leaves your gut feeling genuinely calm.",
+      "Whole chamomile flowers steeped with a cinnamon stick and a slice of fresh orange. Gentle, golden, and designed for the evening — after the matches, after the movement, when it's time to just sit and breathe.",
     ingredients: [
-      { name: "Ginger Bug (Fermented)", amount: "60ml", note: "A naturally fermented ginger starter — full of live probiotics and digestive enzymes" },
-      { name: "Fresh Aloe Vera Gel", amount: "2 tbsp", note: "Soothes the gut lining, reduces bloating, and supports nutrient absorption" },
-      { name: "Slippery Elm Bark Powder", amount: "1 tsp", note: "A traditional remedy that coats and protects the intestinal wall — deeply soothing" },
-      { name: "Green Apple Juice & ACV", amount: "100ml + 1 tbsp", note: "Green apple adds natural sweetness; raw apple cider vinegar kickstarts digestive enzymes" },
-    ],
-    icon: Leaf,
-  },
-  {
-    name: "Cacao Ceremony",
-    category: "HEART OPENING",
-    tagColor: "text-[hsl(280,70%,70%)]",
-    tagBorder: "border-[hsl(280,70%,70%,0.3)] bg-[hsl(280,70%,70%,0.05)]",
-    description:
-      "Rooted in ancient Mesoamerican tradition. Ceremonial-grade cacao is gently heated with ashwagandha root, a pinch of cayenne, and vanilla bean — creating a rich, velvety drink that opens the chest, deepens breathing, and brings you into a calm, present state. The drink you have when you want to slow down and feel everything.",
-    ingredients: [
-      { name: "Ceremonial Cacao (100% paste)", amount: "20g melted", note: "Unprocessed cacao rich in theobromine — a gentle heart stimulant that lifts mood without caffeine spikes" },
-      { name: "Ashwagandha Root Powder", amount: "1 tsp", note: "An Ayurvedic adaptogen that lowers cortisol, eases anxiety, and supports restful presence" },
-      { name: "Cayenne Pepper & Vanilla Bean", amount: "tiny pinch + ½ bean", note: "Cayenne stimulates circulation; vanilla grounds the flavour and calms the nervous system" },
-      { name: "Warm Oat Milk & Raw Honey", amount: "200ml + 1 tsp", note: "Creamy, naturally sweet base — the honey adds enzymes and the oat milk rounds out the richness" },
+      { name: "Dried Chamomile Flowers", amount: "2 tbsp", note: "One of the oldest calming herbs — eases anxiety, promotes sleep, and soothes the digestive tract" },
+      { name: "Cinnamon Stick", amount: "1 stick", note: "Adds warmth and helps regulate blood sugar after a long active day" },
+      { name: "Fresh Orange Slice", amount: "2 rounds", note: "Natural sweetness, Vitamin C, and a lovely citrus aroma" },
+      { name: "Raw Honey (optional)", amount: "1 tsp", note: "For those who like it a touch sweeter" },
     ],
     icon: Sparkles,
   },
   {
-    name: "Sunrise Tonic",
-    category: "VITALITY",
-    tagColor: "text-[hsl(var(--warm-sand))]",
-    tagBorder: "border-[hsl(var(--warm-sand)/0.3)] bg-[hsl(var(--warm-sand)/0.05)]",
+    name: "Aloe Mint Cooler",
+    category: "GUT HEALTH",
+    tagColor: "text-[hsl(var(--bio-green))]",
+    tagBorder: "border-[hsl(var(--bio-green)/0.3)] bg-[hsl(var(--bio-green)/0.05)]",
     description:
-      "A bright, citrus-forward tonic built around bitter leaf extract and lemongrass — two herbs deeply rooted in Nigerian herbalism. Mixed with fresh orange juice, a knob of turmeric, and sparkling water. Sharp, alive, and designed to wake up every cell in your body on Day Two morning.",
+      "Fresh aloe vera gel scooped straight from the leaf, blended with cucumber, fresh mint, and lime juice. Clean, cooling, and incredibly hydrating — your gut will thank you.",
     ingredients: [
-      { name: "Bitter Leaf Extract", amount: "½ tsp", note: "Used across West Africa for liver support, detoxification, and metabolic activation" },
-      { name: "Fresh Lemongrass", amount: "2 stalks steeped", note: "Aromatic, citrusy herb that aids digestion, reduces anxiety, and has natural antimicrobial properties" },
-      { name: "Fresh Orange & Turmeric", amount: "1 orange + 1-inch root", note: "Vitamin C meets curcumin — a pairing that boosts iron absorption and fights oxidative stress" },
-      { name: "Sparkling Water & Mint", amount: "150ml + fresh leaves", note: "Effervescence makes it refreshing; mint opens airways and aids digestion" },
+      { name: "Fresh Aloe Vera Gel", amount: "2 tbsp", note: "Soothes the gut lining, reduces bloating, and supports hydration from the inside out" },
+      { name: "Cucumber", amount: "¼ cucumber, blended", note: "92% water, naturally cooling, and packed with silica for skin and joint health" },
+      { name: "Fresh Mint Leaves", amount: "6-8 leaves", note: "Opens up the airways, freshens the palate, and aids digestion" },
+      { name: "Fresh Lime Juice", amount: "½ lime", note: "Bright acidity that ties everything together and adds Vitamin C" },
+    ],
+    icon: Leaf,
+  },
+  {
+    name: "Hibiscus Zobo",
+    category: "RECOVERY",
+    tagColor: "text-primary",
+    tagBorder: "border-primary/30 bg-primary/5",
+    description:
+      "The classic Nigerian zobo — dried hibiscus flowers boiled with cloves, ginger, and a pinch of black pepper, then chilled and sweetened with pineapple juice. Deep red, tangy, and packed with natural compounds that help your body recover after hours of play.",
+    ingredients: [
+      { name: "Dried Hibiscus Flowers", amount: "3 tbsp boiled", note: "Rich in antioxidants and anthocyanins — naturally lowers blood pressure and reduces muscle soreness" },
+      { name: "Whole Cloves & Black Pepper", amount: "3 cloves + pinch", note: "Cloves are anti-inflammatory; black pepper boosts absorption of everything else" },
+      { name: "Fresh Ginger", amount: "½-inch knob", note: "Adds a spicy kick and supports digestion" },
+      { name: "Pineapple Juice", amount: "100ml", note: "Natural sweetener loaded with bromelain — an enzyme that helps reduce swelling and aids recovery" },
+    ],
+    icon: Droplets,
+  },
+  {
+    name: "Turmeric Golden Milk",
+    category: "RESTORE",
+    tagColor: "text-[hsl(280,70%,70%)]",
+    tagBorder: "border-[hsl(280,70%,70%,0.3)] bg-[hsl(280,70%,70%,0.05)]",
+    description:
+      "Warm milk (dairy or oat) infused with fresh turmeric root, a crack of black pepper, cinnamon, and a drizzle of honey. An ancient Ayurvedic recipe that soothes inflammation, calms the nervous system, and tastes like a warm hug. Best served on Day One evening.",
+    ingredients: [
+      { name: "Fresh Turmeric Root", amount: "1-inch knob, grated", note: "Contains curcumin — a powerful natural anti-inflammatory used for thousands of years" },
+      { name: "Black Pepper", amount: "1 crack", note: "Increases curcumin absorption by up to 2,000% — tiny but essential" },
+      { name: "Cinnamon & Honey", amount: "½ tsp + 1 tbsp", note: "Cinnamon regulates blood sugar; honey adds sweetness and antimicrobial benefits" },
+      { name: "Warm Milk (Dairy or Oat)", amount: "200ml", note: "Creamy base that makes this feel like dessert — choose what suits you" },
     ],
     icon: Sun,
   },
 ];
-
 const DrinkCard = ({ drink, index }: { drink: (typeof drinks)[0]; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
@@ -196,7 +193,7 @@ const BioBar = () => {
         <div className="absolute inset-0">
           <img
             src={bioBarHeroImg}
-            alt="Bio Bar — Pharmacist-Curated Elixirs"
+            alt="The Bio Bar — Fresh Herbal Drinks"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
@@ -218,14 +215,14 @@ const BioBar = () => {
                 THE BIO BAR
               </p>
               <h1 className="mb-8 font-display text-5xl font-bold leading-[1.1] md:text-7xl">
-                Science You
+                Simple Herbs,
                 <br />
-                <span className="glow-text">Can Sip</span>
+                <span className="glow-text">Real Drinks</span>
               </h1>
               <p className="max-w-lg font-body text-lg leading-relaxed text-muted-foreground">
-                A pharmacist-curated bar blending adaptogenic herbs, electrolyte
-                complexes, nootropics, and botanical extracts into drinks that
-                target inflammation, energy, neurogenesis, and cellular repair.
+                No lab coats. No complicated science. Just fresh herbs — lemongrass,
+                chamomile, hibiscus, aloe, turmeric — mixed with everyday ingredients
+                into drinks that taste incredible and actually make you feel good.
               </p>
             </motion.div>
           </div>
@@ -293,23 +290,22 @@ const BioBar = () => {
               THE PHILOSOPHY
             </p>
             <h2 className="mb-6 font-display text-4xl font-bold md:text-5xl">
-              Herbs first, <span className="glow-text">always</span>
+              Keep it <span className="glow-text">simple</span>
             </h2>
             <p className="font-body text-base leading-relaxed text-muted-foreground">
-              Everything we serve starts with real plants — roots, leaves, bark,
-              and fruit that have been used for generations across West Africa,
-              Ayurveda, and traditional Chinese herbalism. We mix them with
-              simple, everyday ingredients like coconut water, raw honey, fresh
-              citrus, and oat milk to create drinks that taste incredible and
-              actually do something. No synthetic isolates. No lab-coat theatre.
-              Just herbs, prepared with intention, and served with transparency.
+              Every drink at the Bio Bar is made from herbs and ingredients you
+              already know — things your grandmother used, things you can find at
+              any local market. Lemongrass, ginger, hibiscus, chamomile, aloe vera,
+              turmeric. We steep them, blend them, and mix them with honey, lime,
+              mint, and fresh fruit. That's it. No mystery powders, no fancy
+              extracts, no supplements. Just plants and intention.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               {[
-                "Real Herbs & Roots",
-                "Locally Sourced",
-                "Simple Ingredients",
-                "Full Transparency",
+                "Fresh Herbs",
+                "Market Ingredients",
+                "Made On-Site",
+                "Event Exclusive",
               ].map((tag) => (
                 <span
                   key={tag}
@@ -359,7 +355,7 @@ const BioBar = () => {
         </div>
       </section>
 
-      {/* Cacao Note */}
+      {/* Event Note */}
       <section className="section-padding pt-20 lg:pt-28">
         <div className="mx-auto max-w-3xl">
           <motion.div
@@ -367,29 +363,25 @@ const BioBar = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="glass-card border-[hsl(280,70%,70%,0.2)] p-8 md:p-12"
+            className="glass-card border-primary/20 p-8 md:p-12"
           >
             <div className="mb-4 flex items-center gap-3">
-              <Sparkles className="h-5 w-5 text-[hsl(280,70%,70%)]" />
+              <Leaf className="h-5 w-5 text-primary" />
               <h3 className="font-display text-xl font-bold">
-                A Note on the Cacao Ceremony
+                Event Exclusive
               </h3>
             </div>
             <div className="space-y-4 font-body text-sm leading-relaxed text-muted-foreground">
               <p>
-                Ceremonial cacao is not the same as cocoa powder. It's
-                minimally processed, stone-ground cacao paste — rich in
-                theobromine, a gentle heart stimulant that ancient
-                Mesoamerican cultures used in sacred rituals. Combined with
-                ashwagandha (a root used for millennia in Ayurvedic medicine
-                to reduce stress) and a touch of cayenne to open circulation,
-                it creates a deeply grounding experience.
+                The Bio Bar is only available during the CoppahandGold event —
+                March 28th & 29th, 2026 in Abuja. Every drink is prepared fresh
+                on-site using whole herbs and real ingredients. There are no
+                pre-made mixes, no bottled shortcuts.
               </p>
               <p>
-                This isn't about getting "high" — it's about slowing down,
-                breathing deeper, and arriving fully into your body. Think of
-                it as the opposite of a shot of espresso: warmth instead of
-                speed, presence instead of productivity.
+                All drinks are complimentary for event attendees. Come by the
+                bar between sessions, after your matches, or first thing in
+                the morning — we'll have something ready for however you're feeling.
               </p>
             </div>
           </motion.div>
