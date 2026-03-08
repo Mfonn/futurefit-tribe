@@ -302,21 +302,23 @@ const BioBar = () => {
               THE PHILOSOPHY
             </p>
             <h2 className="mb-6 font-display text-4xl font-bold md:text-5xl">
-              Not a <span className="glow-text">juice bar</span>
+              Herbs first, <span className="glow-text">always</span>
             </h2>
             <p className="font-body text-base leading-relaxed text-muted-foreground">
-              Every formula is designed by a licensed pharmacist with clinical
-              dosing, bioavailability-optimised delivery, and ingredients sourced
-              for potency — not marketing. We list every compound, every dose,
-              and the science behind why it's there. No proprietary blends. No
-              pixie-dusting. No guesswork.
+              Everything we serve starts with real plants — roots, leaves, bark,
+              and fruit that have been used for generations across West Africa,
+              Ayurveda, and traditional Chinese herbalism. We mix them with
+              simple, everyday ingredients like coconut water, raw honey, fresh
+              citrus, and oat milk to create drinks that taste incredible and
+              actually do something. No synthetic isolates. No lab-coat theatre.
+              Just herbs, prepared with intention, and served with transparency.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               {[
-                "Clinical Dosing",
-                "Pharmacist-Formulated",
+                "Real Herbs & Roots",
+                "Locally Sourced",
+                "Simple Ingredients",
                 "Full Transparency",
-                "Bioavailability-Optimised",
               ].map((tag) => (
                 <span
                   key={tag}
