@@ -217,7 +217,7 @@ const Pilates = () => {
       </section>
 
       {/* Benefits */}
-      <section className="section-padding">
+      <section className="section-padding pt-28 lg:pt-40">
         <div className="mx-auto max-w-7xl" ref={benefitsRef}>
           <motion.div
             initial={{ opacity: 0, y: 40 }}
