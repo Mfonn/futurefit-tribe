@@ -247,7 +247,7 @@ const Pilates = () => {
       </section>
 
       {/* Pilates Types */}
-      <section className="section-padding relative">
+      <section className="section-padding pt-28 lg:pt-40 relative">
         <div className="absolute left-1/2 top-0 h-px w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
         <div className="mx-auto max-w-7xl">
