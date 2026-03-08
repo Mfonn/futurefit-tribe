@@ -14,7 +14,7 @@ const experiences = [
       "Rally under lights on premium courts. Whether you're a seasoned player or picking up a racket for the first time, our coaches guide you through an electrifying session.",
     image: tennisImg,
     tag: "SPORT",
-    link: null as string | null,
+    link: "/tennis",
   },
   {
     title: "Pilates",
