@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import tennisImg from "@/assets/hero-tennis.jpg";
-import yogaImg from "@/assets/yoga.jpg";
+import pilatesImg from "@/assets/pilates-chair.jpg";
 import bioBarImg from "@/assets/bio-bar.jpg";
 
 const experiences = [
@@ -13,14 +14,16 @@ const experiences = [
       "Rally under lights on premium courts. Whether you're a seasoned player or picking up a racket for the first time, our coaches guide you through an electrifying session.",
     image: tennisImg,
     tag: "SPORT",
+    link: null as string | null,
   },
   {
-    title: "Yoga",
-    subtitle: "Deep Restoration",
+    title: "Pilates",
+    subtitle: "Strength From Within",
     description:
-      "Flow through sequences designed by movement scientists to activate your parasympathetic nervous system — breathe deep, move slow, heal fast.",
-    image: yogaImg,
-    tag: "RESTORATION",
+      "Reformer, Wunda chair & mat sessions designed to rebuild your body from the core out — correcting posture, easing chronic pain, and restoring nervous system balance.",
+    image: pilatesImg,
+    tag: "MOVEMENT",
+    link: "/pilates",
   },
   {
     title: "Bio Bar",
@@ -29,6 +32,7 @@ const experiences = [
       "Our pharmacist-curated bar blends adaptogenic herbs, electrolyte complexes, and botanical extracts into drinks that target inflammation, energy, and cellular repair.",
     image: bioBarImg,
     tag: "NOURISH",
+    link: null as string | null,
   },
 ];
 
@@ -41,6 +45,13 @@ const ExperienceCard = ({
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (experience.link) {
+      navigate(experience.link);
+    }
+  };
 
   return (
     <motion.div
@@ -48,7 +59,8 @@ const ExperienceCard = ({
       initial={{ opacity: 0, y: 60 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: index * 0.2 }}
-      className="group relative overflow-hidden rounded-2xl"
+      className={`group relative overflow-hidden rounded-2xl ${experience.link ? "cursor-pointer" : ""}`}
+      onClick={handleClick}
     >
       <div className="aspect-[4/5] overflow-hidden">
         <img
@@ -72,6 +84,11 @@ const ExperienceCard = ({
         <p className="max-w-sm font-body text-sm leading-relaxed text-muted-foreground opacity-0 transition-opacity duration-500 group-hover:opacity-100">
           {experience.description}
         </p>
+        {experience.link && (
+          <span className="mt-3 inline-block font-body text-xs tracking-[0.2em] text-warm-rose opacity-0 transition-all duration-500 group-hover:opacity-100">
+            EXPLORE PILATES →
+          </span>
+        )}
       </div>
     </motion.div>
   );
