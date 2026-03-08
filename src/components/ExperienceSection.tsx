@@ -81,14 +81,16 @@ const ExperienceCard = ({
         <p className="mb-2 font-display text-base text-primary">
           {experience.subtitle}
         </p>
-        <p className="max-w-sm font-body text-sm leading-relaxed text-muted-foreground opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-          {experience.description}
-        </p>
-        {experience.link && (
-          <span className="mt-3 inline-block font-body text-xs tracking-[0.2em] text-warm-rose opacity-0 transition-all duration-500 group-hover:opacity-100">
-            EXPLORE {experience.title.toUpperCase()} →
-          </span>
-        )}
+        <div className="max-h-0 overflow-hidden transition-all duration-500 group-hover:max-h-40">
+          <p className="mt-2 max-w-sm font-body text-sm leading-relaxed text-muted-foreground">
+            {experience.description}
+          </p>
+          {experience.link && (
+            <span className="mt-3 inline-block font-body text-xs tracking-[0.2em] text-warm-rose">
+              EXPLORE {experience.title.toUpperCase()} →
+            </span>
+          )}
+        </div>
       </div>
     </motion.div>
   );
