@@ -320,13 +320,11 @@ const BioBar = () => {
             </div>
             <div className="space-y-4 font-body text-sm leading-relaxed text-muted-foreground">
               <p>
-                The Bio Bar is only available during the CoppahandGold event —
-                March 28th & 29th, 2026 in Abuja. Every drink is prepared fresh
-                on-site. No pre-made mixes, no bottled shortcuts, no recipes shared online.
+                The Bio Bar exists only at CoppahandGold — March 28 & 29, 2026
+                in Abuja. Prepared fresh. No bottles, no shortcuts, no recipes online.
               </p>
               <p>
-                All drinks are complimentary for event attendees. The only way
-                to taste them is to be in the room.
+                Complimentary for attendees. The only way to taste them is to be there.
               </p>
             </div>
           </motion.div>
