@@ -56,6 +56,7 @@ export default {
         "bio-teal": "hsl(var(--bio-teal))",
         "bio-cyan": "hsl(var(--bio-cyan))",
         "warm-sand": "hsl(var(--warm-sand))",
+        "warm-rose": "hsl(var(--warm-rose))",
       },
       borderRadius: {
         lg: "var(--radius)",

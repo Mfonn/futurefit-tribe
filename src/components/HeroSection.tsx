@@ -55,10 +55,18 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
-              className="mb-10 max-w-md font-body text-lg leading-relaxed text-muted-foreground"
+              className="mb-4 max-w-md font-body text-lg leading-relaxed text-muted-foreground"
             >
-              A wellness experience fusing competitive tennis, restorative yoga, 
-              and a bio-engineered herbal bar — designed to unlock your body's potential.
+              Two days of competitive tennis, deep restoration yoga, 
+              and a bio-engineered herbal bar — designed to unlock your body's full potential.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.1 }}
+              className="mb-10 inline-block rounded-full border border-warm-rose/30 bg-warm-rose/5 px-4 py-2 font-body text-sm text-warm-rose"
+            >
+              ✦ A two-day experience curated for movement, wellness & community
             </motion.p>
 
             <motion.div
