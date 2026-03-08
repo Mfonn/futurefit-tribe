@@ -195,7 +195,7 @@ const BioBar = () => {
         <div className="absolute inset-0">
           <img
             src={bioBarHeroImg}
-            alt="Bio Bar — Pharmacist-Curated Elixirs"
+            alt="The Bio Bar — Fresh Herbal Drinks"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
@@ -217,14 +217,14 @@ const BioBar = () => {
                 THE BIO BAR
               </p>
               <h1 className="mb-8 font-display text-5xl font-bold leading-[1.1] md:text-7xl">
-                Science You
+                Simple Herbs,
                 <br />
-                <span className="glow-text">Can Sip</span>
+                <span className="glow-text">Real Drinks</span>
               </h1>
               <p className="max-w-lg font-body text-lg leading-relaxed text-muted-foreground">
-                A pharmacist-curated bar blending adaptogenic herbs, electrolyte
-                complexes, nootropics, and botanical extracts into drinks that
-                target inflammation, energy, neurogenesis, and cellular repair.
+                No lab coats. No complicated science. Just fresh herbs — lemongrass,
+                chamomile, hibiscus, aloe, turmeric — mixed with everyday ingredients
+                into drinks that taste incredible and actually make you feel good.
               </p>
             </motion.div>
           </div>
