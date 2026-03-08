@@ -60,8 +60,8 @@ const pilatesTypes = [
     level: "Beginner to Advanced",
     image: pilatesReformerImg,
     description:
-      "The reformer is the crown jewel of Pilates apparatus. Using adjustable spring resistance on a sliding carriage, it creates a full-body workout that lengthens, strengthens, and sculpts — all while being gentle on your joints.",
-    highlights: ["Full-body sculpting", "Joint-friendly resistance", "Spinal decompression", "Muscle lengthening"],
+      "The reformer is the crown jewel of Pilates apparatus. Using adjustable spring resistance on a sliding carriage, it creates a full-body workout that lengthens, strengthens, and sculpts. Our classes run in a structured program format — so you can clearly see your progressions from beginner to advanced.",
+    highlights: ["Full-body sculpting", "Joint-friendly resistance", "Clear level progression", "Muscle lengthening"],
   },
   {
     title: "Mat Pilates",
