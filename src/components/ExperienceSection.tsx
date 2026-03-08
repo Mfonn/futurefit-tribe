@@ -17,7 +17,7 @@ const experiences = [
     link: "/tennis",
   },
   {
-    title: "Mat Pilates & Yoga",
+    title: "Pilates & Yoga",
     subtitle: "Move. Breathe. Restore.",
     description:
       "Expert-guided mat Pilates and yoga sessions designed to ground your body, calm your nervous system, and complement the energy of the full event experience.",
