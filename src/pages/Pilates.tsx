@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Heart, Brain, Bone, Wind, Sparkles, Shield } from "lucide-react";
-import pilatesHeroImg from "@/assets/pilates-hero.jpg";
+import pilatesHeroVideo from "@/assets/pilates-hero.mp4";
 import pilatesChairImg from "@/assets/pilates-chair.jpg";
 import pilatesReformerImg from "@/assets/pilates-reformer.jpg";
 import pilatesMatImg from "@/assets/pilates-mat.jpg";
