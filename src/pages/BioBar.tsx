@@ -8,7 +8,6 @@ import {
   Heart,
   Sparkles,
   Droplets,
-  TreePine,
   Clock,
   Sun,
 } from "lucide-react";
@@ -26,13 +25,8 @@ const drinks = [
     tagColor: "text-warm-rose",
     tagBorder: "border-warm-rose/30 bg-warm-rose/5",
     description:
-      "Dried rosebuds steeped in hot water, cooled down and mixed with fresh lemon juice, raw honey, and a splash of sparkling water. Floral, light, and genuinely refreshing — the kind of drink that makes you close your eyes and exhale.",
-    ingredients: [
-      { name: "Dried Rosebuds", amount: "1 tbsp steeped", note: "Mildly calming, rich in Vitamin C, and traditionally used to ease tension and support skin health" },
-      { name: "Fresh Lemon Juice", amount: "½ lemon", note: "Alkalising, aids digestion, and adds a bright citrus backbone" },
-      { name: "Raw Honey", amount: "1 tbsp", note: "Natural sweetener with antibacterial properties — much gentler than refined sugar" },
-      { name: "Sparkling Water", amount: "150ml", note: "Adds fizz and makes it feel like a proper occasion" },
-    ],
+      "A floral, sparkling blend built around dried rosebuds and fresh citrus. Light enough for the afternoon, refreshing enough to make you forget it's good for you.",
+    highlights: ["Calming", "Vitamin C boost", "Naturally sparkling"],
     icon: Heart,
   },
   {
@@ -41,13 +35,8 @@ const drinks = [
     tagColor: "text-[hsl(var(--bio-cyan))]",
     tagBorder: "border-[hsl(var(--bio-cyan)/0.3)] bg-[hsl(var(--bio-cyan)/0.05)]",
     description:
-      "Fresh lemongrass stalks simmered with sliced ginger root, sweetened with a touch of honey and served warm or over ice. A simple, aromatic drink that wakes up your senses and settles your stomach — perfect for Day Two mornings.",
-    ingredients: [
-      { name: "Fresh Lemongrass", amount: "2 stalks, bruised", note: "Citrusy and aromatic — traditionally used to aid digestion, reduce bloating, and calm nerves" },
-      { name: "Fresh Ginger Root", amount: "1-inch knob, sliced", note: "Warming, anti-nausea, and helps reduce inflammation after physical activity" },
-      { name: "Raw Honey", amount: "1 tsp", note: "Rounds out the sharp ginger and adds natural enzymes" },
-      { name: "Hot or Iced Water", amount: "250ml", note: "Served your way — warm for mornings, iced for afternoons" },
-    ],
+      "Aromatic and warming — our morning wake-up call. Fresh lemongrass meets ginger in a brew that settles your stomach and sharpens your focus for Day Two.",
+    highlights: ["Digestive support", "Anti-inflammatory", "Morning energy"],
     icon: Zap,
   },
   {
@@ -56,13 +45,8 @@ const drinks = [
     tagColor: "text-[hsl(var(--warm-sand))]",
     tagBorder: "border-[hsl(var(--warm-sand)/0.3)] bg-[hsl(var(--warm-sand)/0.05)]",
     description:
-      "Whole chamomile flowers steeped with a cinnamon stick and a slice of fresh orange. Gentle, golden, and designed for the evening — after the matches, after the movement, when it's time to just sit and breathe.",
-    ingredients: [
-      { name: "Dried Chamomile Flowers", amount: "2 tbsp", note: "One of the oldest calming herbs — eases anxiety, promotes sleep, and soothes the digestive tract" },
-      { name: "Cinnamon Stick", amount: "1 stick", note: "Adds warmth and helps regulate blood sugar after a long active day" },
-      { name: "Fresh Orange Slice", amount: "2 rounds", note: "Natural sweetness, Vitamin C, and a lovely citrus aroma" },
-      { name: "Raw Honey (optional)", amount: "1 tsp", note: "For those who like it a touch sweeter" },
-    ],
+      "Golden, gentle, and designed for the evening. After the matches, after the movement — this is the one that tells your body it's time to breathe.",
+    highlights: ["Eases tension", "Promotes restful sleep", "Soothes digestion"],
     icon: Sparkles,
   },
   {
@@ -71,13 +55,8 @@ const drinks = [
     tagColor: "text-[hsl(var(--bio-green))]",
     tagBorder: "border-[hsl(var(--bio-green)/0.3)] bg-[hsl(var(--bio-green)/0.05)]",
     description:
-      "Fresh aloe vera gel scooped straight from the leaf, blended with cucumber, fresh mint, and lime juice. Clean, cooling, and incredibly hydrating — your gut will thank you.",
-    ingredients: [
-      { name: "Fresh Aloe Vera Gel", amount: "2 tbsp", note: "Soothes the gut lining, reduces bloating, and supports hydration from the inside out" },
-      { name: "Cucumber", amount: "¼ cucumber, blended", note: "92% water, naturally cooling, and packed with silica for skin and joint health" },
-      { name: "Fresh Mint Leaves", amount: "6-8 leaves", note: "Opens up the airways, freshens the palate, and aids digestion" },
-      { name: "Fresh Lime Juice", amount: "½ lime", note: "Bright acidity that ties everything together and adds Vitamin C" },
-    ],
+      "Clean, cooling, and incredibly hydrating. Built around fresh aloe vera and garden mint — your gut will thank you, and your skin will notice.",
+    highlights: ["Gut-soothing", "Deep hydration", "Cooling effect"],
     icon: Leaf,
   },
   {
@@ -86,13 +65,8 @@ const drinks = [
     tagColor: "text-primary",
     tagBorder: "border-primary/30 bg-primary/5",
     description:
-      "The classic Nigerian zobo — dried hibiscus flowers boiled with cloves, ginger, and a pinch of black pepper, then chilled and sweetened with pineapple juice. Deep red, tangy, and packed with natural compounds that help your body recover after hours of play.",
-    ingredients: [
-      { name: "Dried Hibiscus Flowers", amount: "3 tbsp boiled", note: "Rich in antioxidants and anthocyanins — naturally lowers blood pressure and reduces muscle soreness" },
-      { name: "Whole Cloves & Black Pepper", amount: "3 cloves + pinch", note: "Cloves are anti-inflammatory; black pepper boosts absorption of everything else" },
-      { name: "Fresh Ginger", amount: "½-inch knob", note: "Adds a spicy kick and supports digestion" },
-      { name: "Pineapple Juice", amount: "100ml", note: "Natural sweetener loaded with bromelain — an enzyme that helps reduce swelling and aids recovery" },
-    ],
+      "The classic Nigerian zobo, elevated. Deep red, tangy, and packed with natural compounds that help your body bounce back after hours of play.",
+    highlights: ["Rich in antioxidants", "Muscle recovery", "Naturally tangy"],
     icon: Droplets,
   },
   {
@@ -101,16 +75,12 @@ const drinks = [
     tagColor: "text-[hsl(280,70%,70%)]",
     tagBorder: "border-[hsl(280,70%,70%,0.3)] bg-[hsl(280,70%,70%,0.05)]",
     description:
-      "Warm milk (dairy or oat) infused with fresh turmeric root, a crack of black pepper, cinnamon, and a drizzle of honey. An ancient Ayurvedic recipe that soothes inflammation, calms the nervous system, and tastes like a warm hug. Best served on Day One evening.",
-    ingredients: [
-      { name: "Fresh Turmeric Root", amount: "1-inch knob, grated", note: "Contains curcumin — a powerful natural anti-inflammatory used for thousands of years" },
-      { name: "Black Pepper", amount: "1 crack", note: "Increases curcumin absorption by up to 2,000% — tiny but essential" },
-      { name: "Cinnamon & Honey", amount: "½ tsp + 1 tbsp", note: "Cinnamon regulates blood sugar; honey adds sweetness and antimicrobial benefits" },
-      { name: "Warm Milk (Dairy or Oat)", amount: "200ml", note: "Creamy base that makes this feel like dessert — choose what suits you" },
-    ],
+      "An ancient recipe reimagined for the evening. Warm, creamy, and built around fresh turmeric root — it soothes inflammation and tastes like a warm hug.",
+    highlights: ["Anti-inflammatory", "Calms the nervous system", "Warming"],
     icon: Sun,
   },
 ];
+
 const DrinkCard = ({ drink, index }: { drink: (typeof drinks)[0]; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
@@ -139,31 +109,16 @@ const DrinkCard = ({ drink, index }: { drink: (typeof drinks)[0]; index: number 
           {drink.description}
         </p>
 
-        <div className="space-y-3">
-          <p className="flex items-center gap-2 font-body text-xs tracking-[0.15em] text-foreground/60">
-            <TreePine className="h-3.5 w-3.5" />
-            WHAT'S IN IT
-          </p>
-          {drink.ingredients.map((ing) => (
-            <div
-              key={ing.name}
-              className="flex items-start justify-between gap-4 rounded-lg border border-border/30 bg-background/50 px-4 py-3"
+        <div className="flex flex-wrap gap-2">
+          {drink.highlights.map((h) => (
+            <span
+              key={h}
+              className="rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 font-body text-xs text-primary"
             >
-              <div className="min-w-0">
-                <p className="font-body text-sm font-medium text-foreground">
-                  {ing.name}
-                </p>
-                <p className="mt-0.5 font-body text-xs text-muted-foreground">
-                  {ing.note}
-                </p>
-              </div>
-              <span className="shrink-0 rounded-full border border-primary/20 bg-primary/5 px-2.5 py-0.5 font-body text-xs font-medium text-primary">
-                {ing.amount}
-              </span>
-            </div>
+              {h}
+            </span>
           ))}
         </div>
-
       </div>
     </motion.div>
   );
@@ -217,12 +172,12 @@ const BioBar = () => {
               <h1 className="mb-8 font-display text-5xl font-bold leading-[1.1] md:text-7xl">
                 Simple Herbs,
                 <br />
-                <span className="glow-text">Real Drinks</span>
+                <span className="glow-text">Real Results</span>
               </h1>
               <p className="max-w-lg font-body text-lg leading-relaxed text-muted-foreground">
-                No lab coats. No complicated science. Just fresh herbs — lemongrass,
-                chamomile, hibiscus, aloe, turmeric — mixed with everyday ingredients
-                into drinks that taste incredible and actually make you feel good.
+                Fresh herbs. Familiar ingredients. Drinks made on-site that taste
+                incredible and actually make you feel something. Come taste the
+                difference — the recipes stay with us.
               </p>
             </motion.div>
           </div>
@@ -290,22 +245,21 @@ const BioBar = () => {
               THE PHILOSOPHY
             </p>
             <h2 className="mb-6 font-display text-4xl font-bold md:text-5xl">
-              Keep it <span className="glow-text">simple</span>
+              Herbs you know, <span className="glow-text">results you'll feel</span>
             </h2>
             <p className="font-body text-base leading-relaxed text-muted-foreground">
-              Every drink at the Bio Bar is made from herbs and ingredients you
-              already know — things your grandmother used, things you can find at
-              any local market. Lemongrass, ginger, hibiscus, chamomile, aloe vera,
-              turmeric. We steep them, blend them, and mix them with honey, lime,
-              mint, and fresh fruit. That's it. No mystery powders, no fancy
-              extracts, no supplements. Just plants and intention.
+              Everything at the Bio Bar starts with herbs your grandmother used —
+              lemongrass, ginger, hibiscus, chamomile, turmeric, aloe vera. We mix
+              them with everyday ingredients into drinks that taste amazing. How we
+              blend them, what ratios we use, and the little details that make each
+              one hit differently? You'll have to show up to find out.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               {[
                 "Fresh Herbs",
-                "Market Ingredients",
                 "Made On-Site",
                 "Event Exclusive",
+                "Recipes Stay With Us",
               ].map((tag) => (
                 <span
                   key={tag}
@@ -341,9 +295,8 @@ const BioBar = () => {
               What's <span className="glow-text">on tap</span>
             </h2>
             <p className="mx-auto max-w-2xl font-body text-base text-muted-foreground">
-              Six herbal blends — each built around real plants mixed with
-              everyday ingredients you'd find in any kitchen. We tell you
-              exactly what's in each glass and why it's there.
+              Six herbal blends — each built around real plants you already know.
+              We'll tell you what it does. The recipe? That's ours.
             </p>
           </motion.div>
 
@@ -368,20 +321,18 @@ const BioBar = () => {
             <div className="mb-4 flex items-center gap-3">
               <Leaf className="h-5 w-5 text-primary" />
               <h3 className="font-display text-xl font-bold">
-                Event Exclusive
+                You Have to Be There
               </h3>
             </div>
             <div className="space-y-4 font-body text-sm leading-relaxed text-muted-foreground">
               <p>
                 The Bio Bar is only available during the CoppahandGold event —
                 March 28th & 29th, 2026 in Abuja. Every drink is prepared fresh
-                on-site using whole herbs and real ingredients. There are no
-                pre-made mixes, no bottled shortcuts.
+                on-site. No pre-made mixes, no bottled shortcuts, no recipes shared online.
               </p>
               <p>
-                All drinks are complimentary for event attendees. Come by the
-                bar between sessions, after your matches, or first thing in
-                the morning — we'll have something ready for however you're feeling.
+                All drinks are complimentary for event attendees. The only way
+                to taste them is to be in the room.
               </p>
             </div>
           </motion.div>
@@ -401,11 +352,12 @@ const BioBar = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="mb-6 font-display text-4xl font-bold md:text-5xl">
-              Drink with <span className="glow-text">intention</span>
+              Taste it <span className="glow-text">yourself</span>
             </h2>
             <p className="mb-10 font-body text-base leading-relaxed text-muted-foreground">
               The Bio Bar is part of the full CoppahandGold experience.
-              March 28th & 29th, 2026 in Abuja. Every sip is included.
+              March 28th & 29th, 2026 in Abuja. Every sip is included —
+              but you have to be there.
             </p>
             <a
               href="/#rsvp"
