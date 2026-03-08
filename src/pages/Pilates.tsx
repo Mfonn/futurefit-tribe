@@ -283,16 +283,17 @@ const Pilates = () => {
             <div className="mb-4 flex items-center justify-center gap-2">
               <BookOpen className="h-4 w-4 text-primary" />
               <p className="font-body text-sm tracking-[0.3em] text-primary">
-                LEARN & EXPERIENCE
+                LEARN & DISCOVER
               </p>
             </div>
             <h2 className="mb-4 font-display text-4xl font-bold md:text-5xl">
               Beyond the <span className="glow-text">mat</span>
             </h2>
             <p className="mx-auto max-w-2xl font-body text-base text-muted-foreground">
-              Alongside your movement sessions, we're hosting educational demos on 
-              advanced Pilates equipment — so you can see what a deeper practice looks 
-              like and understand the science behind each apparatus.
+              Alongside your movement sessions, we're hosting educational sessions on 
+              advanced Pilates disciplines — so you can understand how a deeper practice 
+              works, explore the science behind each method, and discover pathways to 
+              continue your journey beyond the event.
             </p>
           </motion.div>
 
