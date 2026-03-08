@@ -50,19 +50,19 @@ const eventHighlights = [
 const educationalSections = [
   {
     title: "Wunda Chair",
-    level: "Educational Demo",
+    level: "Educational Session",
     image: pilatesChairImg,
     description:
-      "During our educational sessions, you'll see the Wunda chair in action — a compact, spring-loaded apparatus that challenges deep stabilizer muscles and builds functional power. Our instructors will walk you through how structured chair programs can transform core strength and postural alignment over time.",
-    highlights: ["Live demonstration", "Core science explained", "Progression pathways", "Q&A with instructors"],
+      "In our educational sessions, you'll learn about the Wunda chair — a compact, spring-loaded apparatus that challenges deep stabilizer muscles and builds functional power. Our instructors will break down how structured chair programs can transform core strength and postural alignment, giving you a clear picture of what a deeper Pilates practice looks like.",
+    highlights: ["How it works", "Core science explained", "Progression pathways", "Q&A with instructors"],
   },
   {
     title: "Reformer Pilates",
-    level: "Educational Demo",
+    level: "Educational Session",
     image: pilatesReformerImg,
     description:
-      "The reformer is the crown jewel of Pilates apparatus. You'll learn how adjustable spring resistance on a sliding carriage creates a full-body workout that lengthens, strengthens, and sculpts — and why a structured reformer program is one of the most effective tools for long-term body transformation.",
-    highlights: ["Apparatus walkthrough", "Benefits breakdown", "Program structure", "Instructor-led Q&A"],
+      "The reformer is the crown jewel of Pilates apparatus. Through our educational sessions, you'll understand how adjustable spring resistance on a sliding carriage creates a full-body workout that lengthens, strengthens, and sculpts — and why a structured reformer program is one of the most effective tools for long-term body transformation.",
+    highlights: ["How it works", "Benefits breakdown", "Program structure", "Instructor-led Q&A"],
   },
   {
     title: "Mat Pilates & Yoga",
