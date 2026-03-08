@@ -14,69 +14,69 @@ import {
 import bioBarHeroImg from "@/assets/biobar-hero.jpg";
 
 const schedule = [
-  { day: "Day One — March 28", time: "4:00 PM – Late", vibe: "Post-match cool-down. Light, refreshing sips to ease you into the evening." },
-  { day: "Day Two — March 29", time: "7:00 AM – 10:00 AM", vibe: "Morning wake-up. Warm brews and fresh tonics to start the day right." },
+  { day: "Day One — March 28", time: "4:00 PM – Late", vibe: "Post-match cool-down. Light, cooling sips." },
+  { day: "Day Two — March 29", time: "7:00 AM – 10:00 AM", vibe: "Morning reset. Warm brews, sharp focus." },
 ];
 
 const drinks = [
   {
-    name: "Rosebud Lemonade",
+    name: "Petal",
     category: "REFRESH",
     tagColor: "text-warm-rose",
     tagBorder: "border-warm-rose/30 bg-warm-rose/5",
     description:
-      "A floral, sparkling blend built around dried rosebuds and fresh citrus. Light enough for the afternoon, refreshing enough to make you forget it's good for you.",
-    highlights: ["Calming", "Vitamin C boost", "Naturally sparkling"],
+      "Floral, sparkling, deceptively simple. Built around botanicals that calm without sedating.",
+    highlights: ["Calming", "Vitamin C", "Sparkling"],
     icon: Heart,
   },
   {
-    name: "Lemongrass Ginger Brew",
+    name: "Root",
     category: "ENERGY",
     tagColor: "text-[hsl(var(--bio-cyan))]",
     tagBorder: "border-[hsl(var(--bio-cyan)/0.3)] bg-[hsl(var(--bio-cyan)/0.05)]",
     description:
-      "Aromatic and warming — our morning wake-up call. Fresh lemongrass meets ginger in a brew that settles your stomach and sharpens your focus for Day Two.",
-    highlights: ["Digestive support", "Anti-inflammatory", "Morning energy"],
+      "Aromatic and warming. A morning formula designed to sharpen focus and settle digestion.",
+    highlights: ["Digestive support", "Anti-inflammatory", "Focus"],
     icon: Zap,
   },
   {
-    name: "Chamomile Calm",
+    name: "Dusk",
     category: "WIND DOWN",
     tagColor: "text-[hsl(var(--warm-sand))]",
     tagBorder: "border-[hsl(var(--warm-sand)/0.3)] bg-[hsl(var(--warm-sand)/0.05)]",
     description:
-      "Golden, gentle, and designed for the evening. After the matches, after the movement — this is the one that tells your body it's time to breathe.",
-    highlights: ["Eases tension", "Promotes restful sleep", "Soothes digestion"],
+      "Golden and gentle. The one that tells your body the day is done.",
+    highlights: ["Eases tension", "Restful sleep", "Soothes digestion"],
     icon: Sparkles,
   },
   {
-    name: "Aloe Mint Cooler",
+    name: "Verde",
     category: "GUT HEALTH",
     tagColor: "text-[hsl(var(--bio-green))]",
     tagBorder: "border-[hsl(var(--bio-green)/0.3)] bg-[hsl(var(--bio-green)/0.05)]",
     description:
-      "Clean, cooling, and incredibly hydrating. Built around fresh aloe vera and garden mint — your gut will thank you, and your skin will notice.",
-    highlights: ["Gut-soothing", "Deep hydration", "Cooling effect"],
+      "Clean, cooling, intensely hydrating. Your gut notices first. Your skin notices next.",
+    highlights: ["Gut-soothing", "Deep hydration", "Cooling"],
     icon: Leaf,
   },
   {
-    name: "Hibiscus Zobo",
+    name: "Signal",
     category: "RECOVERY",
     tagColor: "text-primary",
     tagBorder: "border-primary/30 bg-primary/5",
     description:
-      "The classic Nigerian zobo, elevated. Deep red, tangy, and packed with natural compounds that help your body bounce back after hours of play.",
-    highlights: ["Rich in antioxidants", "Muscle recovery", "Naturally tangy"],
+      "Deep, tangy, built for bounce-back. Natural compounds that help your body recover after hours of play.",
+    highlights: ["Antioxidant-rich", "Muscle recovery", "Tangy"],
     icon: Droplets,
   },
   {
-    name: "Turmeric Golden Milk",
+    name: "Ember",
     category: "RESTORE",
     tagColor: "text-[hsl(280,70%,70%)]",
     tagBorder: "border-[hsl(280,70%,70%,0.3)] bg-[hsl(280,70%,70%,0.05)]",
     description:
-      "An ancient recipe reimagined for the evening. Warm, creamy, and built around fresh turmeric root — it soothes inflammation and tastes like a warm hug.",
-    highlights: ["Anti-inflammatory", "Calms the nervous system", "Warming"],
+      "Warm, creamy, ancient. Soothes inflammation and tastes like something you'd pay too much for elsewhere.",
+    highlights: ["Anti-inflammatory", "Nervous system", "Warming"],
     icon: Sun,
   },
 ];
