@@ -354,9 +354,9 @@ const BioBar = () => {
               What's <span className="glow-text">on tap</span>
             </h2>
             <p className="mx-auto max-w-2xl font-body text-base text-muted-foreground">
-              Six pharmacist-designed formulations — each targeting a specific
-              biological system. Full ingredient transparency, clinical dosing,
-              and the reasoning behind every compound.
+              Six herbal blends — each built around real plants mixed with
+              everyday ingredients you'd find in any kitchen. We tell you
+              exactly what's in each glass and why it's there.
             </p>
           </motion.div>
 
