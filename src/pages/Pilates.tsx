@@ -50,19 +50,19 @@ const eventHighlights = [
 const educationalSections = [
   {
     title: "Wunda Chair",
-    level: "Educational Demo",
+    level: "Educational Session",
     image: pilatesChairImg,
     description:
-      "During our educational sessions, you'll see the Wunda chair in action — a compact, spring-loaded apparatus that challenges deep stabilizer muscles and builds functional power. Our instructors will walk you through how structured chair programs can transform core strength and postural alignment over time.",
-    highlights: ["Live demonstration", "Core science explained", "Progression pathways", "Q&A with instructors"],
+      "In our educational sessions, you'll learn about the Wunda chair — a compact, spring-loaded apparatus that challenges deep stabilizer muscles and builds functional power. Our instructors will break down how structured chair programs can transform core strength and postural alignment, giving you a clear picture of what a deeper Pilates practice looks like.",
+    highlights: ["How it works", "Core science explained", "Progression pathways", "Q&A with instructors"],
   },
   {
     title: "Reformer Pilates",
-    level: "Educational Demo",
+    level: "Educational Session",
     image: pilatesReformerImg,
     description:
-      "The reformer is the crown jewel of Pilates apparatus. You'll learn how adjustable spring resistance on a sliding carriage creates a full-body workout that lengthens, strengthens, and sculpts — and why a structured reformer program is one of the most effective tools for long-term body transformation.",
-    highlights: ["Apparatus walkthrough", "Benefits breakdown", "Program structure", "Instructor-led Q&A"],
+      "The reformer is the crown jewel of Pilates apparatus. Through our educational sessions, you'll understand how adjustable spring resistance on a sliding carriage creates a full-body workout that lengthens, strengthens, and sculpts — and why a structured reformer program is one of the most effective tools for long-term body transformation.",
+    highlights: ["How it works", "Benefits breakdown", "Program structure", "Instructor-led Q&A"],
   },
   {
     title: "Mat Pilates & Yoga",
@@ -283,16 +283,17 @@ const Pilates = () => {
             <div className="mb-4 flex items-center justify-center gap-2">
               <BookOpen className="h-4 w-4 text-primary" />
               <p className="font-body text-sm tracking-[0.3em] text-primary">
-                LEARN & EXPERIENCE
+                LEARN & DISCOVER
               </p>
             </div>
             <h2 className="mb-4 font-display text-4xl font-bold md:text-5xl">
               Beyond the <span className="glow-text">mat</span>
             </h2>
             <p className="mx-auto max-w-2xl font-body text-base text-muted-foreground">
-              Alongside your movement sessions, we're hosting educational demos on 
-              advanced Pilates equipment — so you can see what a deeper practice looks 
-              like and understand the science behind each apparatus.
+              Alongside your movement sessions, we're hosting educational sessions on 
+              advanced Pilates disciplines — so you can understand how a deeper practice 
+              works, explore the science behind each method, and discover pathways to 
+              continue your journey beyond the event.
             </p>
           </motion.div>
 
