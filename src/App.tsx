@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Pilates from "./pages/Pilates";
 import Tennis from "./pages/Tennis";
+import BioBar from "./pages/BioBar";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
