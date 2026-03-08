@@ -17,7 +17,7 @@ const experiences = [
     link: "/tennis",
   },
   {
-    title: "Mat Pilates & Yoga",
+    title: "Pilates & Yoga",
     subtitle: "Move. Breathe. Restore.",
     description:
       "Expert-guided mat Pilates and yoga sessions designed to ground your body, calm your nervous system, and complement the energy of the full event experience.",
@@ -66,29 +66,31 @@ const ExperienceCard = ({
         <img
           src={experience.image}
           alt={experience.title}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background from-30% via-background/70 via-60% to-transparent" />
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-        <span className="mb-3 inline-block rounded-full border border-primary/30 px-3 py-1 font-body text-xs tracking-[0.2em] text-primary">
+      <div className="absolute bottom-0 left-0 right-0 flex flex-col justify-end p-6 md:p-8">
+        <span className="mb-3 inline-block w-fit rounded-full border border-primary/30 px-3 py-1 font-body text-xs tracking-[0.2em] text-primary">
           {experience.tag}
         </span>
-        <h3 className="mb-1 font-display text-3xl font-bold md:text-4xl">
+        <h3 className="mb-1 font-display text-2xl font-bold md:text-3xl">
           {experience.title}
         </h3>
-        <p className="mb-3 font-display text-lg text-primary">
+        <p className="mb-2 font-display text-base text-primary">
           {experience.subtitle}
         </p>
-        <p className="max-w-sm font-body text-sm leading-relaxed text-muted-foreground opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-          {experience.description}
-        </p>
-        {experience.link && (
-          <span className="mt-3 inline-block font-body text-xs tracking-[0.2em] text-warm-rose opacity-0 transition-all duration-500 group-hover:opacity-100">
-            EXPLORE {experience.title.toUpperCase()} →
-          </span>
-        )}
+        <div className="max-h-0 overflow-hidden transition-all duration-500 group-hover:max-h-40">
+          <p className="mt-2 max-w-sm font-body text-sm leading-relaxed text-muted-foreground">
+            {experience.description}
+          </p>
+          {experience.link && (
+            <span className="mt-3 inline-block font-body text-xs tracking-[0.2em] text-warm-rose">
+              EXPLORE {experience.title.toUpperCase()} →
+            </span>
+          )}
+        </div>
       </div>
     </motion.div>
   );
