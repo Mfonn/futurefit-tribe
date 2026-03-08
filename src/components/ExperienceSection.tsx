@@ -17,11 +17,11 @@ const experiences = [
     link: "/tennis",
   },
   {
-    title: "Pilates",
-    subtitle: "Strength From Within",
+    title: "Mat Pilates & Yoga",
+    subtitle: "Move. Breathe. Restore.",
     description:
-      "Reformer, Wunda chair & mat sessions designed to rebuild your body from the core out — correcting posture, easing chronic pain, and restoring nervous system balance.",
-    image: pilatesImg,
+      "Expert-guided mat Pilates and yoga sessions designed to ground your body, calm your nervous system, and complement the energy of the full event experience.",
+    image: yogaImg,
     tag: "MOVEMENT",
     link: "/pilates",
   },
