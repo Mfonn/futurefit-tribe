@@ -269,7 +269,7 @@ const Pilates = () => {
             </p>
           </motion.div>
 
-          <div className="space-y-24">
+          <div className="space-y-32">
             {pilatesTypes.map((type, i) => (
               <PilatesTypeSection
                 key={type.title}
