@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Heart, Brain, Bone, Wind, Sparkles, Shield } from "lucide-react";
-import pilatesHeroImg from "@/assets/pilates-hero.jpg";
+import pilatesHeroVideo from "@/assets/pilates-hero.mp4";
 import pilatesChairImg from "@/assets/pilates-chair.jpg";
 import pilatesReformerImg from "@/assets/pilates-reformer.jpg";
 import pilatesMatImg from "@/assets/pilates-mat.jpg";
@@ -174,9 +174,12 @@ const Pilates = () => {
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-[70vh] overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={pilatesHeroImg}
-            alt="CoppahandGold Pilates studio"
+          <video
+            src={pilatesHeroVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
