@@ -68,8 +68,8 @@ const pilatesTypes = [
     level: "Beginner to Advanced",
     image: pilatesMatImg,
     description:
-      "Where it all began. Mat Pilates uses your own body weight as resistance, making it accessible anywhere. Don't let the simplicity fool you — mastering mat work builds incredible core strength and body control.",
-    highlights: ["No equipment needed", "Core foundation", "Flexibility", "Body awareness"],
+      "Where it all began. Mat Pilates uses your own body weight as resistance, making it accessible anywhere. Don't let the simplicity fool you — mastering mat work builds incredible core strength and body control. Each program level builds on the last, so your growth is visible and measurable.",
+    highlights: ["No equipment needed", "Core foundation", "Structured programs", "Body awareness"],
   },
 ];
 
