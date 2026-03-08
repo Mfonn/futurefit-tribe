@@ -162,7 +162,7 @@ const DrinkCard = ({ drink, index }: { drink: (typeof drinks)[0]; index: number 
                 </p>
               </div>
               <span className="shrink-0 rounded-full border border-primary/20 bg-primary/5 px-2.5 py-0.5 font-body text-xs font-medium text-primary">
-                {ing.dose}
+                {ing.amount}
               </span>
             </div>
           ))}
