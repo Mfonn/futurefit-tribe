@@ -173,12 +173,9 @@ const Pilates = () => {
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-[80vh] overflow-hidden">
         <div className="absolute inset-0">
-          <video
-            src={pilatesHeroVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
+          <img
+            src={pilatesHeroImg}
+            alt="Mat Pilates & Yoga"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
