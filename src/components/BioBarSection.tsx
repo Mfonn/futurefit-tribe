@@ -57,11 +57,11 @@ const BioBarSection = () => {
             </div>
             <div className="absolute -bottom-4 -right-4 rounded-xl glow-border bg-card p-4 md:p-6">
               <p className="font-body text-xs tracking-[0.2em] text-primary">
-                PHARMACIST CURATED
+                FRESHLY MADE
               </p>
-              <p className="mt-1 font-display text-2xl font-bold">12+</p>
+              <p className="mt-1 font-display text-2xl font-bold">6</p>
               <p className="font-body text-sm text-muted-foreground">
-                Functional Elixirs
+                Herbal Drinks
               </p>
             </div>
           </motion.div>
