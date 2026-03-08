@@ -292,23 +292,22 @@ const BioBar = () => {
               THE PHILOSOPHY
             </p>
             <h2 className="mb-6 font-display text-4xl font-bold md:text-5xl">
-              Herbs first, <span className="glow-text">always</span>
+              Keep it <span className="glow-text">simple</span>
             </h2>
             <p className="font-body text-base leading-relaxed text-muted-foreground">
-              Everything we serve starts with real plants — roots, leaves, bark,
-              and fruit that have been used for generations across West Africa,
-              Ayurveda, and traditional Chinese herbalism. We mix them with
-              simple, everyday ingredients like coconut water, raw honey, fresh
-              citrus, and oat milk to create drinks that taste incredible and
-              actually do something. No synthetic isolates. No lab-coat theatre.
-              Just herbs, prepared with intention, and served with transparency.
+              Every drink at the Bio Bar is made from herbs and ingredients you
+              already know — things your grandmother used, things you can find at
+              any local market. Lemongrass, ginger, hibiscus, chamomile, aloe vera,
+              turmeric. We steep them, blend them, and mix them with honey, lime,
+              mint, and fresh fruit. That's it. No mystery powders, no fancy
+              extracts, no supplements. Just plants and intention.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               {[
-                "Real Herbs & Roots",
-                "Locally Sourced",
-                "Simple Ingredients",
-                "Full Transparency",
+                "Fresh Herbs",
+                "Market Ingredients",
+                "Made On-Site",
+                "Event Exclusive",
               ].map((tag) => (
                 <span
                   key={tag}
