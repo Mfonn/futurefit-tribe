@@ -68,7 +68,7 @@ const ExperienceCard = ({
           alt={experience.title}
           className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background from-30% via-background/70 via-60% to-transparent" />
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 flex flex-col justify-end p-6 md:p-8">
