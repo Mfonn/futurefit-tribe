@@ -15,7 +15,7 @@ const RSVPSection = () => {
     <section id="rsvp" className="section-padding relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute left-1/4 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-primary/5 blur-[120px]" />
-      <div className="absolute right-1/4 top-1/3 h-60 w-60 rounded-full bg-bio-teal/5 blur-[100px]" />
+      <div className="absolute right-1/4 top-1/3 h-60 w-60 rounded-full bg-warm-rose/5 blur-[100px]" />
 
       <div className="mx-auto max-w-2xl text-center" ref={ref}>
         <motion.div
