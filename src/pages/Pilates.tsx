@@ -70,60 +70,6 @@ const HighlightCard = ({ item, index }: { item: (typeof eventHighlights)[0]; ind
   );
 };
 
-const EducationalSection = ({
-  section,
-  reversed,
-}: {
-  section: (typeof educationalSections)[0];
-  reversed: boolean;
-}) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, delay: 0.2 }}
-      className={`grid items-center gap-12 lg:grid-cols-2 lg:gap-20 ${reversed ? "lg:[direction:rtl]" : ""}`}
-    >
-      <div className={reversed ? "lg:[direction:ltr]" : ""}>
-        <div className="overflow-hidden rounded-2xl">
-          <img
-            src={section.image}
-            alt={section.title}
-            className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-          />
-        </div>
-      </div>
-
-      <div className={reversed ? "lg:[direction:ltr]" : ""}>
-        <span className="mb-3 inline-block rounded-full border border-warm-rose/30 bg-warm-rose/5 px-3 py-1 font-body text-xs tracking-[0.2em] text-warm-rose">
-          {section.level}
-        </span>
-        <h3 className="mb-4 font-display text-3xl font-bold md:text-4xl">
-          {section.title}
-        </h3>
-        <p className="mb-6 font-body text-base leading-relaxed text-muted-foreground">
-          {section.description}
-        </p>
-        <div className="grid grid-cols-2 gap-3">
-          {section.highlights.map((h) => (
-            <div
-              key={h}
-              className="flex items-center gap-2 font-body text-sm text-foreground"
-            >
-              <div className="h-1.5 w-1.5 rounded-full bg-primary" />
-              {h}
-            </div>
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
 const Pilates = () => {
   const navigate = useNavigate();
   const heroRef = useRef(null);
