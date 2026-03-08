@@ -52,8 +52,8 @@ const pilatesTypes = [
     level: "Intermediate to Advanced",
     image: pilatesChairImg,
     description:
-      "The Wunda chair challenges your stability and core strength through spring-loaded resistance. Compact but fierce — it targets deep stabilizers, improves balance, and builds functional power that translates to everyday life.",
-    highlights: ["Deep core activation", "Balance & stability", "Functional strength", "Postural correction"],
+      "The Wunda chair challenges your stability and core strength through spring-loaded resistance. Compact but fierce — it targets deep stabilizers, improves balance, and builds functional power. Our structured program format means you'll clearly track your progression from foundational to advanced movements.",
+    highlights: ["Deep core activation", "Balance & stability", "Program-based progression", "Postural correction"],
   },
   {
     title: "Reformer",
