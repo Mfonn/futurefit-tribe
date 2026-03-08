@@ -20,7 +20,7 @@ const experiences = [
     description:
       "Flow through sequences designed by movement scientists to activate your parasympathetic nervous system — breathe deep, move slow, heal fast.",
     image: yogaImg,
-    tag: "MOVEMENT",
+    tag: "RESTORATION",
   },
   {
     title: "Bio Bar",
