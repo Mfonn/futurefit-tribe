@@ -170,14 +170,13 @@ const BioBar = () => {
                 THE BIO BAR
               </p>
               <h1 className="mb-8 font-display text-5xl font-bold leading-[1.1] md:text-7xl">
-                Simple Herbs,
+                Nature In,
                 <br />
-                <span className="glow-text">Real Results</span>
+                <span className="glow-text">Results Out</span>
               </h1>
               <p className="max-w-lg font-body text-lg leading-relaxed text-muted-foreground">
-                Fresh herbs. Familiar ingredients. Drinks made on-site that taste
-                incredible and actually make you feel something. Come taste the
-                difference — the recipes stay with us.
+                Six formulas. All natural. Each one does something specific.
+                The recipes stay with us.
               </p>
             </motion.div>
           </div>
