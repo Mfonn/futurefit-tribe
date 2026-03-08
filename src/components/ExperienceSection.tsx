@@ -86,7 +86,7 @@ const ExperienceCard = ({
         </p>
         {experience.link && (
           <span className="mt-3 inline-block font-body text-xs tracking-[0.2em] text-warm-rose opacity-0 transition-all duration-500 group-hover:opacity-100">
-            EXPLORE PILATES →
+            EXPLORE {experience.title.toUpperCase()} →
           </span>
         )}
       </div>
