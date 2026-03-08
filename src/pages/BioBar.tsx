@@ -9,9 +9,10 @@ import {
   Heart,
   Sparkles,
   Droplets,
-  FlaskConical,
+  TreePine,
   Clock,
   Shield,
+  Sun,
 } from "lucide-react";
 import bioBarHeroImg from "@/assets/biobar-hero.jpg";
 
@@ -22,95 +23,94 @@ const schedule = [
 
 const drinks = [
   {
-    name: "Neural Bloom",
-    category: "NOOTROPIC",
+    name: "Golden Mind",
+    category: "FOCUS",
     tagColor: "text-primary",
     tagBorder: "border-primary/30 bg-primary/5",
     description:
-      "A clarity-first formula designed to sharpen focus and quiet mental noise — without the caffeine crash.",
+      "A warm, earthy blend built around lion's mane mushroom and gotu kola — two herbs traditionally used across Asia and Africa to sharpen memory and calm scattered thinking. Mixed with oat milk, raw honey, and a pinch of cinnamon for a drink that tastes like a spiced latte but works like a clarity reset.",
     ingredients: [
-      { name: "Lion's Mane Extract", dose: "500mg", note: "NGF stimulation for neuroplasticity" },
-      { name: "Bacopa Monnieri", dose: "300mg", note: "Memory consolidation & retention" },
-      { name: "L-Theanine", dose: "200mg", note: "Calm focus without drowsiness" },
-      { name: "Ginkgo Biloba", dose: "120mg", note: "Cerebral blood flow optimisation" },
+      { name: "Lion's Mane Mushroom", amount: "1 tsp dried powder", note: "Traditionally used in Chinese medicine to support nerve health and mental clarity" },
+      { name: "Gotu Kola Leaves", amount: "½ tsp extract", note: "Ayurvedic herb known as 'the student's herb' — supports concentration and calm" },
+      { name: "Raw Honey & Cinnamon", amount: "1 tbsp + pinch", note: "Natural sweetener with antimicrobial properties; cinnamon balances blood sugar" },
+      { name: "Oat Milk", amount: "200ml", note: "Creamy, fibre-rich base that makes the whole thing feel like a treat" },
     ],
     icon: Brain,
   },
   {
-    name: "Crimson Repair",
+    name: "Hibiscus Recover",
     category: "ANTI-INFLAMMATORY",
     tagColor: "text-warm-rose",
     tagBorder: "border-warm-rose/30 bg-warm-rose/5",
     description:
-      "Post-match recovery in a glass. Targets systemic inflammation while flooding your cells with antioxidants.",
+      "A deep crimson cooler starring dried hibiscus flowers (zobo) and fresh turmeric root — both powerhouse anti-inflammatories you can find in any Nigerian market. Blended with tart cherry juice, fresh ginger, and a squeeze of lime. Tangy, refreshing, and designed to help your muscles bounce back after a long day on court.",
     ingredients: [
-      { name: "Tart Cherry Concentrate", dose: "240ml", note: "Reduces DOMS & uric acid" },
-      { name: "Turmeric Curcumin (95%)", dose: "500mg", note: "COX-2 inhibition, joint support" },
-      { name: "BioPerine® Black Pepper", dose: "10mg", note: "2000% curcumin bioavailability boost" },
-      { name: "Bromelain", dose: "250mg", note: "Proteolytic enzyme for tissue repair" },
+      { name: "Dried Hibiscus Flowers (Zobo)", amount: "2 tbsp steeped", note: "Rich in anthocyanins — natural compounds that reduce muscle soreness and lower blood pressure" },
+      { name: "Fresh Turmeric Root", amount: "1-inch knob, grated", note: "Contains curcumin, one of nature's strongest anti-inflammatory compounds" },
+      { name: "Fresh Ginger Root", amount: "½-inch knob", note: "Warming digestive aid that also reduces exercise-induced inflammation" },
+      { name: "Tart Cherry Juice & Lime", amount: "120ml + ½ lime", note: "Tart cherry is clinically shown to reduce muscle pain; lime adds Vitamin C and brightness" },
     ],
     icon: Heart,
   },
   {
-    name: "Volt",
+    name: "Morning Volt",
     category: "ENERGY",
     tagColor: "text-[hsl(var(--bio-cyan))]",
     tagBorder: "border-[hsl(var(--bio-cyan)/0.3)] bg-[hsl(var(--bio-cyan)/0.05)]",
     description:
-      "Clean, sustained energy with zero jitters. Built for the morning of Day Two when you need to bring intensity to the court.",
+      "Skip the coffee crash. Built on moringa leaf — Nigeria's own superfood — blended with ceremonial-grade matcha, fresh coconut water, and a spoonful of baobab powder. Clean, sustained energy that carries you through warm-ups and into competitive play without the jitters.",
     ingredients: [
-      { name: "Cordyceps Militaris", dose: "1000mg", note: "ATP production & VO₂ max support" },
-      { name: "Green Tea Matcha (Ceremonial)", dose: "2g", note: "Sustained catechin-driven alertness" },
-      { name: "Electrolyte Complex (Mg, K, Na)", dose: "600mg", note: "Intracellular hydration" },
-      { name: "Rhodiola Rosea", dose: "300mg", note: "Fatigue resistance, stress adaptation" },
+      { name: "Moringa Leaf Powder", amount: "1 tsp", note: "Packed with iron, B-vitamins, and amino acids — a natural energy booster used across West Africa for centuries" },
+      { name: "Ceremonial Matcha", amount: "1 tsp whisked", note: "Slow-release caffeine paired with L-theanine from the tea leaf itself — alert without anxious" },
+      { name: "Fresh Coconut Water", amount: "250ml", note: "Nature's electrolyte drink — potassium, magnesium, and sodium in perfect balance" },
+      { name: "Baobab Fruit Powder", amount: "1 tbsp", note: "Indigenous African superfruit with 6x more Vitamin C than oranges and natural prebiotic fibre" },
     ],
     icon: Zap,
   },
   {
-    name: "Gut Genesis",
-    category: "MICROBIOME",
+    name: "Belly Reset",
+    category: "GUT HEALTH",
     tagColor: "text-[hsl(var(--bio-green))]",
     tagBorder: "border-[hsl(var(--bio-green)/0.3)] bg-[hsl(var(--bio-green)/0.05)]",
     description:
-      "A living elixir designed to repopulate your gut flora and strengthen the mucosal barrier — your first line of immune defence.",
+      "A gentle, tangy tonic built around fermented ginger bug, aloe vera gel, and slippery elm bark — herbs that have been soothing digestive systems for generations. Mixed with green apple juice and a dash of raw apple cider vinegar. Tastes clean, slightly fizzy, and leaves your gut feeling genuinely calm.",
     ingredients: [
-      { name: "Multi-Strain Probiotic", dose: "50 Billion CFU", note: "Lactobacillus & Bifidobacterium blend" },
-      { name: "L-Glutamine", dose: "5g", note: "Intestinal lining repair" },
-      { name: "Slippery Elm Bark", dose: "400mg", note: "Mucosal coating & GI soothing" },
-      { name: "Apple Cider Vinegar (Raw)", dose: "15ml", note: "Digestive enzyme activation" },
+      { name: "Ginger Bug (Fermented)", amount: "60ml", note: "A naturally fermented ginger starter — full of live probiotics and digestive enzymes" },
+      { name: "Fresh Aloe Vera Gel", amount: "2 tbsp", note: "Soothes the gut lining, reduces bloating, and supports nutrient absorption" },
+      { name: "Slippery Elm Bark Powder", amount: "1 tsp", note: "A traditional remedy that coats and protects the intestinal wall — deeply soothing" },
+      { name: "Green Apple Juice & ACV", amount: "100ml + 1 tbsp", note: "Green apple adds natural sweetness; raw apple cider vinegar kickstarts digestive enzymes" },
     ],
     icon: Leaf,
   },
   {
-    name: "Lucid Dream",
-    category: "PSYCHEDELIC MICRODOSE",
+    name: "Cacao Ceremony",
+    category: "HEART OPENING",
     tagColor: "text-[hsl(280,70%,70%)]",
     tagBorder: "border-[hsl(280,70%,70%,0.3)] bg-[hsl(280,70%,70%,0.05)]",
     description:
-      "A sub-perceptual microdose protocol paired with synergistic botanicals. Designed to expand creativity, deepen presence, and dissolve the ego's grip — safely and intentionally.",
+      "Rooted in ancient Mesoamerican tradition. Ceremonial-grade cacao is gently heated with ashwagandha root, a pinch of cayenne, and vanilla bean — creating a rich, velvety drink that opens the chest, deepens breathing, and brings you into a calm, present state. The drink you have when you want to slow down and feel everything.",
     ingredients: [
-      { name: "Psilocybin Microdose", dose: "100μg", note: "Sub-perceptual — no hallucination, enhanced openness" },
-      { name: "Niacin (Flush)", dose: "100mg", note: "Stamets Stack — drives neurogenesis to periphery" },
-      { name: "Lion's Mane Extract", dose: "500mg", note: "Synergistic NGF potentiation" },
-      { name: "Cacao Ceremonial Grade", dose: "15g", note: "Theobromine-driven heart opening" },
+      { name: "Ceremonial Cacao (100% paste)", amount: "20g melted", note: "Unprocessed cacao rich in theobromine — a gentle heart stimulant that lifts mood without caffeine spikes" },
+      { name: "Ashwagandha Root Powder", amount: "1 tsp", note: "An Ayurvedic adaptogen that lowers cortisol, eases anxiety, and supports restful presence" },
+      { name: "Cayenne Pepper & Vanilla Bean", amount: "tiny pinch + ½ bean", note: "Cayenne stimulates circulation; vanilla grounds the flavour and calms the nervous system" },
+      { name: "Warm Oat Milk & Raw Honey", amount: "200ml + 1 tsp", note: "Creamy, naturally sweet base — the honey adds enzymes and the oat milk rounds out the richness" },
     ],
     icon: Sparkles,
-    disclaimer: "Administered under pharmacist supervision. Available by consultation only. Not suitable for all guests.",
   },
   {
-    name: "Cellular Reset",
-    category: "LONGEVITY",
+    name: "Sunrise Tonic",
+    category: "VITALITY",
     tagColor: "text-[hsl(var(--warm-sand))]",
     tagBorder: "border-[hsl(var(--warm-sand)/0.3)] bg-[hsl(var(--warm-sand)/0.05)]",
     description:
-      "An NAD+ precursor blend targeting mitochondrial efficiency and cellular repair — the foundation of biological age reversal.",
+      "A bright, citrus-forward tonic built around bitter leaf extract and lemongrass — two herbs deeply rooted in Nigerian herbalism. Mixed with fresh orange juice, a knob of turmeric, and sparkling water. Sharp, alive, and designed to wake up every cell in your body on Day Two morning.",
     ingredients: [
-      { name: "NMN (β-Nicotinamide Mononucleotide)", dose: "250mg", note: "NAD+ precursor, sirtuin activation" },
-      { name: "Trans-Resveratrol", dose: "200mg", note: "Sirtuin co-activator, antioxidant" },
-      { name: "CoQ10 (Ubiquinol)", dose: "100mg", note: "Mitochondrial electron transport" },
-      { name: "Astaxanthin", dose: "12mg", note: "6000x more potent than Vitamin C" },
+      { name: "Bitter Leaf Extract", amount: "½ tsp", note: "Used across West Africa for liver support, detoxification, and metabolic activation" },
+      { name: "Fresh Lemongrass", amount: "2 stalks steeped", note: "Aromatic, citrusy herb that aids digestion, reduces anxiety, and has natural antimicrobial properties" },
+      { name: "Fresh Orange & Turmeric", amount: "1 orange + 1-inch root", note: "Vitamin C meets curcumin — a pairing that boosts iron absorption and fights oxidative stress" },
+      { name: "Sparkling Water & Mint", amount: "150ml + fresh leaves", note: "Effervescence makes it refreshing; mint opens airways and aids digestion" },
     ],
-    icon: Shield,
+    icon: Sun,
   },
 ];
 
@@ -144,8 +144,8 @@ const DrinkCard = ({ drink, index }: { drink: (typeof drinks)[0]; index: number 
 
         <div className="space-y-3">
           <p className="flex items-center gap-2 font-body text-xs tracking-[0.15em] text-foreground/60">
-            <FlaskConical className="h-3.5 w-3.5" />
-            FORMULATION
+            <TreePine className="h-3.5 w-3.5" />
+            WHAT'S IN IT
           </p>
           {drink.ingredients.map((ing) => (
             <div
@@ -161,20 +161,12 @@ const DrinkCard = ({ drink, index }: { drink: (typeof drinks)[0]; index: number 
                 </p>
               </div>
               <span className="shrink-0 rounded-full border border-primary/20 bg-primary/5 px-2.5 py-0.5 font-body text-xs font-medium text-primary">
-                {ing.dose}
+                {ing.amount}
               </span>
             </div>
           ))}
         </div>
 
-        {drink.disclaimer && (
-          <div className="mt-5 flex items-start gap-2 rounded-lg border border-warm-rose/20 bg-warm-rose/5 px-4 py-3">
-            <Shield className="mt-0.5 h-3.5 w-3.5 shrink-0 text-warm-rose" />
-            <p className="font-body text-xs leading-relaxed text-warm-rose/80">
-              {drink.disclaimer}
-            </p>
-          </div>
-        )}
       </div>
     </motion.div>
   );
@@ -301,21 +293,23 @@ const BioBar = () => {
               THE PHILOSOPHY
             </p>
             <h2 className="mb-6 font-display text-4xl font-bold md:text-5xl">
-              Not a <span className="glow-text">juice bar</span>
+              Herbs first, <span className="glow-text">always</span>
             </h2>
             <p className="font-body text-base leading-relaxed text-muted-foreground">
-              Every formula is designed by a licensed pharmacist with clinical
-              dosing, bioavailability-optimised delivery, and ingredients sourced
-              for potency — not marketing. We list every compound, every dose,
-              and the science behind why it's there. No proprietary blends. No
-              pixie-dusting. No guesswork.
+              Everything we serve starts with real plants — roots, leaves, bark,
+              and fruit that have been used for generations across West Africa,
+              Ayurveda, and traditional Chinese herbalism. We mix them with
+              simple, everyday ingredients like coconut water, raw honey, fresh
+              citrus, and oat milk to create drinks that taste incredible and
+              actually do something. No synthetic isolates. No lab-coat theatre.
+              Just herbs, prepared with intention, and served with transparency.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               {[
-                "Clinical Dosing",
-                "Pharmacist-Formulated",
+                "Real Herbs & Roots",
+                "Locally Sourced",
+                "Simple Ingredients",
                 "Full Transparency",
-                "Bioavailability-Optimised",
               ].map((tag) => (
                 <span
                   key={tag}
@@ -351,9 +345,9 @@ const BioBar = () => {
               What's <span className="glow-text">on tap</span>
             </h2>
             <p className="mx-auto max-w-2xl font-body text-base text-muted-foreground">
-              Six pharmacist-designed formulations — each targeting a specific
-              biological system. Full ingredient transparency, clinical dosing,
-              and the reasoning behind every compound.
+              Six herbal blends — each built around real plants mixed with
+              everyday ingredients you'd find in any kitchen. We tell you
+              exactly what's in each glass and why it's there.
             </p>
           </motion.div>
 
@@ -365,7 +359,7 @@ const BioBar = () => {
         </div>
       </section>
 
-      {/* Psychedelic Disclaimer */}
+      {/* Cacao Note */}
       <section className="section-padding pt-20 lg:pt-28">
         <div className="mx-auto max-w-3xl">
           <motion.div
@@ -378,29 +372,24 @@ const BioBar = () => {
             <div className="mb-4 flex items-center gap-3">
               <Sparkles className="h-5 w-5 text-[hsl(280,70%,70%)]" />
               <h3 className="font-display text-xl font-bold">
-                A Note on Psychedelic Microdosing
+                A Note on the Cacao Ceremony
               </h3>
             </div>
             <div className="space-y-4 font-body text-sm leading-relaxed text-muted-foreground">
               <p>
-                Our Lucid Dream formulation uses a sub-perceptual psilocybin
-                microdose based on the Stamets Stack protocol — a framework
-                developed by mycologist Paul Stamets combining psilocybin,
-                lion's mane, and niacin for neurogenesis without psychoactive
-                effects.
+                Ceremonial cacao is not the same as cocoa powder. It's
+                minimally processed, stone-ground cacao paste — rich in
+                theobromine, a gentle heart stimulant that ancient
+                Mesoamerican cultures used in sacred rituals. Combined with
+                ashwagandha (a root used for millennia in Ayurvedic medicine
+                to reduce stress) and a touch of cayenne to open circulation,
+                it creates a deeply grounding experience.
               </p>
               <p>
-                At 100μg, you won't feel "high." What the research suggests is
-                enhanced neuroplasticity, improved pattern recognition, reduced
-                default mode network activity (linked to rumination and anxiety),
-                and a gentle expansion of present-moment awareness.
-              </p>
-              <p>
-                This formulation is <strong className="text-foreground">consultation-only</strong>. 
-                Our pharmacist will walk you through contraindications, current
-                medications, and personal suitability before any serving. It is
-                not available to all guests and will be administered in a
-                controlled, supervised setting.
+                This isn't about getting "high" — it's about slowing down,
+                breathing deeper, and arriving fully into your body. Think of
+                it as the opposite of a shot of espresso: warmth instead of
+                speed, presence instead of productivity.
               </p>
             </div>
           </motion.div>
