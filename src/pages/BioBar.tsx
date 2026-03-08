@@ -368,7 +368,7 @@ const BioBar = () => {
         </div>
       </section>
 
-      {/* Psychedelic Disclaimer */}
+      {/* Cacao Note */}
       <section className="section-padding pt-20 lg:pt-28">
         <div className="mx-auto max-w-3xl">
           <motion.div
@@ -381,29 +381,24 @@ const BioBar = () => {
             <div className="mb-4 flex items-center gap-3">
               <Sparkles className="h-5 w-5 text-[hsl(280,70%,70%)]" />
               <h3 className="font-display text-xl font-bold">
-                A Note on Psychedelic Microdosing
+                A Note on the Cacao Ceremony
               </h3>
             </div>
             <div className="space-y-4 font-body text-sm leading-relaxed text-muted-foreground">
               <p>
-                Our Lucid Dream formulation uses a sub-perceptual psilocybin
-                microdose based on the Stamets Stack protocol — a framework
-                developed by mycologist Paul Stamets combining psilocybin,
-                lion's mane, and niacin for neurogenesis without psychoactive
-                effects.
+                Ceremonial cacao is not the same as cocoa powder. It's
+                minimally processed, stone-ground cacao paste — rich in
+                theobromine, a gentle heart stimulant that ancient
+                Mesoamerican cultures used in sacred rituals. Combined with
+                ashwagandha (a root used for millennia in Ayurvedic medicine
+                to reduce stress) and a touch of cayenne to open circulation,
+                it creates a deeply grounding experience.
               </p>
               <p>
-                At 100μg, you won't feel "high." What the research suggests is
-                enhanced neuroplasticity, improved pattern recognition, reduced
-                default mode network activity (linked to rumination and anxiety),
-                and a gentle expansion of present-moment awareness.
-              </p>
-              <p>
-                This formulation is <strong className="text-foreground">consultation-only</strong>. 
-                Our pharmacist will walk you through contraindications, current
-                medications, and personal suitability before any serving. It is
-                not available to all guests and will be administered in a
-                controlled, supervised setting.
+                This isn't about getting "high" — it's about slowing down,
+                breathing deeper, and arriving fully into your body. Think of
+                it as the opposite of a shot of espresso: warmth instead of
+                speed, presence instead of productivity.
               </p>
             </div>
           </motion.div>
