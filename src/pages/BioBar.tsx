@@ -14,69 +14,69 @@ import {
 import bioBarHeroImg from "@/assets/biobar-hero.jpg";
 
 const schedule = [
-  { day: "Day One — March 28", time: "4:00 PM – Late", vibe: "Post-match cool-down. Light, refreshing sips to ease you into the evening." },
-  { day: "Day Two — March 29", time: "7:00 AM – 10:00 AM", vibe: "Morning wake-up. Warm brews and fresh tonics to start the day right." },
+  { day: "Day One — March 28", time: "4:00 PM – Late", vibe: "Post-match cool-down. Light, cooling sips." },
+  { day: "Day Two — March 29", time: "7:00 AM – 10:00 AM", vibe: "Morning reset. Warm brews, sharp focus." },
 ];
 
 const drinks = [
   {
-    name: "Rosebud Lemonade",
+    name: "Petal",
     category: "REFRESH",
     tagColor: "text-warm-rose",
     tagBorder: "border-warm-rose/30 bg-warm-rose/5",
     description:
-      "A floral, sparkling blend built around dried rosebuds and fresh citrus. Light enough for the afternoon, refreshing enough to make you forget it's good for you.",
-    highlights: ["Calming", "Vitamin C boost", "Naturally sparkling"],
+      "Floral, sparkling, deceptively simple. Built around botanicals that calm without sedating.",
+    highlights: ["Calming", "Vitamin C", "Sparkling"],
     icon: Heart,
   },
   {
-    name: "Lemongrass Ginger Brew",
+    name: "Root",
     category: "ENERGY",
     tagColor: "text-[hsl(var(--bio-cyan))]",
     tagBorder: "border-[hsl(var(--bio-cyan)/0.3)] bg-[hsl(var(--bio-cyan)/0.05)]",
     description:
-      "Aromatic and warming — our morning wake-up call. Fresh lemongrass meets ginger in a brew that settles your stomach and sharpens your focus for Day Two.",
-    highlights: ["Digestive support", "Anti-inflammatory", "Morning energy"],
+      "Aromatic and warming. A morning formula designed to sharpen focus and settle digestion.",
+    highlights: ["Digestive support", "Anti-inflammatory", "Focus"],
     icon: Zap,
   },
   {
-    name: "Chamomile Calm",
+    name: "Dusk",
     category: "WIND DOWN",
     tagColor: "text-[hsl(var(--warm-sand))]",
     tagBorder: "border-[hsl(var(--warm-sand)/0.3)] bg-[hsl(var(--warm-sand)/0.05)]",
     description:
-      "Golden, gentle, and designed for the evening. After the matches, after the movement — this is the one that tells your body it's time to breathe.",
-    highlights: ["Eases tension", "Promotes restful sleep", "Soothes digestion"],
+      "Golden and gentle. The one that tells your body the day is done.",
+    highlights: ["Eases tension", "Restful sleep", "Soothes digestion"],
     icon: Sparkles,
   },
   {
-    name: "Aloe Mint Cooler",
+    name: "Verde",
     category: "GUT HEALTH",
     tagColor: "text-[hsl(var(--bio-green))]",
     tagBorder: "border-[hsl(var(--bio-green)/0.3)] bg-[hsl(var(--bio-green)/0.05)]",
     description:
-      "Clean, cooling, and incredibly hydrating. Built around fresh aloe vera and garden mint — your gut will thank you, and your skin will notice.",
-    highlights: ["Gut-soothing", "Deep hydration", "Cooling effect"],
+      "Clean, cooling, intensely hydrating. Your gut notices first. Your skin notices next.",
+    highlights: ["Gut-soothing", "Deep hydration", "Cooling"],
     icon: Leaf,
   },
   {
-    name: "Hibiscus Zobo",
+    name: "Signal",
     category: "RECOVERY",
     tagColor: "text-primary",
     tagBorder: "border-primary/30 bg-primary/5",
     description:
-      "The classic Nigerian zobo, elevated. Deep red, tangy, and packed with natural compounds that help your body bounce back after hours of play.",
-    highlights: ["Rich in antioxidants", "Muscle recovery", "Naturally tangy"],
+      "Deep, tangy, built for bounce-back. Natural compounds that help your body recover after hours of play.",
+    highlights: ["Antioxidant-rich", "Muscle recovery", "Tangy"],
     icon: Droplets,
   },
   {
-    name: "Turmeric Golden Milk",
+    name: "Ember",
     category: "RESTORE",
     tagColor: "text-[hsl(280,70%,70%)]",
     tagBorder: "border-[hsl(280,70%,70%,0.3)] bg-[hsl(280,70%,70%,0.05)]",
     description:
-      "An ancient recipe reimagined for the evening. Warm, creamy, and built around fresh turmeric root — it soothes inflammation and tastes like a warm hug.",
-    highlights: ["Anti-inflammatory", "Calms the nervous system", "Warming"],
+      "Warm, creamy, ancient. Soothes inflammation and tastes like something you'd pay too much for elsewhere.",
+    highlights: ["Anti-inflammatory", "Nervous system", "Warming"],
     icon: Sun,
   },
 ];
@@ -170,14 +170,13 @@ const BioBar = () => {
                 THE BIO BAR
               </p>
               <h1 className="mb-8 font-display text-5xl font-bold leading-[1.1] md:text-7xl">
-                Simple Herbs,
+                Nature In,
                 <br />
-                <span className="glow-text">Real Results</span>
+                <span className="glow-text">Results Out</span>
               </h1>
               <p className="max-w-lg font-body text-lg leading-relaxed text-muted-foreground">
-                Fresh herbs. Familiar ingredients. Drinks made on-site that taste
-                incredible and actually make you feel something. Come taste the
-                difference — the recipes stay with us.
+                Six formulas. All natural. Each one does something specific.
+                The recipes stay with us.
               </p>
             </motion.div>
           </div>
@@ -245,21 +244,17 @@ const BioBar = () => {
               THE PHILOSOPHY
             </p>
             <h2 className="mb-6 font-display text-4xl font-bold md:text-5xl">
-              Herbs you know, <span className="glow-text">results you'll feel</span>
+              Familiar plants, <span className="glow-text">unfamiliar results</span>
             </h2>
             <p className="font-body text-base leading-relaxed text-muted-foreground">
-              Everything at the Bio Bar starts with herbs your grandmother used —
-              lemongrass, ginger, hibiscus, chamomile, turmeric, aloe vera. We mix
-              them with everyday ingredients into drinks that taste amazing. How we
-              blend them, what ratios we use, and the little details that make each
-              one hit differently? You'll have to show up to find out.
+              Every formula starts with plants you'd recognise. What makes them
+              work isn't the ingredients — it's the method. Show up to find out.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               {[
-                "Fresh Herbs",
+                "All Natural",
                 "Made On-Site",
                 "Event Exclusive",
-                "Recipes Stay With Us",
               ].map((tag) => (
                 <span
                   key={tag}
@@ -292,11 +287,10 @@ const BioBar = () => {
               </p>
             </div>
             <h2 className="mb-4 font-display text-4xl font-bold md:text-5xl">
-              What's <span className="glow-text">on tap</span>
+              The <span className="glow-text">formulas</span>
             </h2>
             <p className="mx-auto max-w-2xl font-body text-base text-muted-foreground">
-              Six herbal blends — each built around real plants you already know.
-              We'll tell you what it does. The recipe? That's ours.
+              Six blends. We'll tell you what each one does — not how we make it.
             </p>
           </motion.div>
 
@@ -326,13 +320,11 @@ const BioBar = () => {
             </div>
             <div className="space-y-4 font-body text-sm leading-relaxed text-muted-foreground">
               <p>
-                The Bio Bar is only available during the CoppahandGold event —
-                March 28th & 29th, 2026 in Abuja. Every drink is prepared fresh
-                on-site. No pre-made mixes, no bottled shortcuts, no recipes shared online.
+                The Bio Bar exists only at CoppahandGold — March 28 & 29, 2026
+                in Abuja. Prepared fresh. No bottles, no shortcuts, no recipes online.
               </p>
               <p>
-                All drinks are complimentary for event attendees. The only way
-                to taste them is to be in the room.
+                Complimentary for attendees. The only way to taste them is to be there.
               </p>
             </div>
           </motion.div>
@@ -352,12 +344,10 @@ const BioBar = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="mb-6 font-display text-4xl font-bold md:text-5xl">
-              Taste it <span className="glow-text">yourself</span>
+              Be <span className="glow-text">there</span>
             </h2>
             <p className="mb-10 font-body text-base leading-relaxed text-muted-foreground">
-              The Bio Bar is part of the full CoppahandGold experience.
-              March 28th & 29th, 2026 in Abuja. Every sip is included —
-              but you have to be there.
+              March 28 & 29, 2026. Abuja. Every formula included with your spot.
             </p>
             <a
               href="/#rsvp"
