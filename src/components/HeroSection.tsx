@@ -35,7 +35,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="mb-4 font-body text-sm tracking-[0.3em] text-primary"
             >
-              ABUJA, NIGERIA · 2026
+              ABUJA, NIGERIA · MARCH 2026
             </motion.p>
 
             <motion.h1
