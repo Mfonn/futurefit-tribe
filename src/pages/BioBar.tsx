@@ -357,7 +357,7 @@ const BioBar = () => {
         </div>
       </section>
 
-      {/* Cacao Note */}
+      {/* Event Note */}
       <section className="section-padding pt-20 lg:pt-28">
         <div className="mx-auto max-w-3xl">
           <motion.div
@@ -365,29 +365,25 @@ const BioBar = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="glass-card border-[hsl(280,70%,70%,0.2)] p-8 md:p-12"
+            className="glass-card border-primary/20 p-8 md:p-12"
           >
             <div className="mb-4 flex items-center gap-3">
-              <Sparkles className="h-5 w-5 text-[hsl(280,70%,70%)]" />
+              <Leaf className="h-5 w-5 text-primary" />
               <h3 className="font-display text-xl font-bold">
-                A Note on the Cacao Ceremony
+                Event Exclusive
               </h3>
             </div>
             <div className="space-y-4 font-body text-sm leading-relaxed text-muted-foreground">
               <p>
-                Ceremonial cacao is not the same as cocoa powder. It's
-                minimally processed, stone-ground cacao paste — rich in
-                theobromine, a gentle heart stimulant that ancient
-                Mesoamerican cultures used in sacred rituals. Combined with
-                ashwagandha (a root used for millennia in Ayurvedic medicine
-                to reduce stress) and a touch of cayenne to open circulation,
-                it creates a deeply grounding experience.
+                The Bio Bar is only available during the CoppahandGold event —
+                March 28th & 29th, 2026 in Abuja. Every drink is prepared fresh
+                on-site using whole herbs and real ingredients. There are no
+                pre-made mixes, no bottled shortcuts.
               </p>
               <p>
-                This isn't about getting "high" — it's about slowing down,
-                breathing deeper, and arriving fully into your body. Think of
-                it as the opposite of a shot of espresso: warmth instead of
-                speed, presence instead of productivity.
+                All drinks are complimentary for event attendees. Come by the
+                bar between sessions, after your matches, or first thing in
+                the morning — we'll have something ready for however you're feeling.
               </p>
             </div>
           </motion.div>
