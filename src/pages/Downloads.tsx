@@ -1,54 +1,31 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Download, Image } from "lucide-react";
+import { ArrowLeft, ExternalLink, Image } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const flyers = [
+const flyerPages = [
   {
-    name: "Main Event Flyer",
-    description: "The complete CoppahandGold experience — tennis, pilates, and wellness.",
-    file: "/flyers/coppahandgold-main-flyer.jpg",
-    category: "HERO",
+    name: "Event Overview Flyer",
+    description: "The complete CoppahandGold experience — all activities, event details, date, venue, and contact on a single flyer.",
+    route: "/flyer/main",
+    category: "MAIN FLYER",
   },
   {
-    name: "Tennis Experience",
-    description: "Competitive doubles tournament on professional blue hard courts.",
-    file: "/flyers/coppahandgold-tennis-flyer.jpg",
-    category: "TENNIS",
+    name: "Social Media Post",
+    description: "Instagram & TikTok-ready promotional graphic. Premium tennis-court visual with floating event details.",
+    route: "/flyer/social",
+    category: "SOCIAL MEDIA",
   },
   {
-    name: "Movement & Restoration",
-    description: "Pilates, yoga, and guided movement sessions.",
-    file: "/flyers/coppahandgold-pilates-flyer.jpg",
-    category: "PILATES",
-  },
-  {
-    name: "The Bio Bar",
-    description: "Six herbal elixirs — fresh, on-site, secret recipes.",
-    file: "/flyers/coppahandgold-biobar-flyer.jpg",
-    category: "BIO BAR",
+    name: "Outdoor Event Banner",
+    description: "4×8 vertical banner for the event venue. Taglines, wellness concepts, brand identity, and contact info.",
+    route: "/flyer/banner",
+    category: "EVENT BANNER",
   },
 ];
 
 const Downloads = () => {
   const navigate = useNavigate();
-
-  const handleDownload = async (file: string, name: string) => {
-    try {
-      const response = await fetch(file);
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = `${name.toLowerCase().replace(/\s+/g, "-")}.jpg`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error("Download failed:", error);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -86,56 +63,43 @@ const Downloads = () => {
               Event <span className="glow-text">Flyers</span>
             </h1>
             <p className="mx-auto max-w-xl font-body text-base text-muted-foreground">
-              Download premium event flyers for CoppahandGold. Use these for
-              sharing on social media, print materials, or partner communications.
+              Three editable flyer designs for CoppahandGold — an event overview,
+              social media post, and outdoor event banner. All content is editable in code.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Flyers Grid */}
+      {/* Flyer Links */}
       <section className="section-padding pb-24">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-8 md:grid-cols-2">
-            {flyers.map((flyer, index) => (
-              <motion.div
-                key={flyer.name}
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card overflow-hidden"
+        <div className="mx-auto max-w-3xl space-y-6">
+          {flyerPages.map((flyer, index) => (
+            <motion.div
+              key={flyer.name}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="glass-card overflow-hidden p-6 md:p-8 transition-all duration-300 hover:border-primary/40"
+            >
+              <span className="mb-3 inline-block rounded-full border border-primary/30 bg-primary/5 px-3 py-1 font-body text-[10px] tracking-[0.2em] text-primary">
+                {flyer.category}
+              </span>
+              <h3 className="mt-2 font-display text-xl font-bold">
+                {flyer.name}
+              </h3>
+              <p className="mt-2 font-body text-sm text-muted-foreground">
+                {flyer.description}
+              </p>
+
+              <Button
+                onClick={() => navigate(flyer.route)}
+                className="mt-5 gap-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
               >
-                <div className="relative aspect-[9/16] overflow-hidden bg-background/50">
-                  <img
-                    src={flyer.file}
-                    alt={flyer.name}
-                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-                </div>
-
-                <div className="p-6">
-                  <span className="mb-2 inline-block rounded-full border border-primary/30 bg-primary/5 px-3 py-1 font-body text-[10px] tracking-[0.2em] text-primary">
-                    {flyer.category}
-                  </span>
-                  <h3 className="mt-2 font-display text-xl font-bold">
-                    {flyer.name}
-                  </h3>
-                  <p className="mt-2 font-body text-sm text-muted-foreground">
-                    {flyer.description}
-                  </p>
-
-                  <Button
-                    onClick={() => handleDownload(flyer.file, flyer.name)}
-                    className="mt-4 w-full gap-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
-                  >
-                    <Download className="h-4 w-4" />
-                    Download Flyer
-                  </Button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                <ExternalLink className="h-4 w-4" />
+                View Flyer
+              </Button>
+            </motion.div>
+          ))}
         </div>
       </section>
 
@@ -149,11 +113,12 @@ const Downloads = () => {
             transition={{ duration: 0.7 }}
             className="glass-card border-primary/20 p-8 text-center"
           >
-            <h3 className="mb-4 font-display text-lg font-bold">Usage Guidelines</h3>
+            <h3 className="mb-4 font-display text-lg font-bold">How to Export</h3>
             <p className="font-body text-sm leading-relaxed text-muted-foreground">
-              These flyers are for CoppahandGold event promotion only. Please do
-              not modify the designs or remove branding. For press inquiries or
-              custom assets, contact the event team.
+              Open any flyer, then use your browser's screenshot or print-to-PDF feature to export.
+              All text content is editable directly in the source code — look for the
+              <code className="mx-1 rounded bg-muted px-1.5 py-0.5 text-primary">EDITABLE CONTENT</code>
+              section at the top of each flyer file.
             </p>
           </motion.div>
         </div>
