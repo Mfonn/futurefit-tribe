@@ -20,62 +20,62 @@ const schedule = [
 
 const drinks = [
   {
-    name: "Rosebud Lemonade",
+    name: "The Bloom",
     category: "REFRESH",
     tagColor: "text-warm-rose",
     tagBorder: "border-warm-rose/30 bg-warm-rose/5",
     description:
-      "A floral, sparkling blend built around dried rosebuds and fresh citrus. Light enough for the afternoon, refreshing enough to make you forget it's good for you.",
+      "Floral. Sparkling. Deceptively light. One sip and the afternoon heat becomes a memory. What's in it? Petals, citrus, and a few things we're keeping to ourselves.",
     highlights: ["Calming", "Vitamin C boost", "Naturally sparkling"],
     icon: Heart,
   },
   {
-    name: "Lemongrass Ginger Brew",
+    name: "Morning Signal",
     category: "ENERGY",
     tagColor: "text-[hsl(var(--bio-cyan))]",
     tagBorder: "border-[hsl(var(--bio-cyan)/0.3)] bg-[hsl(var(--bio-cyan)/0.05)]",
     description:
-      "Aromatic and warming — our morning wake-up call. Fresh lemongrass meets ginger in a brew that settles your stomach and sharpens your focus for Day Two.",
+      "The one that wakes you up before the coffee does. Aromatic, warming, and sharp — it settles the stomach and sharpens your edge for Day Two. Your body will know.",
     highlights: ["Digestive support", "Anti-inflammatory", "Morning energy"],
     icon: Zap,
   },
   {
-    name: "Chamomile Calm",
+    name: "Golden Hour",
     category: "WIND DOWN",
     tagColor: "text-[hsl(var(--warm-sand))]",
     tagBorder: "border-[hsl(var(--warm-sand)/0.3)] bg-[hsl(var(--warm-sand)/0.05)]",
     description:
-      "Golden, gentle, and designed for the evening. After the matches, after the movement — this is the one that tells your body it's time to breathe.",
+      "Named after the moment it's meant for. After the matches, after the movement — this golden elixir tells your nervous system the day is done. Breathe out.",
     highlights: ["Eases tension", "Promotes restful sleep", "Soothes digestion"],
     icon: Sparkles,
   },
   {
-    name: "Aloe Mint Cooler",
+    name: "The Reset",
     category: "GUT HEALTH",
     tagColor: "text-[hsl(var(--bio-green))]",
     tagBorder: "border-[hsl(var(--bio-green)/0.3)] bg-[hsl(var(--bio-green)/0.05)]",
     description:
-      "Clean, cooling, and incredibly hydrating. Built around fresh aloe vera and garden mint — your gut will thank you, and your skin will notice.",
+      "Clean. Cool. Like pressing a button your body didn't know it had. Deeply hydrating and impossibly refreshing — your gut thanks you, your skin notices.",
     highlights: ["Gut-soothing", "Deep hydration", "Cooling effect"],
     icon: Leaf,
   },
   {
-    name: "Hibiscus Zobo",
+    name: "Crimson Revival",
     category: "RECOVERY",
     tagColor: "text-primary",
     tagBorder: "border-primary/30 bg-primary/5",
     description:
-      "The classic Nigerian zobo, elevated. Deep red, tangy, and packed with natural compounds that help your body bounce back after hours of play.",
+      "Deep red. Tangy. Ancient. A recipe that's been recovering bodies for centuries — we just made it hit different. After hours of play, this is what brings you back.",
     highlights: ["Rich in antioxidants", "Muscle recovery", "Naturally tangy"],
     icon: Droplets,
   },
   {
-    name: "Turmeric Golden Milk",
+    name: "Liquid Gold",
     category: "RESTORE",
     tagColor: "text-[hsl(280,70%,70%)]",
     tagBorder: "border-[hsl(280,70%,70%,0.3)] bg-[hsl(280,70%,70%,0.05)]",
     description:
-      "An ancient recipe reimagined for the evening. Warm, creamy, and built around fresh turmeric root — it soothes inflammation and tastes like a warm hug.",
+      "Warm. Creamy. The kind of recipe that gets passed down in whispers. It soothes inflammation from the inside out and tastes like a warm embrace at the end of a long day.",
     highlights: ["Anti-inflammatory", "Calms the nervous system", "Warming"],
     icon: Sun,
   },
