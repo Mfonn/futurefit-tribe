@@ -8,6 +8,9 @@ import Pilates from "./pages/Pilates";
 import Tennis from "./pages/Tennis";
 import BioBar from "./pages/BioBar";
 import Downloads from "./pages/Downloads";
+import FlyerMain from "./pages/FlyerMain";
+import FlyerSocial from "./pages/FlyerSocial";
+import FlyerBanner from "./pages/FlyerBanner";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
