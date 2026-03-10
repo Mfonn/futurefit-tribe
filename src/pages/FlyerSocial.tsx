@@ -2,106 +2,76 @@ import socialBg from "@/assets/flyer-social-bg.jpg";
 
 /* ─── EDITABLE CONTENT ─── */
 const CONTENT = {
-  brandName: "COPPAHANDGOLD",
-  headline: "Serving Wellness,",
-  headlineAccent: "Always.",
-  subtext: "You don't have to choose between competitive and gentle. We made space for both.",
-  date: "28 — 29 MARCH 2026",
+  brandName: "CoppahandGold",
+  headline: "SAVE THE DATE",
+  date: "MARCH 28TH, 29TH 2026",
   location: "ABUJA, NIGERIA",
-  pillars: ["TENNIS", "MAT PILATES", "YOGA", "BIO BAR"],
-  cta: "Limited Slots · RSVP Now",
-  website: "www.coppahandgold.com",
+  activities: ["Tennis", "Mat Pilates", "Yoga", "Bio Bar"],
+  tagline: "Where Science Meets Sweat",
   instagram: "@coppahandgold",
-  tiktok: "@coppahandgold",
-  phone: "+234 000 000 0000",
+  website: "www.coppahandgold.com",
 };
 /* ─── END EDITABLE ─── */
 
 const FlyerSocial = () => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-4 md:p-8">
-      {/* Social post canvas — 1:1 for feed, shown at 1080×1080 ratio */}
       <div
         className="relative w-full max-w-[540px] overflow-hidden rounded-xl shadow-2xl"
         style={{ aspectRatio: "9/16" }}
       >
-        {/* Background image */}
+        {/* Background — deeply blended */}
         <img
           src={socialBg}
-          alt="Tennis court"
+          alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        {/* Overlay — dark at top and bottom for text */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(200_20%_4%/0.75)] via-transparent to-[hsl(200_20%_4%/0.85)]" />
+        {/* Heavy overlay to push image back */}
+        <div className="absolute inset-0 bg-[hsl(200_30%_8%/0.55)]" />
 
-        {/* Content */}
-        <div className="relative z-10 flex h-full flex-col justify-between p-8 md:p-10">
-          {/* Top: Brand */}
-          <div>
-            <div className="mb-6 flex items-center gap-2">
-              <div className="h-px w-6 bg-primary/60" />
-              <p className="font-body text-[10px] tracking-[0.4em] text-primary">
-                {CONTENT.brandName}
-              </p>
-            </div>
+        {/* Subtle tennis court outline — inspired by reference */}
+        <div className="absolute inset-[12%] border border-foreground/15 rounded-sm" />
+        <div className="absolute left-[12%] right-[12%] top-1/2 h-px bg-foreground/15" />
+        <div className="absolute left-1/2 top-[12%] bottom-[12%] w-px bg-foreground/15" />
 
-            <h1 className="font-display text-5xl font-extrabold leading-[1.05] text-foreground md:text-6xl">
+        {/* Content — minimal, anchored */}
+        <div className="relative z-10 flex h-full flex-col items-center justify-between py-16 px-10">
+          {/* Top: Brand name */}
+          <p className="font-display text-base tracking-[0.3em] text-foreground/90">
+            {CONTENT.brandName}
+          </p>
+
+          {/* Center: Core message */}
+          <div className="flex flex-col items-center gap-6 text-center">
+            <h1 className="font-display text-5xl font-extrabold leading-none tracking-tight text-foreground md:text-6xl">
               {CONTENT.headline}
-              <br />
-              <span className="italic text-primary">{CONTENT.headlineAccent}</span>
             </h1>
 
-            <p className="mt-4 max-w-[280px] font-body text-sm leading-relaxed text-foreground/80">
-              {CONTENT.subtext}
+            <div className="h-px w-16 bg-primary/50" />
+
+            <p className="font-display text-lg font-semibold tracking-[0.15em] text-foreground/90 md:text-xl">
+              {CONTENT.date}
+            </p>
+
+            <p className="font-body text-xs tracking-[0.25em] text-primary/80">
+              {CONTENT.location}
+            </p>
+
+            {/* Activities — single clean line */}
+            <p className="font-body text-[11px] tracking-[0.15em] text-foreground/60">
+              {CONTENT.activities.join("  ·  ")}
             </p>
           </div>
 
-          {/* Middle: Pillars */}
-          <div className="flex flex-wrap gap-2">
-            {CONTENT.pillars.map((p) => (
-              <span
-                key={p}
-                className="rounded-full border border-primary/30 bg-[hsl(200_15%_8%/0.6)] px-3 py-1.5 font-body text-[10px] tracking-[0.2em] text-primary backdrop-blur-sm"
-              >
-                {p}
-              </span>
-            ))}
-          </div>
-
-          {/* Bottom: Event info + Contact */}
-          <div>
-            <div className="mb-4 flex items-end justify-between">
-              <div>
-                <p className="font-display text-2xl font-bold text-foreground">
-                  {CONTENT.date}
-                </p>
-                <p className="mt-1 font-body text-xs tracking-[0.2em] text-primary/80">
-                  {CONTENT.location}
-                </p>
-              </div>
-            </div>
-
-            <p className="mb-4 font-body text-sm font-medium text-warm-rose">
-              {CONTENT.cta}
+          {/* Bottom: Social handle */}
+          <div className="flex flex-col items-center gap-2">
+            <p className="font-body text-[11px] tracking-[0.1em] text-foreground/50">
+              {CONTENT.tagline}
             </p>
-
-            <div className="h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-
-            <div className="mt-3 flex flex-wrap items-center gap-4">
-              <p className="font-body text-[10px] text-muted-foreground">
-                {CONTENT.instagram}
-              </p>
-              <p className="font-body text-[10px] text-muted-foreground">
-                {CONTENT.tiktok}
-              </p>
-              <p className="font-body text-[10px] text-muted-foreground">
-                {CONTENT.website}
-              </p>
-              <p className="font-body text-[10px] text-muted-foreground">
-                {CONTENT.phone}
-              </p>
-            </div>
+            <p className="font-body text-xs tracking-[0.15em] text-primary/70">
+              {CONTENT.instagram}
+            </p>
           </div>
         </div>
       </div>
