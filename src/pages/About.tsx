@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { Beaker, Leaf, Sparkles } from "lucide-react";
+import { Beaker, Leaf, Sparkles, ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import aboutHeroImg from "@/assets/about-hero.jpg";
