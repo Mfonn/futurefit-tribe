@@ -145,6 +145,16 @@ const About = () => {
           >
             Where science meets serenity.
           </motion.p>
+          <motion.a
+            href="/"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-5 py-2.5 font-body text-sm text-primary transition-all duration-300 hover:bg-primary/10 hover:shadow-[0_0_30px_hsl(165_80%_45%/0.2)]"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to Home
+          </motion.a>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent breathing" />
       </section>
