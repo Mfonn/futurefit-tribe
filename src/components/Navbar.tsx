@@ -23,6 +23,12 @@ const Navbar = () => {
               {item}
             </a>
           ))}
+          <a
+            href="/about"
+            className="text-muted-foreground transition-colors duration-300 hover:text-primary"
+          >
+            About
+          </a>
         </div>
 
         <a
