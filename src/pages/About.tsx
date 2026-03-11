@@ -4,7 +4,7 @@ import { Beaker, Leaf, Sparkles, ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import aboutHeroImg from "@/assets/about-hero.jpg";
-import biobarDrinkImg from "@/assets/biobar-drink.jpg";
+import biobarDrinkImg from "@/assets/biobar-elixir.jpg";
 
 /* ── Animated counter ── */
 const AnimatedNumber = ({ target, suffix = "", prefix = "" }: { target: number; suffix?: string; prefix?: string }) => {
