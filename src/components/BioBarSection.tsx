@@ -3,31 +3,31 @@ import { useRef } from "react";
 import bioBarImg from "@/assets/bio-bar.jpg";
 
 const elixirs = [
-  {
-    name: "Rosebud Lemonade",
-    ingredients: "Rosebuds · Lemon · Honey · Sparkling Water",
-    benefit: "Light & refreshing",
-    color: "bg-warm-rose",
-  },
-  {
-    name: "Hibiscus Zobo",
-    ingredients: "Hibiscus · Cloves · Ginger · Pineapple",
-    benefit: "Recovery & hydration",
-    color: "bg-primary",
-  },
-  {
-    name: "Lemongrass Ginger Brew",
-    ingredients: "Lemongrass · Ginger · Honey",
-    benefit: "Morning energy",
-    color: "bg-bio-green",
-  },
-  {
-    name: "Aloe Mint Cooler",
-    ingredients: "Aloe Vera · Cucumber · Mint · Lime",
-    benefit: "Cooling & gut-friendly",
-    color: "bg-bio-teal",
-  },
-];
+{
+  name: "Rosebud Lemonade",
+  ingredients: "Rosebuds · Lemon · Honey · Sparkling Water",
+  benefit: "Light & refreshing",
+  color: "bg-warm-rose"
+},
+{
+  name: "Hibiscus Zobo",
+  ingredients: "Hibiscus · Cloves · Ginger · Pineapple",
+  benefit: "Recovery & hydration",
+  color: "bg-primary"
+},
+{
+  name: "Lemongrass Ginger Brew",
+  ingredients: "Lemongrass · Ginger · Honey",
+  benefit: "Morning energy",
+  color: "bg-bio-green"
+},
+{
+  name: "Aloe Mint Cooler",
+  ingredients: "Aloe Vera · Cucumber · Mint · Lime",
+  benefit: "Cooling & gut-friendly",
+  color: "bg-bio-teal"
+}];
+
 
 const BioBarSection = () => {
   const ref = useRef(null);
@@ -46,22 +46,22 @@ const BioBarSection = () => {
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="relative"
-          >
+            className="relative">
+            
             <div className="overflow-hidden rounded-2xl">
               <img
                 src={bioBarImg}
                 alt="The Bio Bar"
-                className="h-full w-full object-cover"
-              />
+                className="h-full w-full object-cover" />
+              
             </div>
             <div className="absolute -bottom-4 -right-4 rounded-xl glow-border bg-card p-4 md:p-6">
               <p className="font-body text-xs tracking-[0.2em] text-primary">
                 FRESHLY MADE
               </p>
-              <p className="mt-1 font-display text-2xl font-bold">6</p>
-              <p className="font-body text-sm text-muted-foreground">
-                Herbal Drinks
+              <p className="mt-1 font-display text-2xl font-bold">​</p>
+              <p className="font-body text-sm text-muted-foreground">Wellness Infusions
+
               </p>
             </div>
           </motion.div>
@@ -70,8 +70,8 @@ const BioBarSection = () => {
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
+            transition={{ duration: 0.8, delay: 0.2 }}>
+            
             <p className="mb-4 font-body text-sm tracking-[0.3em] text-primary">
               THE BIO BAR
             </p>
@@ -80,23 +80,23 @@ const BioBarSection = () => {
               <span className="glow-text">biology</span>
             </h2>
             <p className="mb-10 font-body text-base leading-relaxed text-muted-foreground">
-              Forget cocktails. Our bio bar serves fresh herbal drinks made on-site — 
-              simple herbs like lemongrass, chamomile, and hibiscus mixed with honey, 
-              lime, and fresh fruit. Drinks that taste amazing and actually help.
+              Forget cocktails. Our bio bar serves fresh herbal drinks made on-site. Simple herbs like lemongrass, chamomile, and hibiscus mixed with natural sweetness and fruit notes. Drinks that taste amazing and actually help.
+            
+
             </p>
 
             <div className="space-y-4">
-              {elixirs.map((elixir, i) => (
-                <motion.div
-                  key={elixir.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
-                  className="glass-card group flex items-start gap-4 p-4 transition-all duration-300 hover:border-primary/40"
-                >
+              {elixirs.map((elixir, i) =>
+              <motion.div
+                key={elixir.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
+                className="glass-card group flex items-start gap-4 p-4 transition-all duration-300 hover:border-primary/40">
+                
                   <div
-                    className={`mt-1 h-2 w-2 rounded-full ${elixir.color} pulse-glow flex-shrink-0`}
-                  />
+                  className={`mt-1 h-2 w-2 rounded-full ${elixir.color} pulse-glow flex-shrink-0`} />
+                
                   <div>
                     <h4 className="font-display text-base font-semibold">
                       {elixir.name}
@@ -109,13 +109,13 @@ const BioBarSection = () => {
                     </p>
                   </div>
                 </motion.div>
-              ))}
+              )}
             </div>
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default BioBarSection;
