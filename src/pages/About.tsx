@@ -71,18 +71,18 @@ const stats = [
   },
   {
     prefix: "$",
-    value: 1.3,
+    value: 8.5,
     suffix: "T",
-    label: "projected wellness tourism market by 2025",
+    label: "projected wellness economy by 2027",
     source: "Global Wellness Institute",
     bar: 85,
   },
   {
-    value: 68,
+    value: 74,
     suffix: "%",
     label: "of business travelers report jet lag impacts on performance",
     source: "Sleep Foundation / Google Health",
-    bar: 68,
+    bar: 74,
   },
 ];
 
