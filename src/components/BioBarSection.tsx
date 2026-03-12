@@ -4,7 +4,7 @@ import bioBarImg from "@/assets/bio-bar.jpg";
 
 const elixirs = [
 {
-  name: "Rosebud Lemonade",
+  name: "Golden Hour",
   ingredients: "Rosebuds · Lemon · Honey · Sparkling Water",
   benefit: "Light & refreshing",
   color: "bg-warm-rose"
