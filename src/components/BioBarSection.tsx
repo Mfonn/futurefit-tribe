@@ -4,19 +4,19 @@ import bioBarImg from "@/assets/bio-bar.jpg";
 
 const elixirs = [
 {
-  name: "Rosebud Lemonade",
+  name: "Golden Hour",
   ingredients: "Rosebuds · Lemon · Honey · Sparkling Water",
   benefit: "Light & refreshing",
   color: "bg-warm-rose"
 },
 {
-  name: "Hibiscus Zobo",
+  name: "Morning Signal",
   ingredients: "Hibiscus · Cloves · Ginger · Pineapple",
   benefit: "Recovery & hydration",
   color: "bg-primary"
 },
 {
-  name: "Lemongrass Ginger Brew",
+  name: "The Bloom",
   ingredients: "Lemongrass · Ginger · Honey",
   benefit: "Morning energy",
   color: "bg-bio-green"
