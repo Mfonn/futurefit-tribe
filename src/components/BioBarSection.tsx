@@ -10,7 +10,7 @@ const elixirs = [
   color: "bg-warm-rose"
 },
 {
-  name: "Hibiscus Zobo",
+  name: "Morning Signal",
   ingredients: "Hibiscus · Cloves · Ginger · Pineapple",
   benefit: "Recovery & hydration",
   color: "bg-primary"
