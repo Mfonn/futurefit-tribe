@@ -16,7 +16,7 @@ const elixirs = [
   color: "bg-primary"
 },
 {
-  name: "Lemongrass Ginger Brew",
+  name: "The Bloom",
   ingredients: "Lemongrass · Ginger · Honey",
   benefit: "Morning energy",
   color: "bg-bio-green"
