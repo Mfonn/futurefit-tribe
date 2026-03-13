@@ -80,7 +80,7 @@ const BioBarSection = () => {
               <span className="glow-text">biology</span>
             </h2>
             <p className="mb-10 font-body text-base leading-relaxed text-muted-foreground">
-              Forget cocktails. Our bio bar serves fresh herbal drinks made on-site. Simple herbs like lemongrass, chamomile, and hibiscus mixed with natural sweetness and fruit notes. Drinks that taste amazing and actually help.
+              Forget cocktails. Our bio-bar serves fresh herbal drinks made on-site. Simple herbs like lemongrass, chamomile, and hibiscus mixed with natural sweetness and fruit notes. Drinks that taste amazing and actually help.
             
 
             </p>
