@@ -30,7 +30,7 @@ const ACTIVITIES = [
   {
     title: "The Bio Bar",
     subtitle: "Science You Can Sip",
-    description: "Pharmacist-curated herbal elixirs — fresh botanicals, adaptogens, and functional drinks made on-site.",
+    description: "Expert-curated herbal elixirs — fresh botanicals, adaptogens, and functional drinks made on-site.",
     color: "hsl(140 70% 50%)",
   },
 ];

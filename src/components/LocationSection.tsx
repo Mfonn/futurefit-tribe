@@ -3,8 +3,8 @@ import { useRef } from "react";
 import { MapPin, Calendar, Clock, Users } from "lucide-react";
 
 const details = [
-  { icon: Calendar, label: "Date", value: "28th & 29th March 2026" },
-  { icon: Clock, label: "Time", value: "8:00 AM — 6:00 PM" },
+  { icon: Calendar, label: "Date", value: "27th & 28th March 2026" },
+  { icon: Clock, label: "Time", value: "4:00 PM, 7:00 AM" },
   { icon: MapPin, label: "Location", value: "Abuja, Nigeria" },
   { icon: Users, label: "Capacity", value: "Limited Slots" },
 ];

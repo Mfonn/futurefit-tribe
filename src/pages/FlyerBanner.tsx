@@ -12,7 +12,7 @@ const BANNER = {
     { text: "Mind · Body · Biology", description: "A holistic approach to wellness through movement, nutrition, and community." },
   ],
   cta: "Join the Movement",
-  date: "28 — 29 March, 2026",
+  date: "27 — 28 March, 2026",
   location: "Abuja, Nigeria",
   website: "www.coppahandgold.com",
   instagram: "@coppahandgold",

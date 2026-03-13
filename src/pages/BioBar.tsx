@@ -356,7 +356,7 @@ const BioBar = () => {
             </h2>
             <p className="mb-10 font-body text-base leading-relaxed text-muted-foreground">
               The Bio Bar is part of the full CoppahandGold experience.
-              March 28th & 29th, 2026 in Abuja. Every sip is included —
+              March 27th & 28th, 2026 in Abuja. Every sip is included —
               but you have to be there.
             </p>
             <a

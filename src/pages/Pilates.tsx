@@ -616,7 +616,7 @@ const Pilates = () => {
             </h2>
             <p className="mb-10 font-body text-base leading-relaxed text-muted-foreground">
               Mat Pilates, yoga, educational demos, and more — all part of the 
-              CoppahandGold tennis & wellness event. March 28th & 29th, 2026 in Abuja.
+              CoppahandGold tennis & wellness event. March 27th & 28th, 2026 in Abuja.
             </p>
             <a
               href="/#rsvp"

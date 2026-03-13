@@ -9,15 +9,28 @@ const Footer = () => {
           © 2026 CoppahandGold. Abuja, Nigeria. All rights reserved.
         </p>
         <div className="flex gap-6">
-          {["Instagram", "Twitter", "Email"].map((link) => (
-            <a
-              key={link}
-              href="#"
-              className="font-body text-xs text-muted-foreground transition-colors hover:text-primary"
-            >
-              {link}
-            </a>
-          ))}
+          <a
+            href="https://www.instagram.com/coppahandgold?igsh=MXVpNXl0ZndjNWlnNA%3D%3D&utm_source=qr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-body text-xs text-muted-foreground transition-colors hover:text-primary"
+          >
+            Instagram
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-body text-xs text-muted-foreground transition-colors hover:text-primary"
+          >
+            Twitter
+          </a>
+          <a
+            href="mailto:business@coppahandgold.org"
+            className="font-body text-xs text-muted-foreground transition-colors hover:text-primary"
+          >
+            Email
+          </a>
         </div>
       </div>
     </footer>

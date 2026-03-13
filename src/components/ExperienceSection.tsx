@@ -29,7 +29,7 @@ const experiences = [
     title: "Bio Bar",
     subtitle: "Science You Can Sip",
     description:
-      "Our pharmacist-curated bar blends adaptogenic herbs, electrolyte complexes, and botanical extracts into drinks that target inflammation, energy, and cellular repair.",
+      "Our expert-curated bar blends adaptogenic herbs, electrolyte complexes, and botanical extracts into drinks that target inflammation, energy, and cellular repair.",
     image: bioBarImg,
     tag: "NOURISH",
     link: "/biobar",

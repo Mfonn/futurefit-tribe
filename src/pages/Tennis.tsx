@@ -251,7 +251,7 @@ const Tennis = () => {
             </h2>
             <p className="mb-10 font-body text-base leading-relaxed text-muted-foreground">
               Two days. Premium courts. A community that plays hard and welcomes harder. 
-              March 28–29, 2026 in Abuja. Limited spots.
+              March 27–28, 2026 in Abuja. Limited spots.
             </p>
             <a
               href="/#rsvp"
