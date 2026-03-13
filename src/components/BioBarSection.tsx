@@ -4,26 +4,26 @@ import bioBarImg from "@/assets/bio-bar.jpg";
 
 const elixirs = [
 {
-  name: "Golden Hour",
-  ingredients: "Rosebuds · Lemon · Honey · Sparkling Water",
-  benefit: "Light & refreshing",
+  name: "Bloom",
+  ingredients: "Floral notes · citrus · sparkling finish",
+  benefit: "Calming & refreshing",
   color: "bg-warm-rose"
 },
 {
-  name: "Morning Signal",
-  ingredients: "Hibiscus · Cloves · Ginger · Pineapple",
-  benefit: "Recovery & hydration",
+  name: "Crimson",
+  ingredients: "Deep berry blend · spiced botanicals · tangy base",
+  benefit: "Antioxidant-rich recovery",
   color: "bg-primary"
 },
 {
-  name: "The Bloom",
-  ingredients: "Lemongrass · Ginger · Honey",
-  benefit: "Morning energy",
+  name: "Morning Signal",
+  ingredients: "Warming aromatics · root spices · natural sweetness",
+  benefit: "Digestive & energising",
   color: "bg-bio-green"
 },
 {
-  name: "Aloe Mint Cooler",
-  ingredients: "Aloe Vera · Cucumber · Mint · Lime",
+  name: "Mint Elixir",
+  ingredients: "Cool herbs · aloe base · fresh citrus",
   benefit: "Cooling & gut-friendly",
   color: "bg-bio-teal"
 }];

@@ -4,8 +4,8 @@ import mainBg from "@/assets/flyer-main-bg.jpg";
 const EVENT = {
   name: "COPPAHANDGOLD",
   tagline: "Where Science Meets Sweat",
-  date: "28th & 29th March, 2026",
-  time: "8:00 AM — 6:00 PM",
+  date: "27th & 28th March, 2026",
+  time: "4:00 PM, 7:00 AM",
   venue: "The Dome, Maitama — Abuja, Nigeria",
   capacity: "Limited Slots Available",
   website: "www.coppahandgold.com",
@@ -30,7 +30,7 @@ const ACTIVITIES = [
   {
     title: "The Bio Bar",
     subtitle: "Science You Can Sip",
-    description: "Pharmacist-curated herbal elixirs — fresh botanicals, adaptogens, and functional drinks made on-site.",
+    description: "Expert-curated herbal elixirs — fresh botanicals, adaptogens, and functional drinks made on-site.",
     color: "hsl(140 70% 50%)",
   },
 ];

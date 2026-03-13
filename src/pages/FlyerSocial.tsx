@@ -6,7 +6,7 @@ const CONTENT = {
   headline: "Serving Wellness,",
   headlineAccent: "Always.",
   subtext: "You don't have to choose between competitive and gentle. We made space for both.",
-  date: "28 — 29 MARCH 2026",
+  date: "27 — 28 MARCH 2026",
   location: "ABUJA, NIGERIA",
   pillars: ["TENNIS", "MAT PILATES", "YOGA", "BIO BAR"],
   cta: "Limited Slots · RSVP Now",

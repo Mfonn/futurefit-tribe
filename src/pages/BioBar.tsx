@@ -14,8 +14,8 @@ import {
 import bioBarHeroImg from "@/assets/biobar-hero.jpg";
 
 const schedule = [
-  { day: "Day One — March 28", time: "4:00 PM – Late", vibe: "Post-match cool-down. Light, refreshing sips to ease you into the evening." },
-  { day: "Day Two — March 29", time: "7:00 AM – 10:00 AM", vibe: "Morning wake-up. Warm brews and fresh tonics to start the day right." },
+  { day: "Day One — March 27", time: "4:00 PM – Late", vibe: "Post-match cool-down. Light, refreshing sips to ease you into the evening." },
+  { day: "Day Two — March 28", time: "7:00 AM – 10:00 AM", vibe: "Morning wake-up. Warm brews and fresh tonics to start the day right." },
 ];
 
 const drinks = [
@@ -327,7 +327,7 @@ const BioBar = () => {
             <div className="space-y-4 font-body text-sm leading-relaxed text-muted-foreground">
               <p>
                 The Bio Bar is only available during the CoppahandGold event —
-                March 28th & 29th, 2026 in Abuja. Every drink is prepared fresh
+                March 27th & 28th, 2026 in Abuja. Every drink is prepared fresh
                 on-site. No pre-made mixes, no bottled shortcuts, no recipes shared online.
               </p>
               <p>
@@ -356,7 +356,7 @@ const BioBar = () => {
             </h2>
             <p className="mb-10 font-body text-base leading-relaxed text-muted-foreground">
               The Bio Bar is part of the full CoppahandGold experience.
-              March 28th & 29th, 2026 in Abuja. Every sip is included —
+              March 27th & 28th, 2026 in Abuja. Every sip is included —
               but you have to be there.
             </p>
             <a

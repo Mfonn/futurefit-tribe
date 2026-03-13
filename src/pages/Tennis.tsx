@@ -181,7 +181,7 @@ const Tennis = () => {
             className="mb-16 text-center"
           >
             <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 font-body text-xs tracking-[0.2em] text-primary">
-              MARCH 28, 2026
+              MARCH 27, 2026
             </span>
             <h2 className="mt-6 font-display text-4xl font-bold md:text-5xl">
               Day One — <span className="glow-text">Connect</span>
@@ -213,7 +213,7 @@ const Tennis = () => {
             className="mb-16 text-center"
           >
             <span className="mb-4 inline-block rounded-full border border-warm-rose/30 bg-warm-rose/5 px-4 py-1.5 font-body text-xs tracking-[0.2em] text-warm-rose">
-              MARCH 29, 2026
+              MARCH 28, 2026
             </span>
             <h2 className="mt-6 font-display text-4xl font-bold md:text-5xl">
               Day Two — <span className="glow-text">Compete</span>
@@ -251,7 +251,7 @@ const Tennis = () => {
             </h2>
             <p className="mb-10 font-body text-base leading-relaxed text-muted-foreground">
               Two days. Premium courts. A community that plays hard and welcomes harder. 
-              March 28–29, 2026 in Abuja. Limited spots.
+              March 27–28, 2026 in Abuja. Limited spots.
             </p>
             <a
               href="/#rsvp"
