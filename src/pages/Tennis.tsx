@@ -213,7 +213,7 @@ const Tennis = () => {
             className="mb-16 text-center"
           >
             <span className="mb-4 inline-block rounded-full border border-warm-rose/30 bg-warm-rose/5 px-4 py-1.5 font-body text-xs tracking-[0.2em] text-warm-rose">
-              MARCH 29, 2026
+              MARCH 28, 2026
             </span>
             <h2 className="mt-6 font-display text-4xl font-bold md:text-5xl">
               Day Two — <span className="glow-text">Compete</span>
