@@ -327,7 +327,7 @@ const BioBar = () => {
             <div className="space-y-4 font-body text-sm leading-relaxed text-muted-foreground">
               <p>
                 The Bio Bar is only available during the CoppahandGold event —
-                March 28th & 29th, 2026 in Abuja. Every drink is prepared fresh
+                March 27th & 28th, 2026 in Abuja. Every drink is prepared fresh
                 on-site. No pre-made mixes, no bottled shortcuts, no recipes shared online.
               </p>
               <p>
