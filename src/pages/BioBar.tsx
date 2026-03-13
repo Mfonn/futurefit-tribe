@@ -14,8 +14,8 @@ import {
 import bioBarHeroImg from "@/assets/biobar-hero.jpg";
 
 const schedule = [
-  { day: "Day One — March 28", time: "4:00 PM – Late", vibe: "Post-match cool-down. Light, refreshing sips to ease you into the evening." },
-  { day: "Day Two — March 29", time: "7:00 AM – 10:00 AM", vibe: "Morning wake-up. Warm brews and fresh tonics to start the day right." },
+  { day: "Day One — March 27", time: "4:00 PM – Late", vibe: "Post-match cool-down. Light, refreshing sips to ease you into the evening." },
+  { day: "Day Two — March 28", time: "7:00 AM – 10:00 AM", vibe: "Morning wake-up. Warm brews and fresh tonics to start the day right." },
 ];
 
 const drinks = [
