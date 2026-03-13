@@ -6,7 +6,7 @@ const BANNER = {
   tagline: "Redefining the Wellness Experience",
   concepts: [
     { text: "Science Meets Sweat", description: "Where physical movement meets evidence-based recovery." },
-    { text: "Science You Can Sip", description: "Pharmacist-curated herbal elixirs, made fresh on-site." },
+    { text: "Science You Can Sip", description: "Expert-curated herbal elixirs, made fresh on-site." },
     { text: "Move With Intention", description: "Mat pilates, yoga, and guided breathwork for every body." },
     { text: "Play Without Pressure", description: "Beginner-friendly tennis — competitive spirit, inclusive energy." },
     { text: "Mind · Body · Biology", description: "A holistic approach to wellness through movement, nutrition, and community." },
