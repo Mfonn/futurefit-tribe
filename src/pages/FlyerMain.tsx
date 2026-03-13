@@ -4,8 +4,8 @@ import mainBg from "@/assets/flyer-main-bg.jpg";
 const EVENT = {
   name: "COPPAHANDGOLD",
   tagline: "Where Science Meets Sweat",
-  date: "28th & 29th March, 2026",
-  time: "8:00 AM — 6:00 PM",
+  date: "27th & 28th March, 2026",
+  time: "4:00 PM, 7:00 AM",
   venue: "The Dome, Maitama — Abuja, Nigeria",
   capacity: "Limited Slots Available",
   website: "www.coppahandgold.com",
