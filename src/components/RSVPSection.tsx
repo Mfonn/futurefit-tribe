@@ -147,7 +147,7 @@ const RSVPSection = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex items-center gap-2"
                 >
-                  <span className="glow-text font-bold">Spot found!</span>
+                  <span className="font-bold text-background drop-shadow-[0_0_8px_hsl(165_80%_45%/0.8)]">Spot found!</span>
                   <span className="text-primary-foreground/90">Securing your place…</span>
                 </motion.span>
               )}
