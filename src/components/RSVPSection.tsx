@@ -36,7 +36,7 @@ const RSVPSection = () => {
         const encodedEmail = encodeURIComponent(email);
         const encodedPhone = encodeURIComponent(phone);
         const selarUrl = `https://selar.com/c57dr3g936?add_to_cart=1&fullname=${fullname}&email=${encodedEmail}&mobile=${encodedPhone}`;
-        window.location.href = selarUrl;
+        window.open(selarUrl, "_blank");
       }, 1500);
     }, 1500);
   };
