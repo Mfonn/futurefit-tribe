@@ -257,7 +257,7 @@ const Tennis = () => {
               href="/#rsvp"
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-8 py-4 font-body text-sm font-semibold tracking-wide text-primary-foreground transition-all duration-500 hover:shadow-[0_0_40px_hsl(165_80%_45%/0.4)]"
             >
-              <span className="relative z-10">Reserve Your Spot</span>
+              <span className="relative z-10">Request a Spot</span>
               <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-1">→</span>
             </a>
           </motion.div>
