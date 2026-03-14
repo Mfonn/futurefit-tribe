@@ -1,14 +1,44 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { Loader2 } from "lucide-react";
+
+type SubmitState = "idle" | "saving" | "found" | "done";
 
 const RSVPSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [submitted, setSubmitted] = useState(false);
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitState("saving");
+
+    // Save to database
+    await supabase.from("rsvp_submissions").insert({
+      first_name: firstName,
+      last_name: lastName,
+      email,
+      phone: phone || null,
+    });
+
+    // Show "Checking availability..." for 1.5s
+    setTimeout(() => {
+      setSubmitState("found");
+
+      // Show "Spot found!" for 1.5s then redirect
+      setTimeout(() => {
+        const fullname = encodeURIComponent(`${firstName} ${lastName}`);
+        const encodedEmail = encodeURIComponent(email);
+        const encodedPhone = encodeURIComponent(phone);
+        const selarUrl = `https://selar.com/c57dr3g936?add_to_cart=1&fullname=${fullname}&email=${encodedEmail}&mobile=${encodedPhone}`;
+        window.location.href = selarUrl;
+      }, 1500);
+    }, 1500);
   };
 
   return (
@@ -32,58 +62,15 @@ const RSVPSection = () => {
           </h2>
           <p className="mb-12 font-body text-base leading-relaxed text-muted-foreground">
             This is an intimate experience with limited slots. Enter your details to reserve your place at the intersection of science, sport, and restoration.
-          
-
           </p>
         </motion.div>
 
-        {!submitted ?
-        <motion.form
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          onSubmit={handleSubmit}
-          className="space-y-4">
-          
-            <div className="grid gap-4 sm:grid-cols-2">
-              <input
-              type="text"
-              placeholder="First Name"
-              required
-              className="glass-card w-full px-5 py-4 font-body text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/50 focus:outline-none transition-colors" />
-            
-              <input
-              type="text"
-              placeholder="Last Name"
-              required
-              className="glass-card w-full px-5 py-4 font-body text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/50 focus:outline-none transition-colors" />
-            
-            </div>
-            <input
-            type="email"
-            placeholder="Email Address"
-            required
-            className="glass-card w-full px-5 py-4 font-body text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/50 focus:outline-none transition-colors" />
-          
-            <input
-            type="tel"
-            placeholder="Phone Number"
-            className="glass-card w-full px-5 py-4 font-body text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/50 focus:outline-none transition-colors" />
-          
-            <button
-            type="submit"
-            className="group mt-4 w-full rounded-full bg-primary py-4 font-body text-sm font-semibold tracking-wide text-primary-foreground transition-all duration-500 hover:shadow-[0_0_50px_hsl(165_80%_45%/0.4)]">
-            
-              Reserve My Spot →
-            </button>
-          </motion.form> :
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="glass-card glow-border p-10">
-          
+        {submitState === "done" ? (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="glass-card glow-border p-10">
             <div className="mb-4 text-4xl">✦</div>
             <h3 className="mb-2 font-display text-2xl font-bold glow-text">
               You're In
@@ -92,10 +79,89 @@ const RSVPSection = () => {
               We'll send you the details soon. Prepare to be transformed.
             </p>
           </motion.div>
-        }
-      </div>
-    </section>);
+        ) : (
+          <motion.form
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            onSubmit={handleSubmit}
+            className="space-y-4">
+            
+            <div className="grid gap-4 sm:grid-cols-2">
+              <input
+                type="text"
+                placeholder="First Name"
+                required
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                disabled={submitState !== "idle"}
+                className="glass-card w-full px-5 py-4 font-body text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/50 focus:outline-none transition-colors disabled:opacity-50"
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                required
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                disabled={submitState !== "idle"}
+                className="glass-card w-full px-5 py-4 font-body text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/50 focus:outline-none transition-colors disabled:opacity-50"
+              />
+            </div>
+            <input
+              type="email"
+              placeholder="Email Address"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={submitState !== "idle"}
+              className="glass-card w-full px-5 py-4 font-body text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/50 focus:outline-none transition-colors disabled:opacity-50"
+            />
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              disabled={submitState !== "idle"}
+              className="glass-card w-full px-5 py-4 font-body text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/50 focus:outline-none transition-colors disabled:opacity-50"
+            />
 
+            <button
+              type="submit"
+              disabled={submitState !== "idle"}
+              className={`group mt-4 w-full rounded-full py-4 font-body text-sm font-semibold tracking-wide transition-all duration-500 flex items-center justify-center gap-2 ${
+                submitState === "found"
+                  ? "bg-primary/90 text-primary-foreground shadow-[0_0_60px_hsl(165_80%_45%/0.5)]"
+                  : "bg-primary text-primary-foreground hover:shadow-[0_0_50px_hsl(165_80%_45%/0.4)]"
+              }`}
+            >
+              {submitState === "idle" && <>Request a Spot →</>}
+              {submitState === "saving" && (
+                <span className="flex items-center gap-2 animate-pulse">
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  Checking availability...
+                </span>
+              )}
+              {submitState === "found" && (
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex items-center gap-2"
+                >
+                  <span className="glow-text font-bold">Spot found!</span>
+                  <span className="text-primary-foreground/90">Securing your place…</span>
+                </motion.span>
+              )}
+            </button>
+
+            {/* Microcopy */}
+            <p className="mt-3 font-body text-xs tracking-wide text-muted-foreground/60">
+              Clicking will take you to our secure checkout to finalize your reservation. Spots are held for 15 minutes.
+            </p>
+          </motion.form>
+        )}
+      </div>
+    </section>
+  );
 };
 
 export default RSVPSection;
