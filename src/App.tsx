@@ -12,6 +12,7 @@ import FlyerMain from "./pages/FlyerMain";
 import FlyerSocial from "./pages/FlyerSocial";
 import FlyerBanner from "./pages/FlyerBanner";
 import About from "./pages/About";
+import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/pilates" element={<Pilates />} />
           <Route path="/tennis" element={<Tennis />} />
