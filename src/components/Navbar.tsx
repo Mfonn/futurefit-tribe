@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
@@ -14,28 +14,40 @@ const Navbar = () => {
     { label: "About", href: "/about" },
   ];
 
+  const isRouteLink = (href: string) => href.startsWith("/") && !href.startsWith("/#");
+
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.8, ease: "easeOut" as const }}
       className="fixed top-0 left-0 right-0 z-50 px-6 py-4 md:px-12"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between">
-        <a href="/" className="font-display text-xl font-bold tracking-wider">
+        <Link to="/" className="font-display text-xl font-bold tracking-wider">
           <span className="glow-text">COPPAHANDGOLD</span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-8 font-body text-sm tracking-wide md:flex">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="text-muted-foreground transition-colors duration-300 hover:text-primary"
-            >
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) =>
+            isRouteLink(item.href) ? (
+              <Link
+                key={item.label}
+                to={item.href}
+                className="text-muted-foreground transition-colors duration-300 hover:text-primary"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-muted-foreground transition-colors duration-300 hover:text-primary"
+              >
+                {item.label}
+              </a>
+            )
+          )}
         </div>
 
         <a
