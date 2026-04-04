@@ -3,18 +3,25 @@ import { useLocation, Link } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
-  const isHome = location.pathname === "/";
+  const isIndex = location.pathname === "/";
+  const isHome = location.pathname === "/home";
 
   const navItems = [
     { label: "Home", href: "/home" },
-    { label: "Experience", href: isHome ? "#experience" : "/#experience" },
-    { label: "Bio Bar", href: isHome ? "#bio-bar" : "/#bio-bar" },
-    { label: "Movement", href: isHome ? "#movement" : "/#movement" },
-    { label: "Location", href: isHome ? "#location" : "/#location" },
+    { label: "Experience", href: isIndex ? "#experience" : "/#experience" },
+    { label: "Bio Bar", href: isIndex ? "#bio-bar" : "/#bio-bar" },
+    { label: "Movement", href: isIndex ? "#movement" : "/#movement" },
+    { label: "Location", href: isIndex ? "#location" : "/#location" },
     { label: "About", href: "/about" },
   ];
 
   const isRouteLink = (href: string) => href.startsWith("/") && !href.startsWith("/#");
+
+  const isActive = (href: string) => {
+    if (href === "/home") return isHome;
+    if (href === "/about") return location.pathname === "/about";
+    return false;
+  };
 
   return (
     <motion.nav
@@ -34,7 +41,9 @@ const Navbar = () => {
               <Link
                 key={item.label}
                 to={item.href}
-                className="text-muted-foreground transition-colors duration-300 hover:text-primary"
+                className={`transition-colors duration-300 hover:text-primary ${
+                  isActive(item.href) ? "text-primary" : "text-muted-foreground"
+                }`}
               >
                 {item.label}
               </Link>
@@ -51,7 +60,7 @@ const Navbar = () => {
         </div>
 
         <a
-          href={isHome ? "#rsvp" : "/#rsvp"}
+          href={isIndex ? "#rsvp" : "/#rsvp"}
           className="glass-card px-5 py-2 font-body text-sm font-medium text-primary transition-all duration-300 hover:shadow-[0_0_30px_hsl(165_80%_45%/0.3)]"
         >
           RSVP Now
