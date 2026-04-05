@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -109,6 +109,51 @@
   .section-padding {
     @apply px-6 py-20 md:px-12 lg:px-20 lg:py-32;
   }
+
+
+  /* Home page monochromatic image treatment */
+  .img-mono {
+    filter: brightness(0.45) saturate(0.6) contrast(1.05);
+  }
+  .img-mono-hover {
+    filter: brightness(0.58) saturate(0.75) contrast(1.05);
+  }
+
+  /* Custom teal cursor */
+  .teal-cursor, .teal-cursor * {
+    cursor: none !important;
+  }
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: #00e5c8;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s;
+  }
+  .cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #00e5c8;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s;
+  }
+
+  /* Teal pulse for CTA */
+  .teal-pulse {
+    animation: tealPulse 3s ease-in-out infinite;
+  }
 }
 
 @layer utilities {
@@ -125,6 +170,11 @@
   @keyframes pulseGlow {
     0%, 100% { box-shadow: 0 0 20px hsl(165 80% 45% / 0.2); }
     50% { box-shadow: 0 0 60px hsl(165 80% 45% / 0.4); }
+  }
+
+  @keyframes tealPulse {
+    0%, 100% { box-shadow: 0 0 12px rgba(0,229,200,0.15); }
+    50% { box-shadow: 0 0 28px rgba(0,229,200,0.35); }
   }
 
   @keyframes orbFloat {
