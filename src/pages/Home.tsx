@@ -131,9 +131,9 @@ const HeroSection = () => (
     </div>
 
     {/* blush glow bottom-left */}
-    <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle, rgba(201,132,122,0.22) 0%, transparent 70%)" }} />
+    <div className="absolute bottom-0 left-0 h-[500px] w-[500px] rounded-full bg-warm-rose/20 blur-[180px]" />
     {/* teal glow bottom-right */}
-    <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full" style={{ background: "radial-gradient(circle, rgba(0,229,200,0.1) 0%, transparent 70%)" }} />
+    <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-primary/10 blur-[150px]" />
 
     {/* content — bottom left */}
     <div className="relative flex min-h-screen items-end">
@@ -187,14 +187,17 @@ const ManifestoStrip = () => {
   const { ref, inView } = useSection();
   return (
     <section id="manifesto" ref={ref}
+      className="relative overflow-hidden border-t border-b border-primary/10"
       style={{
         background: C.black, padding: "90px 60px", textAlign: "center",
-        borderTop: "1px solid rgba(0,229,200,0.12)", borderBottom: "1px solid rgba(0,229,200,0.12)",
-        position: "relative", overflow: "hidden",
       }}>
+      {/* blush gradient behind text */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[700px] h-[400px] rounded-full bg-warm-rose/[0.07] blur-[100px]" />
+      </div>
       {/* teal center glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[600px] h-[300px] rounded-full" style={{ background: "radial-gradient(circle, rgba(0,229,200,0.04) 0%, transparent 70%)" }} />
+        <div className="w-[600px] h-[300px] rounded-full bg-primary/[0.04] blur-[80px]" />
       </div>
 
       <motion.p
@@ -204,7 +207,7 @@ const ManifestoStrip = () => {
           fontFamily: "'Cormorant Garamond', serif", fontWeight: 300, fontStyle: "italic",
           fontSize: "clamp(1.4rem, 2.6vw, 2.1rem)", lineHeight: 1.5, maxWidth: 760, color: C.white,
         }}>
-        "We don't sell experiences. We <span style={{ color: C.teal }}>architect</span> the moments women carry with them."
+        "We don't sell experiences. We <span className="text-primary">architect</span> the moments women carry with them."
       </motion.p>
     </section>
   );
@@ -245,7 +248,8 @@ const WhoSection = () => {
           <motion.div initial="hidden" animate={inView ? "visible" : "hidden"}
             variants={{ visible: { transition: { staggerChildren: 0.16 } } }}>
             <motion.p variants={fadeUp} custom={0}
-              style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.58rem", letterSpacing: "0.35em", textTransform: "uppercase", color: C.teal, marginBottom: 36 }}>
+              className="text-primary"
+              style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.58rem", letterSpacing: "0.35em", textTransform: "uppercase", marginBottom: 36 }}>
               Who This Is For
             </motion.p>
 
@@ -261,7 +265,8 @@ const WhoSection = () => {
             ))}
 
             <motion.p variants={fadeUp} custom={lines.length + 1}
-              style={{ fontFamily: "'Jost', sans-serif", fontWeight: 400, fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", color: C.teal, marginTop: 24 }}>
+              className="text-warm-rose"
+              style={{ fontFamily: "'Jost', sans-serif", fontWeight: 400, fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", marginTop: 24 }}>
               This is where she belongs.
             </motion.p>
           </motion.div>
@@ -286,11 +291,11 @@ const PillarsSection = () => {
     <section ref={ref} style={{ background: C.black, padding: "90px clamp(24px,5vw,60px) 0" }}>
       <motion.div initial={{ opacity: 0, y: 40 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }}
         style={{ paddingBottom: 50 }}>
-        <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.58rem", letterSpacing: "0.35em", textTransform: "uppercase", color: C.teal, marginBottom: 16 }}>
+        <p className="text-primary" style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.58rem", letterSpacing: "0.35em", textTransform: "uppercase", marginBottom: 16 }}>
           The World of CoppahandGold
         </p>
         <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300, fontSize: "clamp(2.2rem, 3.8vw, 3.2rem)", color: C.white, lineHeight: 1.1 }}>
-          Three pillars.<br /><em style={{ color: C.teal }}>One standard.</em>
+          Three pillars.<br /><em className="text-warm-rose">One standard.</em>
         </h2>
       </motion.div>
 
@@ -310,18 +315,18 @@ const PillarsSection = () => {
             />
             {/* dark gradient */}
             <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(8,10,9,0.92) 0%, rgba(8,10,9,0.3) 60%, transparent 100%)" }} />
-            {/* blush bottom glow */}
-            <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(201,132,122,0.12) 0%, transparent 40%)" }} />
-            {/* hover border */}
-            <div className="absolute inset-0 border border-transparent transition-all duration-500 group-hover:border-[rgba(0,229,200,0.45)] group-hover:shadow-[inset_0_0_40px_rgba(0,229,200,0.05)]" />
+            {/* blush bottom glow — visible warm-rose */}
+            <div className="absolute inset-0 bg-gradient-to-t from-warm-rose/[0.15] via-warm-rose/[0.05] to-transparent" />
+            {/* hover border + blush hover glow */}
+            <div className="absolute inset-0 border border-transparent transition-all duration-500 group-hover:border-warm-rose/30 group-hover:shadow-[inset_0_0_40px_rgba(201,132,122,0.08)]" />
 
             {/* content */}
             <div className="absolute bottom-0 left-0 right-0 p-9">
-              <span style={{
-                display: "inline-block", border: "1px solid rgba(0,229,200,0.4)", padding: "4px 14px",
-                fontFamily: "'Jost', sans-serif", fontSize: "0.55rem", letterSpacing: "0.28em", textTransform: "uppercase",
-                color: C.teal, marginBottom: 14,
-              }}>{p.tag}</span>
+              <span className="inline-block rounded-full border border-warm-rose/30 bg-warm-rose/5 px-4 py-1.5 text-warm-rose"
+                style={{
+                  fontFamily: "'Jost', sans-serif", fontSize: "0.55rem", letterSpacing: "0.28em", textTransform: "uppercase",
+                  marginBottom: 14,
+                }}>{p.tag}</span>
               <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300, fontSize: "1.45rem", color: C.white, lineHeight: 1.35, marginBottom: 8 }}>
                 {p.h3}
               </h3>
@@ -365,11 +370,12 @@ const EventsSection = () => {
 
         {/* left — details */}
         <div className="md:col-span-3 p-8 md:p-12 flex flex-col justify-center relative z-10">
-          <span style={{
-            display: "inline-block", background: C.teal, color: C.black, padding: "4px 14px",
-            fontFamily: "'Jost', sans-serif", fontSize: "0.52rem", letterSpacing: "0.3em", textTransform: "uppercase",
-            marginBottom: 20, width: "fit-content",
-          }}>Coming Soon</span>
+          <span className="inline-block rounded-full border border-warm-rose/30 bg-warm-rose/10 text-warm-rose"
+            style={{
+              padding: "4px 14px",
+              fontFamily: "'Jost', sans-serif", fontSize: "0.52rem", letterSpacing: "0.3em", textTransform: "uppercase",
+              marginBottom: 20, width: "fit-content",
+            }}>Coming Soon</span>
 
           <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300, fontStyle: "italic", fontSize: "clamp(1.8rem, 3vw, 2.6rem)", color: C.white, marginBottom: 14 }}>
             Cones & Code
@@ -436,10 +442,12 @@ const OurWhySection = () => {
   const { ref, inView } = useSection();
   return (
     <section ref={ref} className="relative overflow-hidden" style={{ background: C.black, padding: "120px clamp(24px,5vw,60px)", textAlign: "center" }}>
-      {/* blush glow */}
+      {/* blush glow — prominent */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle, rgba(201,132,122,0.1) 0%, transparent 60%)" }} />
+        <div className="w-[600px] h-[600px] rounded-full bg-warm-rose/[0.12] blur-[120px]" />
       </div>
+      {/* secondary teal glow */}
+      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/[0.06] blur-[100px] pointer-events-none" />
 
       <motion.div initial="hidden" animate={inView ? "visible" : "hidden"}
         variants={{ visible: { transition: { staggerChildren: 0.16 } } }}
@@ -470,10 +478,10 @@ const WaitlistSection = ({ email, setEmail, loading, onSubmit }: {
   const { ref, inView } = useSection();
   return (
     <section id="waitlist" ref={ref} className="relative overflow-hidden" style={{ background: C.black, padding: "130px clamp(24px,5vw,60px)", textAlign: "center" }}>
-      {/* blush glow top-left */}
-      <div className="absolute top-0 left-0 w-[400px] h-[400px]" style={{ background: "radial-gradient(circle, rgba(201,132,122,0.09) 0%, transparent 70%)" }} />
+      {/* blush glow top-left — prominent */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-warm-rose/[0.12] blur-[150px] pointer-events-none" />
       {/* teal glow bottom-right */}
-      <div className="absolute bottom-0 right-0 w-[350px] h-[350px]" style={{ background: "radial-gradient(circle, rgba(0,229,200,0.07) 0%, transparent 70%)" }} />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-primary/[0.08] blur-[120px] pointer-events-none" />
 
       {/* vertical teal line */}
       <div className="mx-auto mb-10" style={{ width: 1, height: 70, background: "linear-gradient(to bottom, transparent, rgba(0,229,200,0.4))" }} />
