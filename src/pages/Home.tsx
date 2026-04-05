@@ -303,8 +303,10 @@ const PillarsSection = () => {
             style={{ height: 520 }}>
             {/* image */}
             <img src={p.image} alt={p.tag} loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover img-mono transition-all duration-500 group-hover:img-mono-hover group-hover:scale-[1.04]"
+              className="absolute inset-0 w-full h-full object-cover img-mono transition-all duration-500 group-hover:scale-[1.04]"
               style={{ transition: "filter 0.5s ease, transform 0.5s ease" }}
+              onMouseEnter={e => { (e.currentTarget as HTMLImageElement).style.filter = "brightness(0.58) saturate(0.75) contrast(1.05)"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLImageElement).style.filter = ""; }}
             />
             {/* dark gradient */}
             <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(8,10,9,0.92) 0%, rgba(8,10,9,0.3) 60%, transparent 100%)" }} />
