@@ -32,7 +32,7 @@ const fadeUp = {
 
 const useSection = (margin = "-80px") => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin });
+  const inView = useInView(ref, { once: true, margin: margin as any });
   return { ref, inView };
 };
 
