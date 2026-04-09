@@ -5,8 +5,8 @@ const Footer = () => {
         <p className="font-display text-lg font-bold tracking-wider">
           <span className="glow-text">COPPAHANDGOLD</span>
         </p>
-        <p className="font-body text-xs text-muted-foreground">
-          © 2026 CoppahandGold. Abuja, Nigeria. All rights reserved.
+        <p className="font-body text-xs text-muted-foreground text-center max-w-sm">
+          An ecosystem built at the intersection of wellness and legacy.
         </p>
         <div className="flex gap-6">
           <a
@@ -18,12 +18,12 @@ const Footer = () => {
             Instagram
           </a>
           <a
-            href="https://twitter.com"
+            href="https://www.tiktok.com/@coppahandgold"
             target="_blank"
             rel="noopener noreferrer"
             className="font-body text-xs text-muted-foreground transition-colors hover:text-primary"
           >
-            Twitter
+            TikTok
           </a>
           <a
             href="mailto:business@coppahandgold.org"
@@ -32,6 +32,11 @@ const Footer = () => {
             Email
           </a>
         </div>
+      </div>
+      <div className="mx-auto max-w-7xl mt-6 text-center">
+        <p className="font-body text-xs text-muted-foreground/50">
+          © 2025 CoppahandGold. Abuja, Nigeria. All rights reserved.
+        </p>
       </div>
     </footer>
   );

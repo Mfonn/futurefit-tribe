@@ -1,9 +1,9 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import { toast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WaitlistForm from "@/components/WaitlistForm";
+import { useNavigate } from "react-router-dom";
 
 import heroImg from "@/assets/home-hero.jpg";
 import moveImg from "@/assets/home-move.jpg";
@@ -45,7 +45,6 @@ const TealCursor = () => {
     let mx = 0, my = 0, rx = 0, ry = 0;
     const onMove = (e: MouseEvent) => { mx = e.clientX; my = e.clientY; };
     window.addEventListener("mousemove", onMove);
-
     let raf: number;
     const loop = () => {
       rx += (mx - rx) * 0.12;
@@ -77,65 +76,270 @@ const GrainOverlay = () => (
 );
 
 /* ════════════════════════════════════════ */
+/*  CALENDAR SLIDE                          */
+/* ════════════════════════════════════════ */
+
+type CalEvent = {
+  weekStart: number; // day of month the week starts
+  weekEnd: number;
+  color: string;
+  label: string;
+};
+
+const MONTHS: { name: string; year: number; month: number; days: number; startDay: number; events: CalEvent[] }[] = [
+  {
+    name: "April", year: 2025, month: 3, days: 30, startDay: 2, // Tuesday
+    events: [
+      { weekStart: 21, weekEnd: 27, color: "rgba(236,160,172,0.35)", label: "Cones & Code" }, // bubblegum
+    ],
+  },
+  {
+    name: "May", year: 2025, month: 4, days: 31, startDay: 4, // Thursday
+    events: [
+      { weekStart: 5, weekEnd: 11, color: "rgba(80,200,120,0.3)", label: "Tennis Classic" }, // green
+      { weekStart: 19, weekEnd: 25, color: "rgba(160,120,80,0.3)", label: "Sunset Yoga" }, // brown
+      { weekStart: 26, weekEnd: 31, color: "rgba(180,190,200,0.28)", label: "Auto Zen" }, // silver
+    ],
+  },
+  {
+    name: "June", year: 2025, month: 5, days: 30, startDay: 0, // Sunday
+    events: [
+      { weekStart: 2, weekEnd: 8, color: "rgba(80,200,120,0.3)", label: "Hyrox Festival" }, // green
+    ],
+  },
+];
+
+const DAY_NAMES = ["S", "M", "T", "W", "T", "F", "S"];
+
+const MiniCalendar = ({ month }: { month: typeof MONTHS[0] }) => {
+  const cells: (number | null)[] = [];
+  for (let i = 0; i < month.startDay; i++) cells.push(null);
+  for (let d = 1; d <= month.days; d++) cells.push(d);
+  while (cells.length % 7 !== 0) cells.push(null);
+
+  const getEventForDay = (day: number | null) => {
+    if (!day) return null;
+    return month.events.find(e => day >= e.weekStart && day <= e.weekEnd);
+  };
+
+  return (
+    <div className="flex-1 min-w-[220px]">
+      <h3 style={{
+        fontFamily: "'Cormorant Garamond', serif",
+        fontWeight: 300,
+        fontStyle: "italic",
+        fontSize: "1.4rem",
+        color: C.white,
+        marginBottom: 16,
+        textAlign: "center",
+      }}>
+        {month.name}
+      </h3>
+      {/* day headers */}
+      <div className="grid grid-cols-7 gap-0 mb-1">
+        {DAY_NAMES.map((d, i) => (
+          <div key={i} className="text-center" style={{
+            fontFamily: "'Jost', sans-serif",
+            fontSize: "0.55rem",
+            letterSpacing: "0.15em",
+            color: C.whiteFaint,
+            padding: "4px 0",
+          }}>{d}</div>
+        ))}
+      </div>
+      {/* calendar grid */}
+      <div className="grid grid-cols-7 gap-0">
+        {cells.map((day, i) => {
+          const ev = getEventForDay(day);
+          return (
+            <div
+              key={i}
+              className="relative flex items-center justify-center"
+              style={{
+                height: 36,
+                background: ev ? ev.color : "transparent",
+                borderRadius: day && ev && day === ev.weekStart ? "4px 0 0 4px" : day && ev && day === ev.weekEnd ? "0 4px 4px 0" : 0,
+              }}
+              title={ev?.label}
+            >
+              {day && (
+                <span style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontStyle: "italic",
+                  fontSize: "0.85rem",
+                  color: ev ? C.white : C.whiteDim,
+                  fontWeight: ev ? 500 : 300,
+                }}>
+                  {day}
+                </span>
+              )}
+            </div>
+          );
+        })}
+      </div>
+      {/* event legend */}
+      <div className="mt-3 space-y-1">
+        {month.events.map((ev) => (
+          <div key={ev.label} className="flex items-center gap-2">
+            <div className="w-3 h-2 rounded-sm" style={{ background: ev.color }} />
+            <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.6rem", color: C.whiteDim }}>{ev.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const CalendarSlide = () => {
+  const navigate = useNavigate();
+  return (
+    <section className="relative min-h-screen overflow-hidden flex items-center justify-center" style={{ background: C.black }}>
+      {/* subtle glows */}
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full bg-warm-rose/[0.08] blur-[150px]" />
+      <div className="absolute bottom-0 right-0 w-[350px] h-[350px] rounded-full bg-primary/[0.06] blur-[120px]" />
+
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10 px-6 md:px-12 w-full max-w-5xl"
+      >
+        <p style={{
+          fontFamily: "'Jost', sans-serif", fontWeight: 200, fontSize: "0.58rem",
+          letterSpacing: "0.32em", textTransform: "uppercase", color: C.teal,
+          marginBottom: 16, textAlign: "center",
+        }}>
+          What's Coming
+        </p>
+        <h2 style={{
+          fontFamily: "'Cormorant Garamond', serif", fontWeight: 300,
+          fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1,
+          color: C.white, textAlign: "center", marginBottom: 48,
+        }}>
+          The rooms <em style={{ color: C.teal }}>ahead.</em>
+        </h2>
+
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 justify-center">
+          {MONTHS.map((m) => (
+            <MiniCalendar key={m.name} month={m} />
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <button
+            onClick={() => navigate("/experience")}
+            className="teal-pulse"
+            style={{
+              border: `1px solid ${C.teal}`, padding: "14px 36px",
+              fontFamily: "'Jost', sans-serif", fontSize: "0.65rem",
+              letterSpacing: "0.25em", textTransform: "uppercase",
+              color: C.teal, background: "transparent", cursor: "pointer",
+            }}
+          >
+            See What's Coming →
+          </button>
+        </div>
+      </motion.div>
+    </section>
+  );
+};
+
+/* ════════════════════════════════════════ */
 /*  HOME PAGE                               */
 /* ════════════════════════════════════════ */
 const Home = () => {
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const handleWaitlist = useCallback(async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    setLoading(true);
-    try {
-      const { error } = await supabase.from("rsvp_submissions").insert({
-        first_name: "Waitlist", last_name: "Subscriber", email,
-      });
-      if (error) throw error;
-      toast({ title: "You're on the list.", description: "We'll be in touch." });
-      setEmail("");
-    } catch {
-      toast({ title: "Something went wrong", description: "Please try again.", variant: "destructive" });
-    } finally {
-      setLoading(false);
-    }
-  }, [email]);
-
   return (
     <div className="min-h-screen teal-cursor" style={{ background: C.black, color: C.white }}>
       <TealCursor />
       <GrainOverlay />
       <Navbar />
-      <HeroSection />
+      <HeroSlideshow />
       <ManifestoStrip />
       <WhoSection />
       <PillarsSection />
-      <EventsSection />
+      <ValuesSection />
       <OurWhySection />
-      <WaitlistSection email={email} setEmail={setEmail} loading={loading} onSubmit={handleWaitlist} />
+      <WaitlistSectionFull />
       <Footer />
     </div>
   );
 };
 
 /* ════════════════════════════════════════ */
-/*  SECTION 1 — HERO                        */
+/*  HERO SLIDESHOW                          */
 /* ════════════════════════════════════════ */
-const HeroSection = () => (
+const HeroSlideshow = () => {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const SLIDE_COUNT = 2;
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % SLIDE_COUNT);
+    }, 7000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="relative min-h-screen overflow-hidden">
+      {/* slide indicators */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-3">
+        {Array.from({ length: SLIDE_COUNT }).map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActiveSlide(i)}
+            className="transition-all duration-500"
+            style={{
+              width: activeSlide === i ? 32 : 8,
+              height: 3,
+              background: activeSlide === i ? C.teal : "rgba(240,237,232,0.2)",
+              border: "none",
+              cursor: "pointer",
+            }}
+          />
+        ))}
+      </div>
+
+      <AnimatePresence mode="wait">
+        {activeSlide === 0 && (
+          <motion.div
+            key="hero"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <HeroContent />
+          </motion.div>
+        )}
+        {activeSlide === 1 && (
+          <motion.div
+            key="calendar"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <CalendarSlide />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+/* ════════════════════════════════════════ */
+/*  HERO CONTENT (slide 1)                  */
+/* ════════════════════════════════════════ */
+const HeroContent = () => (
   <section className="relative min-h-screen overflow-hidden">
-    {/* bg image */}
     <div className="absolute inset-0">
       <img src={heroImg} alt="" className="h-full w-full object-cover img-mono" />
       <div className="absolute inset-0" style={{ background: `${C.black}99` }} />
       <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${C.black}, transparent 50%, ${C.black}66)` }} />
     </div>
-
-    {/* blush glow bottom-left */}
     <div className="absolute bottom-0 left-0 h-[500px] w-[500px] rounded-full bg-warm-rose/20 blur-[180px]" />
-    {/* teal glow bottom-right */}
     <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-primary/10 blur-[150px]" />
 
-    {/* content — bottom left */}
     <div className="relative flex min-h-screen items-end">
       <motion.div
         className="px-[clamp(24px,5vw,60px)] pb-[clamp(60px,10vh,100px)] max-w-3xl"
@@ -146,24 +350,20 @@ const HeroSection = () => (
           style={{ fontFamily: "'Jost', sans-serif", fontWeight: 200, fontSize: "0.58rem", letterSpacing: "0.32em", textTransform: "uppercase", color: C.teal }}>
           Circle — A CoppahandGold Experience
         </motion.p>
-
         <motion.h1 variants={fadeUp} custom={1}
           style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300, fontSize: "clamp(3.8rem, 7vw, 6.8rem)", lineHeight: 0.95, color: C.white, marginTop: 16 }}>
           Some rooms<br /><em>change you.</em>
         </motion.h1>
-
         <motion.p variants={fadeUp} custom={2}
           style={{ fontFamily: "'Jost', sans-serif", fontWeight: 200, fontSize: "0.9rem", letterSpacing: "0.08em", color: C.whiteDim, marginTop: 20 }}>
           We curate the ones worth being in.
         </motion.p>
-
         <motion.div variants={fadeUp} custom={3} className="flex items-center gap-8" style={{ marginTop: 44 }}>
-          <a href="#waitlist"
-            className="teal-pulse"
+          <a href="#waitlist" className="teal-pulse"
             style={{
-              border: `1px solid ${C.teal}`, borderRadius: 0, padding: "14px 36px",
+              border: `1px solid ${C.teal}`, padding: "14px 36px",
               fontFamily: "'Jost', sans-serif", fontSize: "0.65rem", letterSpacing: "0.25em", textTransform: "uppercase",
-              color: C.teal, textDecoration: "none", display: "inline-block",
+              color: C.teal, textDecoration: "none",
             }}>
             Join the Waitlist
           </a>
@@ -181,25 +381,20 @@ const HeroSection = () => (
 );
 
 /* ════════════════════════════════════════ */
-/*  SECTION 2 — MANIFESTO STRIP              */
+/*  MANIFESTO STRIP                         */
 /* ════════════════════════════════════════ */
 const ManifestoStrip = () => {
   const { ref, inView } = useSection();
   return (
     <section id="manifesto" ref={ref}
       className="relative overflow-hidden border-t border-b border-primary/10"
-      style={{
-        background: C.black, padding: "90px 60px", textAlign: "center",
-      }}>
-      {/* blush gradient behind text */}
+      style={{ background: C.black, padding: "90px 60px", textAlign: "center" }}>
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[700px] h-[400px] rounded-full bg-warm-rose/[0.07] blur-[100px]" />
       </div>
-      {/* teal center glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[600px] h-[300px] rounded-full bg-primary/[0.04] blur-[80px]" />
       </div>
-
       <motion.p
         initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 1.4 }}
         className="relative mx-auto"
@@ -214,7 +409,7 @@ const ManifestoStrip = () => {
 };
 
 /* ════════════════════════════════════════ */
-/*  SECTION 3 — WHO THIS IS FOR              */
+/*  WHO THIS IS FOR                         */
 /* ════════════════════════════════════════ */
 const WhoSection = () => {
   const { ref, inView } = useSection();
@@ -228,23 +423,15 @@ const WhoSection = () => {
   return (
     <section ref={ref} className="relative overflow-hidden" style={{ background: C.black }}>
       <div className="grid md:grid-cols-2" style={{ minHeight: 660 }}>
-        {/* left — image */}
         <div className="relative overflow-hidden" style={{ minHeight: 400 }}>
           <img src={portraitImg} alt="" className="absolute inset-0 w-full h-full object-cover img-mono" />
-          {/* blush overlay */}
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(201,132,122,0.2) 0%, transparent 55%)" }} />
-          {/* right edge fade */}
           <div className="absolute inset-0 hidden md:block" style={{ background: `linear-gradient(to right, transparent 65%, ${C.black} 100%)` }} />
-          {/* bottom fade on mobile */}
           <div className="absolute inset-0 md:hidden" style={{ background: `linear-gradient(to bottom, transparent 60%, ${C.black} 100%)` }} />
         </div>
-
-        {/* right — text */}
         <div className="relative flex items-center" style={{ padding: "clamp(40px,6vw,90px) clamp(24px,5vw,70px)" }}>
-          {/* left accent line */}
           <div className="absolute left-0 top-[15%] bottom-[15%] w-px hidden md:block"
             style={{ background: "linear-gradient(to bottom, transparent, rgba(0,229,200,0.3), transparent)" }} />
-
           <motion.div initial="hidden" animate={inView ? "visible" : "hidden"}
             variants={{ visible: { transition: { staggerChildren: 0.16 } } }}>
             <motion.p variants={fadeUp} custom={0}
@@ -252,7 +439,6 @@ const WhoSection = () => {
               style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.58rem", letterSpacing: "0.35em", textTransform: "uppercase", marginBottom: 36 }}>
               Who This Is For
             </motion.p>
-
             {lines.map((line, i) => (
               <motion.p key={i} variants={fadeUp} custom={i + 1}
                 style={{
@@ -263,7 +449,6 @@ const WhoSection = () => {
                 {line}
               </motion.p>
             ))}
-
             <motion.p variants={fadeUp} custom={lines.length + 1}
               className="text-warm-rose"
               style={{ fontFamily: "'Jost', sans-serif", fontWeight: 400, fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", marginTop: 24 }}>
@@ -277,7 +462,7 @@ const WhoSection = () => {
 };
 
 /* ════════════════════════════════════════ */
-/*  SECTION 4 — THREE PILLARS               */
+/*  THREE PILLARS                           */
 /* ════════════════════════════════════════ */
 const pillars = [
   { tag: "MOVE", image: moveImg, h3: "Physical experiences that feel like discovery.", p: "Your body already knows how to be extraordinary. We find it more interesting places to prove it." },
@@ -298,7 +483,6 @@ const PillarsSection = () => {
           Three pillars.<br /><em className="text-warm-rose">One standard.</em>
         </h2>
       </motion.div>
-
       <div className="grid md:grid-cols-3" style={{ gap: 0 }}>
         {pillars.map((p, i) => (
           <motion.div key={p.tag}
@@ -306,27 +490,20 @@ const PillarsSection = () => {
             transition={{ duration: 0.8, delay: i * 0.2 }}
             className="group relative overflow-hidden"
             style={{ height: 520 }}>
-            {/* image */}
             <img src={p.image} alt={p.tag} loading="lazy"
               className="absolute inset-0 w-full h-full object-cover img-mono transition-all duration-500 group-hover:scale-[1.04]"
               style={{ transition: "filter 0.5s ease, transform 0.5s ease" }}
               onMouseEnter={e => { (e.currentTarget as HTMLImageElement).style.filter = "brightness(0.58) saturate(0.75) contrast(1.05)"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLImageElement).style.filter = ""; }}
             />
-            {/* dark gradient */}
             <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(8,10,9,0.92) 0%, rgba(8,10,9,0.3) 60%, transparent 100%)" }} />
-            {/* blush bottom glow — visible warm-rose */}
             <div className="absolute inset-0 bg-gradient-to-t from-warm-rose/[0.15] via-warm-rose/[0.05] to-transparent" />
-            {/* hover border + blush hover glow */}
             <div className="absolute inset-0 border border-transparent transition-all duration-500 group-hover:border-warm-rose/30 group-hover:shadow-[inset_0_0_40px_rgba(201,132,122,0.08)]" />
-
-            {/* content */}
             <div className="absolute bottom-0 left-0 right-0 p-9">
               <span className="inline-block rounded-full border border-warm-rose/30 bg-warm-rose/5 px-4 py-1.5 text-warm-rose"
-                style={{
-                  fontFamily: "'Jost', sans-serif", fontSize: "0.55rem", letterSpacing: "0.28em", textTransform: "uppercase",
-                  marginBottom: 14,
-                }}>{p.tag}</span>
+                style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.55rem", letterSpacing: "0.28em", textTransform: "uppercase", marginBottom: 14 }}>
+                {p.tag}
+              </span>
               <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300, fontSize: "1.45rem", color: C.white, lineHeight: 1.35, marginBottom: 8 }}>
                 {p.h3}
               </h3>
@@ -342,113 +519,76 @@ const PillarsSection = () => {
 };
 
 /* ════════════════════════════════════════ */
-/*  SECTION 5 — UPCOMING EVENTS             */
+/*  VALUES SECTION                          */
 /* ════════════════════════════════════════ */
-{/* <!-- UPDATE THIS SECTION FOR EACH NEW EVENT --> */}
-const EventsSection = () => {
+const values = [
+  {
+    title: "Take an active role in your wellbeing",
+    desc: "Show up for your body and mind — not because someone told you to, but because you've decided to.",
+  },
+  {
+    title: "Be of value to the room",
+    desc: "Every woman here brings something. Your energy, your presence, your willingness to be open — that's what makes the room work.",
+  },
+  {
+    title: "Stay curious about who you're becoming",
+    desc: "New experiences, unfamiliar settings, unexpected conversations. Growth lives outside the routine. We build rooms that make that easy.",
+  },
+];
+
+const ValuesSection = () => {
   const { ref, inView } = useSection();
   return (
-    <section ref={ref} style={{ background: C.black, padding: "110px clamp(24px,5vw,60px)" }}>
-      <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }}>
-        <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.58rem", letterSpacing: "0.35em", textTransform: "uppercase", color: C.teal, marginBottom: 16 }}>
-          What's in the Room
-        </p>
-        <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300, fontSize: "clamp(2rem, 3.5vw, 3rem)", color: C.white, marginBottom: 40 }}>
-          The next room is almost ready.
-        </h2>
-      </motion.div>
+    <section ref={ref} className="relative overflow-hidden" style={{ background: C.black, padding: "110px clamp(24px,5vw,60px)" }}>
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-primary/[0.05] blur-[140px] pointer-events-none" />
 
-      {/* featured event card */}
-      <motion.div initial={{ opacity: 0, y: 40 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.2 }}
-        className="grid md:grid-cols-5 overflow-hidden"
-        style={{
-          background: "#0f1210", border: "1px solid rgba(0,229,200,0.2)",
-          minHeight: 420, position: "relative",
-        }}>
-        {/* blush glow top-right */}
-        <div className="absolute top-0 right-0 w-[300px] h-[300px]" style={{ background: "radial-gradient(circle, rgba(201,132,122,0.08) 0%, transparent 70%)" }} />
+      <motion.div initial="hidden" animate={inView ? "visible" : "hidden"}
+        variants={{ visible: { transition: { staggerChildren: 0.14 } } }}
+        className="mx-auto" style={{ maxWidth: 760 }}>
+        <motion.p variants={fadeUp} custom={0}
+          style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.58rem", letterSpacing: "0.35em", textTransform: "uppercase", color: C.teal, marginBottom: 16 }}>
+          What We Stand For
+        </motion.p>
+        <motion.h2 variants={fadeUp} custom={1}
+          style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300, fontSize: "clamp(2rem, 3.5vw, 3rem)", color: C.white, marginBottom: 12 }}>
+          What is <em style={{ color: C.teal }}>community</em> for?
+        </motion.h2>
+        <motion.p variants={fadeUp} custom={2}
+          style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300, fontSize: "0.85rem", color: C.whiteDim, lineHeight: 1.8, marginBottom: 48 }}>
+          We don't have a list of rules. We have a way of being. If these feel familiar, you're already one of us.
+        </motion.p>
 
-        {/* left — details */}
-        <div className="md:col-span-3 p-8 md:p-12 flex flex-col justify-center relative z-10">
-          <span className="inline-block rounded-full border border-warm-rose/30 bg-warm-rose/10 text-warm-rose"
-            style={{
-              padding: "4px 14px",
-              fontFamily: "'Jost', sans-serif", fontSize: "0.52rem", letterSpacing: "0.3em", textTransform: "uppercase",
-              marginBottom: 20, width: "fit-content",
-            }}>Coming Soon</span>
-
-          <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300, fontStyle: "italic", fontSize: "clamp(1.8rem, 3vw, 2.6rem)", color: C.white, marginBottom: 14 }}>
-            Cones & Code
-          </h3>
-          <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300, fontSize: "0.78rem", color: C.whiteDim, lineHeight: 1.8, maxWidth: 460, marginBottom: 16 }}>
-            One evening. Three experiences. You'll leave with a new skill — and you'll have had fun doing it.
-          </p>
-          <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300, fontSize: "0.68rem", letterSpacing: "0.1em", color: C.whiteDim, marginBottom: 20 }}>
-            Date TBC · Abuja, Nigeria · <span style={{ color: C.teal }}>Limited</span>
-          </p>
-
-          {/* included list */}
-          <div className="flex flex-wrap gap-x-5 gap-y-2 mb-8">
-            {["Yoga", "Ice Cream Bar", "Vibe Coding", "Good Company"].map((item) => (
-              <span key={item} className="flex items-center gap-2" style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300, fontSize: "0.7rem", color: C.whiteDim }}>
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: C.teal }} />
-                {item}
-              </span>
-            ))}
-          </div>
-
-          <a href="#waitlist" style={{
-            border: `1px solid ${C.teal}`, padding: "12px 28px", display: "inline-block", width: "fit-content",
-            fontFamily: "'Jost', sans-serif", fontSize: "0.62rem", letterSpacing: "0.22em", textTransform: "uppercase",
-            color: C.teal, textDecoration: "none",
-          }}>Join the Waitlist</a>
-        </div>
-
-        {/* right — image placeholder */}
-        {/* <!-- SWAP THIS IMAGE WITH EVENT-SPECIFIC IMAGE EACH TIME --> */}
-        <div className="md:col-span-2 relative flex items-center justify-center" style={{ background: "#0a0d0b", borderLeft: "1px solid rgba(0,229,200,0.08)", minHeight: 250 }}>
-          <div className="absolute right-0 top-0 bottom-0 w-px" style={{ background: "linear-gradient(to bottom, transparent, rgba(0,229,200,0.15), transparent)" }} />
-          <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "0.95rem", color: C.whiteDim, textAlign: "center", padding: 40 }}>
-            Photography coming soon.
-          </p>
+        <div className="space-y-8">
+          {values.map((v, i) => (
+            <motion.div key={i} variants={fadeUp} custom={i + 3}
+              className="relative pl-8"
+              style={{ borderLeft: `1px solid rgba(0,229,200,0.15)` }}>
+              <div className="absolute left-0 top-1 w-2 h-2 rounded-full" style={{ background: C.teal, transform: "translateX(-50%)" }} />
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400, fontSize: "1.3rem", color: C.white, marginBottom: 6 }}>
+                {v.title}
+              </h3>
+              <p style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300, fontSize: "0.8rem", color: C.whiteDim, lineHeight: 1.75 }}>
+                {v.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
-
-      {/* teaser cards */}
-      <div className="grid md:grid-cols-2 gap-0 mt-0">
-        {[
-          { label: "IN THE WORKS", text: "The room you didn't know you needed." },
-          { label: "WAITLIST ONLY", text: "Unexpected place. Exactly the right women." },
-        ].map((card) => (
-          <div key={card.label} className="flex flex-col items-center justify-center text-center"
-            style={{ height: 180, background: C.black, border: "1px solid rgba(0,229,200,0.12)" }}>
-            <p style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.52rem", letterSpacing: "0.3em", textTransform: "uppercase", color: C.teal, marginBottom: 12 }}>
-              {card.label}
-            </p>
-            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "1.1rem", color: C.white }}>
-              {card.text}
-            </p>
-          </div>
-        ))}
-      </div>
     </section>
   );
 };
 
 /* ════════════════════════════════════════ */
-/*  SECTION 6 — OUR WHY                     */
+/*  OUR WHY                                 */
 /* ════════════════════════════════════════ */
 const OurWhySection = () => {
   const { ref, inView } = useSection();
   return (
     <section ref={ref} className="relative overflow-hidden" style={{ background: C.black, padding: "120px clamp(24px,5vw,60px)", textAlign: "center" }}>
-      {/* blush glow — prominent */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[600px] h-[600px] rounded-full bg-warm-rose/[0.12] blur-[120px]" />
       </div>
-      {/* secondary teal glow */}
       <div className="absolute bottom-0 right-0 w-[300px] h-[300px] rounded-full bg-primary/[0.06] blur-[100px] pointer-events-none" />
-
       <motion.div initial="hidden" animate={inView ? "visible" : "hidden"}
         variants={{ visible: { transition: { staggerChildren: 0.16 } } }}
         className="relative mx-auto" style={{ maxWidth: 760 }}>
@@ -470,68 +610,34 @@ const OurWhySection = () => {
 };
 
 /* ════════════════════════════════════════ */
-/*  SECTION 7 — WAITLIST                     */
+/*  WAITLIST (full section)                 */
 /* ════════════════════════════════════════ */
-const WaitlistSection = ({ email, setEmail, loading, onSubmit }: {
-  email: string; setEmail: (v: string) => void; loading: boolean; onSubmit: (e: React.FormEvent) => void;
-}) => {
+const WaitlistSectionFull = () => {
   const { ref, inView } = useSection();
   return (
     <section id="waitlist" ref={ref} className="relative overflow-hidden" style={{ background: C.black, padding: "130px clamp(24px,5vw,60px)", textAlign: "center" }}>
-      {/* blush glow top-left — prominent */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-warm-rose/[0.12] blur-[150px] pointer-events-none" />
-      {/* teal glow bottom-right */}
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-primary/[0.08] blur-[120px] pointer-events-none" />
-
-      {/* vertical teal line */}
       <div className="mx-auto mb-10" style={{ width: 1, height: 70, background: "linear-gradient(to bottom, transparent, rgba(0,229,200,0.4))" }} />
 
       <motion.div initial="hidden" animate={inView ? "visible" : "hidden"}
         variants={{ visible: { transition: { staggerChildren: 0.14 } } }}
-        className="relative mx-auto" style={{ maxWidth: 540 }}>
+        className="relative mx-auto flex flex-col items-center" style={{ maxWidth: 540 }}>
         <motion.p variants={fadeUp} custom={0}
           style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.58rem", letterSpacing: "0.35em", textTransform: "uppercase", color: C.teal, marginBottom: 20 }}>
           Be First in the Room
         </motion.p>
-
         <motion.h2 variants={fadeUp} custom={1}
           style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300, fontSize: "clamp(2.8rem, 5vw, 4.6rem)", lineHeight: 0.95, color: C.white }}>
           Be first<br />in the — <em style={{ color: C.teal }}>room.</em>
         </motion.h2>
-
         <motion.p variants={fadeUp} custom={2}
           style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300, fontSize: "0.82rem", color: C.whiteDim, maxWidth: 440, margin: "24px auto 0", lineHeight: 1.85 }}>
           CoppahandGold experiences are limited by design. That's how we protect the quality of the room. The waitlist is how you stay ahead.
         </motion.p>
-
-        <motion.form variants={fadeUp} custom={3} onSubmit={onSubmit}
-          className="mt-10 flex mx-auto" style={{ maxWidth: 480 }}>
-          <input type="email" required placeholder="Your email address" value={email} onChange={e => setEmail(e.target.value)}
-            className="flex-1 outline-none"
-            style={{
-              background: "rgba(240,237,232,0.04)", border: "1px solid rgba(240,237,232,0.12)", borderRight: "none",
-              padding: "18px 20px", fontFamily: "'Jost', sans-serif", fontSize: "0.78rem", color: C.white,
-            }}
-            onFocus={e => e.currentTarget.style.borderColor = "rgba(0,229,200,0.4)"}
-            onBlur={e => e.currentTarget.style.borderColor = "rgba(240,237,232,0.12)"}
-          />
-          <button type="submit" disabled={loading}
-            className="transition-all duration-300 hover:bg-transparent hover:shadow-[0_0_30px_rgba(0,229,200,0.2)]"
-            style={{
-              background: C.teal, color: C.black, padding: "18px 28px", border: `1px solid ${C.teal}`,
-              fontFamily: "'Jost', sans-serif", fontWeight: 400, fontSize: "0.62rem", letterSpacing: "0.25em", textTransform: "uppercase",
-              whiteSpace: "nowrap",
-            }}
-            onMouseEnter={e => { e.currentTarget.style.color = C.teal; }}
-            onMouseLeave={e => { e.currentTarget.style.color = C.black; e.currentTarget.style.background = C.teal; }}>
-            {loading ? "Securing…" : "Secure My Place"}
-          </button>
-        </motion.form>
-
-        <motion.p variants={fadeUp} custom={4}
-          style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.58rem", letterSpacing: "0.14em", textTransform: "uppercase", color: C.whiteFaint, marginTop: 24 }}>
-          No noise. Just the rooms worth knowing about.
-        </motion.p>
+        <motion.div variants={fadeUp} custom={3} className="mt-10 w-full flex justify-center">
+          <WaitlistForm source="Home - Waitlist" />
+        </motion.div>
       </motion.div>
     </section>
   );
