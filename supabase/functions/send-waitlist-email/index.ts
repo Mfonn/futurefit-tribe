@@ -1,5 +1,9 @@
-import { corsHeaders } from '@supabase/supabase-js/cors'
 import { z } from 'https://deno.land/x/zod@v3.22.4/mod.ts'
+
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+}
 
 const BodySchema = z.object({
   firstName: z.string().min(1).max(100),
@@ -25,20 +29,7 @@ Deno.serve(async (req) => {
 
     const { firstName, lastName, email, phone, source } = parsed.data
 
-    // Send notification email to business
-    const emailBody = `
-New Waitlist Signup
-
-Name: ${firstName} ${lastName}
-Email: ${email}
-Phone: ${phone || 'Not provided'}
-Source: ${source || 'Website'}
-Time: ${new Date().toISOString()}
-    `.trim()
-
-    // Use Supabase's built-in email or a simple fetch to send
-    // For now, we log and return success — the data is already saved to DB from the client
-    console.log('Waitlist signup notification:', emailBody)
+    console.log('Waitlist signup:', JSON.stringify({ firstName, lastName, email, phone, source, time: new Date().toISOString() }))
 
     return new Response(JSON.stringify({ success: true }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
