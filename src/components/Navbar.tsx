@@ -4,21 +4,20 @@ import { useLocation, Link } from "react-router-dom";
 const Navbar = () => {
   const location = useLocation();
   const isIndex = location.pathname === "/";
-  const isHome = location.pathname === "/home";
 
   const navItems = [
     { label: "Home", href: "/home" },
-    { label: "Experience", href: isIndex ? "#experience" : "/#experience" },
+    { label: "Experience", href: "/experience" },
     { label: "Bio Bar", href: isIndex ? "#bio-bar" : "/#bio-bar" },
     { label: "Movement", href: isIndex ? "#movement" : "/#movement" },
-    { label: "Location", href: isIndex ? "#location" : "/#location" },
     { label: "About", href: "/about" },
   ];
 
   const isRouteLink = (href: string) => href.startsWith("/") && !href.startsWith("/#");
 
   const isActive = (href: string) => {
-    if (href === "/home") return isHome;
+    if (href === "/home") return location.pathname === "/home";
+    if (href === "/experience") return location.pathname === "/experience";
     if (href === "/about") return location.pathname === "/about";
     return false;
   };
@@ -59,12 +58,12 @@ const Navbar = () => {
           )}
         </div>
 
-        <a
-          href={isIndex ? "#rsvp" : "/#rsvp"}
+        <Link
+          to="/experience"
           className="glass-card px-5 py-2 font-body text-sm font-medium text-primary transition-all duration-300 hover:shadow-[0_0_30px_hsl(165_80%_45%/0.3)]"
         >
-          RSVP Now
-        </a>
+          See Events
+        </Link>
       </div>
     </motion.nav>
   );
