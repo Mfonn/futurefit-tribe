@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Navbar from "@/components/Navbar";
@@ -89,7 +90,8 @@ const events = [
 ];
 
 const EventCard = ({ event, index }: { event: typeof events[0]; index: number }) => {
-  const { ref, inView } = useSection();
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" as any });
   const [showForm, setShowForm] = useState(false);
 
   return (
@@ -104,12 +106,10 @@ const EventCard = ({ event, index }: { event: typeof events[0]; index: number })
         border: "1px solid rgba(0,229,200,0.15)",
       }}
     >
-      {/* accent glow */}
       <div className="absolute top-0 right-0 w-[250px] h-[250px] pointer-events-none"
         style={{ background: `radial-gradient(circle, ${event.accentColor} 0%, transparent 70%)` }} />
 
       <div className="relative z-10 p-8 md:p-12">
-        {/* status */}
         <span className="inline-block rounded-full px-4 py-1.5 mb-6"
           style={{
             border: `1px solid ${event.statusColor}40`,
@@ -144,7 +144,6 @@ const EventCard = ({ event, index }: { event: typeof events[0]; index: number })
           {event.date} · {event.price !== "TBC" ? <span style={{ color: C.teal }}>{event.price}</span> : <span style={{ color: C.blush }}>Price TBC</span>} · <span style={{ color: C.teal }}>Limited</span>
         </p>
 
-        {/* includes */}
         <div className="flex flex-wrap gap-x-5 gap-y-2 mb-8">
           {event.includes.map((item) => (
             <span key={item} className="flex items-center gap-2" style={{
@@ -158,13 +157,7 @@ const EventCard = ({ event, index }: { event: typeof events[0]; index: number })
 
         {!showForm ? (
           <button
-            onClick={() => {
-              if (event.selarUrl) {
-                setShowForm(true);
-              } else {
-                setShowForm(true);
-              }
-            }}
+            onClick={() => setShowForm(true)}
             style={{
               border: `1px solid ${C.teal}`,
               padding: "12px 28px",
@@ -197,7 +190,6 @@ const EventCard = ({ event, index }: { event: typeof events[0]; index: number })
   );
 };
 
-/* ── Values ── */
 const communityValues = [
   {
     title: "Take an active role in your wellbeing",
@@ -323,5 +315,3 @@ const Experience = () => {
 };
 
 export default Experience;
-
-import { useState } from "react";
