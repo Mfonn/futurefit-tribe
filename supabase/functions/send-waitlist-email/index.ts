@@ -30,17 +30,14 @@ Deno.serve(async (req) => {
     const { firstName, lastName, email, phone, source } = parsed.data
 
     const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
-    const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY')
 
-    if (!RESEND_API_KEY || !LOVABLE_API_KEY) {
-      console.error('Missing RESEND_API_KEY or LOVABLE_API_KEY')
+    if (!RESEND_API_KEY) {
+      console.error('Missing RESEND_API_KEY')
       return new Response(JSON.stringify({ error: 'Email service not configured' }), {
         status: 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       })
     }
-
-    const GATEWAY_URL = 'https://connector-gateway.lovable.dev/resend'
 
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
@@ -57,12 +54,11 @@ Deno.serve(async (req) => {
       </div>
     `
 
-    const resendRes = await fetch(`${GATEWAY_URL}/emails`, {
+    const resendRes = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${LOVABLE_API_KEY}`,
-        'X-Connection-Api-Key': RESEND_API_KEY,
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
         from: 'CoppahandGold Waitlist <onboarding@resend.dev>',
