@@ -28,16 +28,15 @@ const useSection = (margin = "-80px") => {
   return { ref, inView };
 };
 
-/* ── Event data ── */
 /* <!-- UPDATE THIS SECTION FOR EACH NEW EVENT --> */
 const events = [
   {
     status: "TICKETS AVAILABLE",
     statusColor: C.teal,
     name: "Cones & Code",
-    tagline: "One evening. Three experiences. You'll leave with a new skill — and you'll have had fun doing it.",
-    date: "Late April 2025 · Abuja, Nigeria",
-    includes: ["Mat Yoga", "Ice Cream Bar", "Vibe Coding", "Good Company"],
+    tagline: "Yoga. Ice cream. Vibe coding. One evening, three experiences.",
+    date: "Late April 2025 · Abuja",
+    includes: ["Mat Yoga", "Ice Cream Bar", "Vibe Coding"],
     price: "₦45,000",
     cta: "Get Your Ticket",
     selarUrl: "https://selar.com/v388h7t888",
@@ -47,9 +46,9 @@ const events = [
     status: "COMING SOON",
     statusColor: C.blush,
     name: "The Tennis Classic",
-    tagline: "Competitive play meets curated recovery. Tennis on premium courts, healthy drinks at a luxury hotel, and the kind of afternoon you'll want to relive.",
-    date: "Second week of May · Abuja, Nigeria",
-    includes: ["Tennis Sessions", "Bio Bar Drinks", "Luxury Hotel Setting", "Recovery Lounge"],
+    tagline: "Competitive play meets curated recovery at a luxury hotel.",
+    date: "May · Abuja",
+    includes: ["Tennis", "Bio Bar", "Luxury Setting"],
     price: "TBC",
     cta: "Join the Waitlist",
     accentColor: "rgba(80,200,120,0.3)",
@@ -58,9 +57,9 @@ const events = [
     status: "COMING SOON",
     statusColor: C.blush,
     name: "Sunset Sessions",
-    tagline: "A rooftop. Deep house music. A buffet. Sunset yoga. The city below, the sky above, and nothing between you and the moment.",
-    date: "Late May · Abuja, Nigeria",
-    includes: ["Rooftop Yoga", "Deep House DJ Set", "Sunset Buffet", "Curated Drinks"],
+    tagline: "A rooftop. Deep house. Sunset yoga. The city below.",
+    date: "May · Abuja",
+    includes: ["Rooftop Yoga", "Deep House", "Sunset Buffet"],
     price: "TBC",
     cta: "Join the Waitlist",
     accentColor: "rgba(160,120,80,0.3)",
@@ -69,9 +68,9 @@ const events = [
     status: "COMING SOON",
     statusColor: C.blush,
     name: "The Hyrox Experience",
-    tagline: "A festival for your body. High-intensity. Community-driven. The kind of challenge that makes you feel alive — and the kind of people who make it unforgettable.",
-    date: "Early June · Abuja, Nigeria",
-    includes: ["Hyrox-Style Workout", "Fitness Festival", "Recovery Zone", "Community"],
+    tagline: "A fitness festival. High-intensity. Community-driven.",
+    date: "June · Abuja",
+    includes: ["Hyrox-Style Workout", "Fitness Festival", "Community"],
     price: "TBC",
     cta: "Join the Waitlist",
     accentColor: "rgba(80,200,120,0.3)",
@@ -80,9 +79,9 @@ const events = [
     status: "COMING SOON",
     statusColor: C.blush,
     name: "Auto Zen",
-    tagline: "Yoga in a car showroom. Luxury machines. Controlled breathing. It sounds unexpected — that's the point.",
-    date: "Late May · Abuja, Nigeria",
-    includes: ["Yoga Session", "Car Showroom Access", "Curated Drinks", "An Unexpected Setting"],
+    tagline: "Yoga in a car showroom. It sounds unexpected — that's the point.",
+    date: "May · Abuja",
+    includes: ["Yoga", "Car Showroom", "Curated Drinks"],
     price: "TBC",
     cta: "Join the Waitlist",
     accentColor: "rgba(180,190,200,0.28)",
@@ -241,7 +240,7 @@ const Experience = () => {
             fontFamily: "'Jost', sans-serif", fontWeight: 300, fontSize: "0.9rem",
             color: C.whiteDim, lineHeight: 1.8, maxWidth: 520,
           }}>
-            Each room is designed around a feeling, not a formula. Here's what's coming — and what's almost ready.
+            Each room is designed around a feeling, not a formula. Here's what's coming.
           </p>
         </motion.div>
       </section>

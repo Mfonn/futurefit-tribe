@@ -80,31 +80,32 @@ const GrainOverlay = () => (
 /* ════════════════════════════════════════ */
 
 type CalEvent = {
-  weekStart: number; // day of month the week starts
+  weekStart: number;
   weekEnd: number;
   color: string;
   label: string;
+  link: string;
 };
 
 const MONTHS: { name: string; year: number; month: number; days: number; startDay: number; events: CalEvent[] }[] = [
   {
-    name: "April", year: 2025, month: 3, days: 30, startDay: 2, // Tuesday
+    name: "April", year: 2025, month: 3, days: 30, startDay: 2,
     events: [
-      { weekStart: 21, weekEnd: 27, color: "rgba(236,160,172,0.35)", label: "Cones & Code" }, // bubblegum
+      { weekStart: 21, weekEnd: 27, color: "rgba(236,160,172,0.35)", label: "Cones & Code", link: "/experience" },
     ],
   },
   {
-    name: "May", year: 2025, month: 4, days: 31, startDay: 4, // Thursday
+    name: "May", year: 2025, month: 4, days: 31, startDay: 4,
     events: [
-      { weekStart: 5, weekEnd: 11, color: "rgba(80,200,120,0.3)", label: "Tennis Classic" }, // green
-      { weekStart: 19, weekEnd: 25, color: "rgba(160,120,80,0.3)", label: "Sunset Yoga" }, // brown
-      { weekStart: 26, weekEnd: 31, color: "rgba(180,190,200,0.28)", label: "Auto Zen" }, // silver
+      { weekStart: 5, weekEnd: 11, color: "rgba(80,200,120,0.3)", label: "Tennis Classic", link: "/experience" },
+      { weekStart: 19, weekEnd: 25, color: "rgba(160,120,80,0.3)", label: "Sunset Sessions", link: "/experience" },
+      { weekStart: 26, weekEnd: 31, color: "rgba(180,190,200,0.28)", label: "Auto Zen", link: "/experience" },
     ],
   },
   {
-    name: "June", year: 2025, month: 5, days: 30, startDay: 0, // Sunday
+    name: "June", year: 2025, month: 5, days: 30, startDay: 0,
     events: [
-      { weekStart: 2, weekEnd: 8, color: "rgba(80,200,120,0.3)", label: "Hyrox Festival" }, // green
+      { weekStart: 2, weekEnd: 8, color: "rgba(80,200,120,0.3)", label: "Hyrox Festival", link: "/experience" },
     ],
   },
 ];
@@ -112,6 +113,7 @@ const MONTHS: { name: string; year: number; month: number; days: number; startDa
 const DAY_NAMES = ["S", "M", "T", "W", "T", "F", "S"];
 
 const MiniCalendar = ({ month }: { month: typeof MONTHS[0] }) => {
+  const navigate = useNavigate();
   const cells: (number | null)[] = [];
   for (let i = 0; i < month.startDay; i++) cells.push(null);
   for (let d = 1; d <= month.days; d++) cells.push(d);
@@ -135,7 +137,6 @@ const MiniCalendar = ({ month }: { month: typeof MONTHS[0] }) => {
       }}>
         {month.name}
       </h3>
-      {/* day headers */}
       <div className="grid grid-cols-7 gap-0 mb-1">
         {DAY_NAMES.map((d, i) => (
           <div key={i} className="text-center" style={{
@@ -147,20 +148,20 @@ const MiniCalendar = ({ month }: { month: typeof MONTHS[0] }) => {
           }}>{d}</div>
         ))}
       </div>
-      {/* calendar grid */}
       <div className="grid grid-cols-7 gap-0">
         {cells.map((day, i) => {
           const ev = getEventForDay(day);
           return (
             <div
               key={i}
-              className="relative flex items-center justify-center"
+              className={`relative flex items-center justify-center ${ev ? "cursor-pointer hover:opacity-80 transition-opacity" : ""}`}
               style={{
                 height: 36,
                 background: ev ? ev.color : "transparent",
                 borderRadius: day && ev && day === ev.weekStart ? "4px 0 0 4px" : day && ev && day === ev.weekEnd ? "0 4px 4px 0" : 0,
               }}
               title={ev?.label}
+              onClick={() => ev && navigate(ev.link)}
             >
               {day && (
                 <span style={{
@@ -177,10 +178,13 @@ const MiniCalendar = ({ month }: { month: typeof MONTHS[0] }) => {
           );
         })}
       </div>
-      {/* event legend */}
       <div className="mt-3 space-y-1">
         {month.events.map((ev) => (
-          <div key={ev.label} className="flex items-center gap-2">
+          <div
+            key={ev.label}
+            className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
+            onClick={() => navigate(ev.link)}
+          >
             <div className="w-3 h-2 rounded-sm" style={{ background: ev.color }} />
             <span style={{ fontFamily: "'Jost', sans-serif", fontSize: "0.6rem", color: C.whiteDim }}>{ev.label}</span>
           </div>
@@ -275,7 +279,7 @@ const HeroSlideshow = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % SLIDE_COUNT);
-    }, 7000);
+    }, 3000);
     return () => clearInterval(timer);
   }, []);
 
