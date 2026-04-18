@@ -75,6 +75,27 @@ Deno.serve(async (req) => {
       console.error('Resend error:', JSON.stringify(resendData))
     }
 
+    // Also forward to Google Form (fire-and-forget)
+    try {
+      const formBody = new URLSearchParams({
+        'entry.877086558': `${firstName} ${lastName}`,
+        'entry.1498135098': email,
+        'entry.1424661284': phone || '',
+        'entry.2606285': `Source: ${source || 'Website'}`,
+      })
+      const gformRes = await fetch(
+        'https://docs.google.com/forms/d/e/1FAIpQLSfneP7iMJNizOfAv95ZMmhHqufJ2oGb7hoGhTDOExWcaHY9Vg/formResponse',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: formBody.toString(),
+        },
+      )
+      console.log('Google Form status:', gformRes.status)
+    } catch (gErr) {
+      console.error('Google Form forward error:', gErr)
+    }
+
     return new Response(JSON.stringify({ success: true }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     })
