@@ -34,7 +34,7 @@ const events = [
     status: "TICKETS AVAILABLE",
     statusColor: C.teal,
     name: "Cones & Code",
-    tagline: "Yoga. Ice cream. Vibe coding. One evening, three experiences.",
+    tagline: "Yoga. Ice cream. Vibe coding. One evening, three experiences. Location, theme and styling direction will be shared with you upon ticket purchase.",
     date: "Late April 2025 · Abuja",
     includes: ["Mat Yoga", "Ice Cream Bar", "Vibe Coding"],
     price: "₦45,000",
