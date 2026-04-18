@@ -51,7 +51,10 @@ const WaitlistForm = ({ source = "Website", inline = false, selarUrl }: Waitlist
         const fullname = encodeURIComponent(`${firstName} ${lastName}`);
         const encodedEmail = encodeURIComponent(email);
         const encodedPhone = encodeURIComponent(phone);
-        window.open(`${selarUrl}?add_to_cart=1&fullname=${fullname}&email=${encodedEmail}&mobile=${encodedPhone}`, "_blank");
+        const checkoutUrl = `${selarUrl}?add_to_cart=1&fullname=${fullname}&email=${encodedEmail}&mobile=${encodedPhone}`;
+        toast({ title: "Redirecting to checkout…", description: "Taking you to secure payment." });
+        window.location.href = checkoutUrl;
+        return;
       }
 
       setDone(true);
